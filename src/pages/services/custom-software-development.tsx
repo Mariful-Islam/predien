@@ -8,14 +8,12 @@ function CustomSoftwareDevelopment() {
     <>
       <Head>
         <title>Predien | Custom Software Development</title>
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
 
         <meta name="description" content="Predien creates tailored software solutions to meet yoour business needs. We main focus on django, django rest framework, reactjs, nextjs, react-native and expo." />
-        {/* <meta name="keywords" content="nextjs, seo, web development" /> */}
         <meta name="robots" content="index, follow" />
         <meta name="author" content="Md Marful Islam" />
-        <link rel="canonical" href={`${BASE_URL}/services/custom-software-development`}></link>
+        <link rel="canonical" href={`${BASE_URL}/services/custom-software-development`}/>
 
         <meta property="og:title" content="Predien | Custom Software Development" />
         <meta property="og:description" content="Description for social sharing" />

@@ -57,7 +57,7 @@ function Header() {
                     </div>
                   )
                     : 
-                    <SlArrowUp className='w-3 h-3'/> 
+                      <SlArrowUp className='w-3 h-3'/> 
                     : 
                     <></>
                   } 
@@ -83,20 +83,20 @@ function Header() {
       </div>
       
       {/* Mobile menu */}
-      <div className={`bg-white ml:hidden flex flex-col absolute left-0 top-0 right-0 duration-200 ${ isOpenMobileMenu ? 'h-screen opacity-100': 'h-0 opacity-0 overflow-hidden'}`}>
+      <div className={`bg-white dark:bg-black ml:hidden flex flex-col absolute left-0 top-0 right-0 duration-200 ${ isOpenMobileMenu ? 'h-screen opacity-100': 'h-0 opacity-0 overflow-hidden'}`}>
         <div className='flex flex-col p-5 w-full'>
           <button 
             onClick={()=>setIsOpenMobileMenu(false)}
             className='flex justify-end '
           >
-            <RxCross1 className='text-black hover:text-gray-500 w-6 h-6'/>
+            <RxCross1 className='text-black dark:text-white hover:text-gray-500 w-6 h-6'/>
           </button>
           <div className=''>
             {NavItems.map((item, index)=>(
               <Link
                 href={item.link} 
                 key={index} 
-                className='flex gap-1 items-center py-6 text-blue-950 text-nowrap font-bold hover:text-slate-300 duration-200'
+                className='flex gap-1 items-center py-6 text-blue-950 dark:text-white text-nowrap font-bold hover:text-slate-300 duration-200'
                 onClick={()=>{
                   if(!activeIndex){
                     handleMouseEnter(index)

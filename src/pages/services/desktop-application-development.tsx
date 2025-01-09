@@ -8,11 +8,9 @@ function DesktopApplicationDevelopment() {
     <>
       <Head>
         <title>Predien | Desktop Application Development </title>
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
 
         <meta name="description" content="Custom desktop application development services for seamless, high-performance software solutions tailored to your business requirements and workflow." />
-        {/* <meta name="keywords" content="nextjs, seo, web development" /> */}
         <meta name="robots" content="index, follow" />
         <meta name="author" content="Md Marful Islam" />
         <link rel="canonical" href={`${BASE_URL}/services/desktop-application-development`}/>

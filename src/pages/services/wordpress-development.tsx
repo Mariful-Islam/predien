@@ -8,11 +8,10 @@ function WordpressDevelopment() {
     <>
       <Head>
         <title>Predien | Wordpress Development </title>
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
 
         <meta name="description" content="Expert WordPress development services for custom websites, themes, and plugins. Enhance your online presence with responsive, SEO-friendly solutions." />
-        {/* <meta name="keywords" content="nextjs, seo, web development" /> */}
+
         <meta name="robots" content="index, follow" />
         <meta name="author" content="Md Marful Islam" />
         <link rel="canonical" href={`${BASE_URL}/services/wordpress-development`}/>

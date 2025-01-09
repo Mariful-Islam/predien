@@ -9,7 +9,7 @@ export default {
   darkMode: 'class', 
   theme: {
     screens: {
-      xs: "450px",
+      xs: "480px",
       sm: "600px",
       md: "768px",
       ml: "950px",

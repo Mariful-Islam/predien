@@ -5,16 +5,16 @@ import { FaXTwitter } from "react-icons/fa6";
 
 function Footer() {
   return (
-    <div className="bg-gray-900">
-      <div className="max-w-[1200px] mx-auto w-full px-4 py-8 sm:px-20 flex flex-wrap justify-between items-start">
-        <div className="w-1/3">
+    <div className="bg-gray-900 text-white z-20">
+      <div className="max-w-[1200px] mx-auto w-full px-4 py-8 sm:px-20 flex flex-wrap flex-col xs:flex-row items-center justify-between xs:items-start">
+        <div>
           <h1 className="text-2xl font-bold">Predien</h1>
-          <p className="text-slate-400">
+          <p className="text-slate-400 w-[215px] xs:w-[200px]">
             Customized software solutions, cutting-edge innovation, and data-driven intelligence
           </p>
         </div>
 
-        <div className="w-1/3">
+        <div className="mt-6 xs:mt-0">
           <h2 className="text-xl font-bold">Services</h2>
           <ul className="mt-3 text-sm text-slate-400 flex flex-col gap-2">
             <li className="hover:text-slate-100 duration-200">
@@ -40,7 +40,7 @@ function Footer() {
           </ul>
         </div>
 
-        <div className="w-1/3">
+        <div className="mt-6 xs:mt-0">
           <h2 className="text-xl font-bold">Connect with us</h2>
           <ul className="mt-3 flex gap-4">
             <li>

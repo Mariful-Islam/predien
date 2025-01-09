@@ -8,11 +8,9 @@ function DataExtraction() {
     <>
       <Head>
         <title>Predien | Data Extraction </title>
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
 
         <meta name="description" content="Efficient data extraction services to gather, organize, and analyze information from various sources, ensuring accuracy and reliability for your business needs." />
-        {/* <meta name="keywords" content="nextjs, seo, web development" /> */}
         <meta name="robots" content="index, follow" />
         <meta name="author" content="Md Marful Islam" />
         <link rel="canonical" href={`${BASE_URL}/services/data-extraction`}/>

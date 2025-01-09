@@ -8,11 +8,10 @@ function GeographicInformationSystem() {
     <>
       <Head>
         <title>Predien | Geographic Information System </title>
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
 
         <meta name="description" content="Leverage ArcGIS and Web GIS for powerful, scalable mapping and spatial analysis solutions. Enhance decision-making with interactive, real-time geospatial data." />
-        {/* <meta name="keywords" content="nextjs, seo, web development" /> */}
+    
         <meta name="robots" content="index, follow" />
         <meta name="author" content="Md Marful Islam" />
         <link rel="canonical" href={`${BASE_URL}/services/geographic-information-system`}/>

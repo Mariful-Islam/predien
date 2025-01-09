@@ -5,6 +5,7 @@ import Introduction from "@/components/Home/Introduction";
 import AboutUs from "@/components/Home/AboutUs";
 import FAQ from "@/components/Home/FAQ";
 import Header from "@/components/Header";
+import Team from "@/components/Home/Team";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -25,6 +26,7 @@ export default function Home() {
         <Header/>
         <Introduction/>
       </div>
+      <Team/>
       <AboutUs/>
       <FAQ/>
       
