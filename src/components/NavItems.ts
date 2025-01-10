@@ -32,8 +32,15 @@ export const NavItems = [
                 link: 'desktop-application-development'
             },
             {
+                id: 11,
+                name: 'UI UX Development',
+                icon: '',
+                description: '"Expert UI/UX development services that create intuitive, visually appealing, and user-centered digital experiences to enhance engagement and drive results."',
+                link: 'ui-ux-development'
+            },
+            {
                 id: 8,
-                name: 'Data Extraction',
+                name: 'Data Extraction and Analysis',
                 icon: '',
                 description: 'Our agency excels in advanced data extraction, seamlessly gathering and transforming valuable insights from diverse sources.',
                 link: 'data-extraction'

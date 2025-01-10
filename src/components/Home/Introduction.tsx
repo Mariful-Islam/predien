@@ -9,7 +9,12 @@ function Introduction() {
     <div 
       className='max-w-[1200px] mx-auto w-full px-4 sm:px-20 h-[92vh] flex flex-col ml:flex-row items-center justify-between '
     >
-      <div className='mt-[150px]'>
+      <div 
+        className='mt-[150px] ml:mt-0'
+        data-aos="fade-right"
+        data-aos-duration="1000"
+        data-aos-delay="500"
+      >
         <div>
           <h1 className='text-5xl text-white font-bold '>Software Development</h1>
         </div>
@@ -18,14 +23,18 @@ function Introduction() {
         </div>
         <div>
           <button 
-            className='group bg-[#001440] dark:bg-gray-800 hover:bg-blue-950 dark:hover:bg-blue-800 duration-200 mt-5 px-8 py-1 text-white font-bold rounded-full flex gap-2 items-center'
+            className='group bg-[#001440] dark:bg-blue-800 hover:bg-blue-950 dark:hover:bg-blue-900 duration-200 mt-5 px-8 py-1 text-white font-bold rounded-full flex gap-2 items-center'
           >
             Hire <TiArrowRight className='opacity-0 group-hover:opacity-100 group-hover:translate-x-2 duration-200'/>
           </button>
         </div>
       </div>
 
-      <div>
+      <div
+        data-aos="fade-left"
+        data-aos-duration="1000"
+        data-aos-delay="500"
+      >
         <Image
           src={animation}
           alt=''

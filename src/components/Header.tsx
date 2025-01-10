@@ -40,7 +40,7 @@ function Header() {
                   { item.subItems.length ?  activeIndex === index ? (
                     <div className='duration-150'>
                       <SlArrowDown className='w-3 h-3'/>
-                      <div className='absolute ml-[-100px] pt-6 shadow-xl'>
+                      <div className='absolute ml-[-100px] pt-6 shadow-xl z-20'>
                         <Link href={`/services/`} className='bg-white  dark:bg-gray-700 p-4 rounded-md grid grid-cols-1 ml:grid-cols-2'>
                           {item.subItems.map((subItem, index)=>(
                             <Link href={`/services/${subItem.link}`} className='group hover:bg-slate-100 dark:hover:bg-slate-600 duration-200 p-2 rounded-md w-[310px]'>
@@ -83,7 +83,7 @@ function Header() {
       </div>
       
       {/* Mobile menu */}
-      <div className={`bg-white dark:bg-black ml:hidden flex flex-col absolute left-0 top-0 right-0 duration-200 ${ isOpenMobileMenu ? 'h-screen opacity-100': 'h-0 opacity-0 overflow-hidden'}`}>
+      <div className={`z-20 bg-white dark:bg-black ml:hidden flex flex-col absolute left-0 top-0 right-0 duration-200 ${ isOpenMobileMenu ? 'h-screen opacity-100': 'h-0 opacity-0 overflow-hidden'}`}>
         <div className='flex flex-col p-5 w-full'>
           <button 
             onClick={()=>setIsOpenMobileMenu(false)}
