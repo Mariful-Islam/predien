@@ -19,19 +19,36 @@ function AboutUs() {
   return (
     <div className="">
       <div className="max-w-[1200px] mx-auto w-full px-4 py-12 sm:px-20">
-        <h1 className="text-blue-500 font-bold">About Us</h1>
-        <h3 className="text-slate-500 dark:text-slate-300 text-5xl font-semibold">
-          Dedicated to delivering exceptional service 
-        </h3>
+        <div
+          className=""
+          data-aos="fade-down"
+          data-aos-duration="1000"
+          data-aos-delay="500"
+        >
+          <h1 className="text-blue-500 font-bold">About Us</h1>
+          <h3 className="text-slate-500 dark:text-slate-300 text-5xl font-semibold">
+            Dedicated to delivering exceptional service 
+          </h3>
+        </div>
         <div className="flex mt-12">
-          <div className="w-1/2 flex items-center mr-12 h-full">
+          <div 
+            className="w-0 overflow-hidden ml:w-1/2 flex items-center mr-0 ml:mr-12 h-full"
+            data-aos="fade-right"
+            data-aos-duration="1000"
+            data-aos-delay="500"
+          >
             <Image
               src={img}
               alt=""
               className="h-[1050px] object-cover rounded-md"
             />
           </div>
-          <div className="w-1/2 text-slate-600 dark:text-slate-200">
+          <div 
+            className="w-full ml:w-1/2 text-slate-600 dark:text-slate-200"
+            data-aos="fade-left"
+            data-aos-duration="1000"
+            data-aos-delay="500"
+          >
             <div className="line-clamp-5">
               Welcome to <strong className="text-green-500">Predien</strong>, where <strong className="text-green-500">software development</strong> combines innovation and precision. We are a dedicated team of
                <strong className="text-green-500"> engineers</strong>, <strong className="text-green-500">designers</strong>, and strategists dedicated to developing

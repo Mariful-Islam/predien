@@ -77,7 +77,7 @@ function Header() {
             Meeting <TiArrowRight className='opacity-0 group-hover:translate-x-2 group-hover:opacity-100 duration-200'/>
           </Link>
           <button className='ml:hidden block' onClick={()=>setIsOpenMobileMenu(true)}>
-            <IoReorderThreeOutline className='w-8 h-8 text-white bg-slate-500 backdrop-blur-sm rounded-full'/>
+            <IoReorderThreeOutline className='w-8 h-8 text-white bg-white backdrop-blur-lg bg-opacity-20 rounded-full'/>
           </button>
         </div>
       </div>

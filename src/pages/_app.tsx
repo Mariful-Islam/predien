@@ -6,6 +6,7 @@ import { useEffect } from "react";
 import AOS from 'aos';
 import Head from "next/head";
 import { env } from "process";
+import ScrollToTop from "@/components/common/scrollToTop";
 
 export default function App({ Component, pageProps }: AppProps) {
   useEffect(() => {
@@ -62,6 +63,7 @@ export default function App({ Component, pageProps }: AppProps) {
       </Head>
       <ThemeProvider>
         <Component {...pageProps} />
+        <ScrollToTop/>
       </ThemeProvider>
     </>
   )
