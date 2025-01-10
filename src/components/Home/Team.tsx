@@ -21,7 +21,7 @@ function Team() {
             Core Team Members
           </h1>
           <h3 
-            className="text-slate-500 dark:text-slate-300 text-4xl font-bold"
+            className="text-slate-500 dark:text-slate-300 text-5xl font-semibold"
           >
             Members of our excellence team
           </h3>

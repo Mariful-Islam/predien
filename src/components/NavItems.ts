@@ -35,7 +35,7 @@ export const NavItems = [
                 id: 11,
                 name: 'UI UX Development',
                 icon: '',
-                description: '"Expert UI/UX development services that create intuitive, visually appealing, and user-centered digital experiences to enhance engagement and drive results."',
+                description: 'Expert UI/UX development services that create intuitive, visually appealing, and user-centered digital experiences to enhance engagement and drive results.',
                 link: 'ui-ux-development'
             },
             {

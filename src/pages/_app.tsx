@@ -22,7 +22,7 @@ export default function App({ Component, pageProps }: AppProps) {
     <>
        <Head>
         <title>Predien | Software development agency</title>
-        <link rel="icon" href="/favicon.ico" />
+        <link rel="icon" href="/predien.png" />
         
         <meta name="robots" content="index, follow" />
         <meta name="author" content="Md Marful Islam" />

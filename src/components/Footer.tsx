@@ -1,14 +1,25 @@
+import Image from "next/image";
 import Link from "next/link";
 import React from "react";
 import { FaFacebook, FaInstagram, FaLinkedin } from "react-icons/fa";
 import { FaXTwitter } from "react-icons/fa6";
+import predien from '@/assets/predien.png'
+
 
 function Footer() {
   return (
-    <div className="bg-gray-900 text-white z-20">
+    <div className="bg-gray-900 text-white z-20 mt-16">
       <div className="max-w-[1200px] mx-auto w-full px-4 py-8 sm:px-20 flex flex-wrap flex-col xs:flex-row items-center justify-between xs:items-start">
         <div>
-          <h1 className="text-2xl font-bold">Predien</h1>
+          <h1 className="text-2xl font-bold">
+            <Image 
+              src={predien} 
+              alt="predien software agency"
+              className="h-[150px] w-[150px]"
+            />
+            Predien
+          </h1>
+
           <p className="text-slate-400 w-[215px] xs:w-[200px]">
             Customized software solutions, cutting-edge innovation, and data-driven intelligence
           </p>
