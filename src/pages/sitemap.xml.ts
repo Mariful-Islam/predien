@@ -1,6 +1,7 @@
 // pages/sitemap.xml.ts
 
 import { GetServerSideProps } from "next";
+import { env } from "process";
 import { SitemapStream, streamToPromise } from "sitemap";
 
 interface PageInfo {
@@ -26,7 +27,9 @@ const pages: PageInfo[] = [
 ];
 
 export const getServerSideProps: GetServerSideProps = async ({ res }) => {
-  const sitemap = new SitemapStream({ hostname: "http://localhost:3000/" });
+  const BASE_URL = env.NODE_ENV === "production" ? 'https://predien.vercel.app' : 'http://localhost:3000'
+  
+  const sitemap = new SitemapStream({ hostname: BASE_URL });
 
   // Push each page to the sitemap stream
   pages.forEach((page) => sitemap.write(page));
