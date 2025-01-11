@@ -27,28 +27,30 @@ function Footer() {
 
         <div className="mt-6 xs:mt-0">
           <h2 className="text-xl font-bold">Services</h2>
-          <ul className="mt-3 text-sm text-slate-400 flex flex-col gap-2">
-            <li className="hover:text-slate-100 duration-200">
-              <Link href={`/services/custom-software-development`}>
-                Custom Software Development
-              </Link>
-            </li>
-            <li className="hover:text-slate-100 duration-200">
-              <Link href={`/services/mobile-application-development`}>Mobile Application Development</Link>
-            </li>
-            <li className="hover:text-slate-100 duration-200">
-              <Link href={`/services/desktop-application-development`}>Desktop Application Development</Link>
-            </li>
-            <li className="hover:text-slate-100 duration-200">
-              <Link href={`/services/data-extraction`}>Data Extraction</Link>
-            </li>
-            <li className="hover:text-slate-100 duration-200">
-              <Link href={`/services/wordpress-development`}>Wordpress Development</Link>
-            </li>
-            <li className="hover:text-slate-100 duration-200">
-              <Link href={`/services/geographic-information-system`}>Geographic Information System</Link>
-            </li>
-          </ul>
+          <nav>
+            <ul className="mt-3 text-sm text-slate-400 flex flex-col gap-2">
+              <li className="hover:text-slate-100 duration-200">
+                <Link href={`/services/custom-software-development`}>
+                  Custom Software Development
+                </Link>
+              </li>
+              <li className="hover:text-slate-100 duration-200">
+                <Link href={`/services/mobile-application-development`}>Mobile Application Development</Link>
+              </li>
+              <li className="hover:text-slate-100 duration-200">
+                <Link href={`/services/desktop-application-development`}>Desktop Application Development</Link>
+              </li>
+              <li className="hover:text-slate-100 duration-200">
+                <Link href={`/services/data-extraction`}>Data Extraction</Link>
+              </li>
+              <li className="hover:text-slate-100 duration-200">
+                <Link href={`/services/wordpress-development`}>Wordpress Development</Link>
+              </li>
+              <li className="hover:text-slate-100 duration-200">
+                <Link href={`/services/geographic-information-system`}>Geographic Information System</Link>
+              </li>
+            </ul>
+          </nav>
         </div>
 
         <div className="mt-6 xs:mt-0">

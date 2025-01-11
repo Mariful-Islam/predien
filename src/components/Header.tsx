@@ -27,11 +27,12 @@ function Header() {
             <h1 className='text-xl font-bold text-gray-50'>predien</h1>
           </div>
           <div>
-            <div className='hidden ml:flex gap-10 '>
+            <nav >
+              <ul className='hidden ml:flex gap-10 '>
               {NavItems.map((item, index)=>(
+                <li key={index} >
                 <Link
                   href={item.link} 
-                  key={index} 
                   className='flex gap-2 items-center cursor-pointer text-white text-nowrap font-bold hover:text-slate-300 duration-200'
                   onMouseEnter={()=>handleMouseEnter(index)}
                   onMouseLeave={handleMouseLeave}
@@ -62,8 +63,11 @@ function Header() {
                     <></>
                   } 
                 </Link>
+                </li>
               ))}
-            </div>
+
+              </ul>
+            </nav>
           </div>
           <div>
             <ThemeToggle/>

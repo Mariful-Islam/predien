@@ -7,8 +7,10 @@ import AOS from 'aos';
 import Head from "next/head";
 import { env } from "process";
 import ScrollToTop from "@/components/common/scrollToTop";
+import Script from "next/script";
 
 export default function App({ Component, pageProps }: AppProps) {
+  
   useEffect(() => {
     // Initialize AOS on component mount
     AOS.init({
@@ -17,7 +19,17 @@ export default function App({ Component, pageProps }: AppProps) {
       easing: 'ease-in-out', // Easing function for the animation
     });
   }, []);
+  
   const BASE_URL = env.NODE_ENV === "production" ? 'https://predien.vercel.app' : 'http://localhost:3000'
+
+  const structuredData = {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "Predien",
+    "url": "https://predien.vercel.app/",
+    "mainEntityOfPage": "https://predien.vercel.app/",
+  };
+
 
   return (
     <>
@@ -47,8 +59,8 @@ export default function App({ Component, pageProps }: AppProps) {
         <meta property="al:ios:app_name" content="Predien" />
 
 
-        <script async src="https://www.googletagmanager.com/gtag/js?id=G-4EW3H102VV"></script>
-        <script
+        <Script async src="https://www.googletagmanager.com/gtag/js?id=G-4EW3H102VV"/>
+        <Script
           dangerouslySetInnerHTML={{
             __html: `
               window.dataLayer = window.dataLayer || [];
@@ -60,6 +72,13 @@ export default function App({ Component, pageProps }: AppProps) {
         />
         <link rel="canonical" href="https://predien.vercel.app"></link>
         <meta name="google-site-verification" content="0eB9dS8KcnJhSKZfdIbPDKlV9Mu2paLVQPPqiAind" />
+        
+        <Script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(structuredData),
+          }}
+        />
       </Head>
       <ThemeProvider>
         <Component {...pageProps} />
