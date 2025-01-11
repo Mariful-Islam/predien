@@ -18,7 +18,7 @@ const colorClasses = {
 function AboutUs() {
   return (
     <div className="">
-      <div className="max-w-[1200px] mx-auto w-full px-4 py-12 sm:px-20">
+      <div className="max-w-[1200px] mx-auto w-full px-4 py-12 sm:px-20 overflow-hidden">
         <div
           className=""
           data-aos="fade-down"

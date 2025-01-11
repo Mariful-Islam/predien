@@ -9,7 +9,7 @@ import animation from '@/assets/team-anim.gif'
 function Team() {
   return (
     <div className="bg-white dark:bg-black">
-      <div className="max-w-[1200px] mx-auto w-full px-4 sm:px-20 py-20 relative">
+      <div className="max-w-[1200px] mx-auto w-full px-4 sm:px-20 py-20 relative overflow-hidden">
         <div
           className="z-50"
           data-aos="fade-down"

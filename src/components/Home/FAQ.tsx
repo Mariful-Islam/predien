@@ -4,7 +4,7 @@ import React from "react";
 function FAQ() {
   return (
     <div className="">
-      <div className="max-w-[1200px] mx-auto w-full px-4 py-8 sm:px-20 mt-12">
+      <div className="max-w-[1200px] mx-auto w-full px-4 py-8 sm:px-20 mt-12 overflow-hidden">
         <div>
           <div 
             data-aos="fade-down"
