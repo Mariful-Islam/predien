@@ -27,7 +27,7 @@ function Document() {
 
           <button 
             onClick={handleOpen}
-            className=" relative group py-2 px-8 bg-blue-600 text-white font-bold rounded-md flex gap-2 items-center hover:bg-blue-800 duration-200"
+            className=" relative group py-2 px-8 bg-blue-600 text-white font-bold rounded-md flex gap-2 items-center hover:bg-blue-800 duration-200 overflow-hidden"
           >
             Dowload
             <BsDownload className={`stroke-1 group-hover:translate-y-12 duration-200`}/>

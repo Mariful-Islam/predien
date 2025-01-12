@@ -1,3 +1,4 @@
+import Header from '@/components/Header'
 import Head from 'next/head'
 import { env } from 'process'
 import React from 'react'
@@ -8,7 +9,7 @@ function GeographicInformationSystem() {
     <>
       <Head>
         <title>Predien | Geographic Information System </title>
-        <link rel="icon" href="/favicon.ico" />
+        <link rel="icon" href="/predien.png" />
 
         <meta name="description" content="Leverage ArcGIS and Web GIS for powerful, scalable mapping and spatial analysis solutions. Enhance decision-making with interactive, real-time geospatial data." />
     
@@ -34,10 +35,11 @@ function GeographicInformationSystem() {
         <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
         <meta property="al:ios:app_name" content="Predien" />
 
-
-
       </Head>
-      DataExtraction
+      <div>
+        <Header/>
+        DataExtraction
+      </div>
     </>
   )
 }

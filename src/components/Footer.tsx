@@ -4,6 +4,7 @@ import React from "react";
 import { FaFacebook, FaInstagram, FaLinkedin } from "react-icons/fa";
 import { FaXTwitter } from "react-icons/fa6";
 import predien from '@/assets/predien.png'
+import { BsArrowUpRight } from "react-icons/bs";
 
 
 function Footer() {
@@ -20,9 +21,24 @@ function Footer() {
             Predien
           </h1>
 
-          <p className="text-slate-400 w-[215px] xs:w-[200px]">
+          <div className="text-slate-400 max-w-[215px] xs:w-[200px]">
             Customized software solutions, cutting-edge innovation, and data-driven intelligence
-          </p>
+          </div>
+
+          <div className="text-slate-400 max-w-[215px] xs:w-[200px] mt-4">
+            <Link
+              href='mailto:mariful@heliosinsider.com'
+              className="hover:text-white flex items-center "
+            >
+              mariful@heliosinsider.com
+            </Link>
+            <Link
+              href='tel:+8801823242870'
+              className="hover:text-white flex items-center "
+            >
+              +8801823242870
+            </Link>
+          </div>
         </div>
 
         <div className="mt-6 xs:mt-0">

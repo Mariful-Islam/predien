@@ -1,3 +1,4 @@
+import Header from '@/components/Header'
 import Head from 'next/head'
 import { env } from 'process'
 import React from 'react'
@@ -8,7 +9,7 @@ function DataExtraction() {
     <>
       <Head>
         <title>Predien | Data Extraction </title>
-        <link rel="icon" href="/favicon.ico" />
+        <link rel="icon" href="/predien.png" />
 
         <meta name="description" content="Efficient data extraction services to gather, organize, and analyze information from various sources, ensuring accuracy and reliability for your business needs." />
         <meta name="robots" content="index, follow" />
@@ -36,7 +37,10 @@ function DataExtraction() {
 
 
       </Head>
-      DataExtraction
+      <div>
+        <Header/>
+        DataExtraction
+      </div>
     </>
   )
 }
