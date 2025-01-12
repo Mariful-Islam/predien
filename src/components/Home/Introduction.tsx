@@ -2,6 +2,7 @@ import Image from 'next/image'
 import React from 'react'
 import { TiArrowRight } from 'react-icons/ti'
 import animation from '@/assets/hero.gif'
+import Link from 'next/link'
 
 
 function Introduction() {
@@ -22,11 +23,14 @@ function Introduction() {
           Providing top-tier business solutions for success
         </div>
         <div>
-          <button 
-            className='group bg-[#001440] dark:bg-blue-800 hover:bg-blue-950 dark:hover:bg-blue-900 duration-200 mt-5 px-8 py-1 text-white font-bold rounded-full flex gap-2 items-center'
+          <Link
+            href="mailto:mariful@heliosinsider.com"
+            target="_blank"
+            rel="noopener noreferrer"
+            className='group bg-[#001440] dark:bg-blue-800 hover:bg-blue-950 dark:hover:bg-blue-900 duration-200 mt-5 px-8 py-1 text-white font-bold rounded-full flex gap-2 items-center w-fit'
           >
             Hire <TiArrowRight className='opacity-0 group-hover:opacity-100 group-hover:translate-x-2 duration-200'/>
-          </button>
+          </Link>
         </div>
       </div>
 

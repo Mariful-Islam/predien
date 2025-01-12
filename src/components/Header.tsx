@@ -75,7 +75,8 @@ function Header() {
         </div>
         <div className='flex items-center'>
           <Link
-            href='#' 
+            href="mailto:mariful@heliosinsider.com"
+            target="_blank"
             className='hidden ml:flex items-center group bg-white hover:bg-gray-100 duration-200 shadow-md rounded-full text-slate-600 font-bold text-sm px-6 py-1'
           >
             Meeting <TiArrowRight className='opacity-0 group-hover:translate-x-2 group-hover:opacity-100 duration-200'/>

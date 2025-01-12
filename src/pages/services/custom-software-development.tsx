@@ -81,7 +81,8 @@ function CustomSoftwareDevelopment() {
                 </h3>
                 <div className="mt-10 flex flex-col gap-2 xs:flex-row justify-center">
                 <Link
-                  href="#"
+                  href="mailto:mariful@heliosinsider.com"
+                  target="_blank"
                   className="border text-center border-green-500 rounded-md px-8 py-2 text-green-500 hover:bg-green-50 dark:hover:bg-green-950 duration-200"
                 >
                   Contact
@@ -215,7 +216,8 @@ function CustomSoftwareDevelopment() {
 
               <div className="mt-10 flex flex-col gap-2 xs:flex-row justify-center">
                 <Link
-                  href="#"
+                  href="mailto:mariful@heliosinsider.com"
+                  target="_blank"
                   className="text-center border border-green-500 rounded-md px-8 py-2 text-green-500 hover:bg-green-50 dark:hover:bg-green-950 duration-200"
                 >
                   Contact

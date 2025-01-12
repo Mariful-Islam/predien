@@ -13,7 +13,7 @@ interface PageInfo {
 // Define your static pages here
 const pages: PageInfo[] = [
   { url: "/", changefreq: "daily", priority: 1.0 },
-  { url: "/about", changefreq: "weekly", priority: 0.7 },
+  { url: "/projects", changefreq: "weekly", priority: 0.7 },
   { url: "/contact", changefreq: "weekly", priority: 0.7 },
   { url: "/services/custom-software-development", changefreq: "daily", priority: 1.0 },
   { url: "/services/mobile-application-development", changefreq: "daily", priority: 1.0  },
