@@ -59,8 +59,8 @@ export default function App({ Component, pageProps }: AppProps) {
         <meta property="al:ios:app_name" content="Predien" />
 
 
-        <Script async src="https://www.googletagmanager.com/gtag/js?id=G-4EW3H102VV"/>
-        <Script
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-4EW3H102VV"></script>
+        <script
           dangerouslySetInnerHTML={{
             __html: `
               window.dataLayer = window.dataLayer || [];
