@@ -1,3 +1,4 @@
+import Header from '@/components/Header'
 import Head from 'next/head'
 import { env } from 'process'
 import React from 'react'
@@ -8,8 +9,7 @@ function WordpressDevelopment() {
     <>
       <Head>
         <title>Predien | Wordpress Development </title>
-        <link rel="icon" href="/favicon.ico" />
-
+        <link rel="icon" href="/predien.png" />
         <meta name="description" content="Expert WordPress development services for custom websites, themes, and plugins. Enhance your online presence with responsive, SEO-friendly solutions." />
 
         <meta name="robots" content="index, follow" />
@@ -34,10 +34,10 @@ function WordpressDevelopment() {
         <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
         <meta property="al:ios:app_name" content="Predien" />
 
-
-
       </Head>
-      Wordpress Development 
+      <div>
+        <Header/>
+      </div>
     </>
   )
 }

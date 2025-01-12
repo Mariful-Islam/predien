@@ -1,3 +1,4 @@
+import Header from '@/components/Header'
 import Head from 'next/head'
 import { env } from 'process'
 import React from 'react'
@@ -8,7 +9,7 @@ function DesktopApplicationDevelopment() {
     <>
       <Head>
         <title>Predien | Desktop Application Development </title>
-        <link rel="icon" href="/favicon.ico" />
+        <link rel="icon" href="/predien.png" />
 
         <meta name="description" content="Custom desktop application development services for seamless, high-performance software solutions tailored to your business requirements and workflow." />
         <meta name="robots" content="index, follow" />
@@ -36,7 +37,10 @@ function DesktopApplicationDevelopment() {
 
 
       </Head>
-      DataExtraction
+      <div>
+        <Header/>
+        DataExtraction
+      </div>
     </>
   )
 }

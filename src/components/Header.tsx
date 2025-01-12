@@ -24,7 +24,7 @@ function Header() {
       <div className='flex justify-between items-center pt-6 max-w-[1200px] mx-auto w-full px-4 sm:px-20'>
         <div className='flex gap-16 lg:gap-20  ml:items-center '>
           <div>
-            <h1 className='text-xl font-bold text-gray-50'>predien</h1>
+            <h1 className='text-xl font-bold text-gray-50'><Link href='/'>predien</Link></h1>
           </div>
           <div>
             <nav >

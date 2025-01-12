@@ -1,3 +1,4 @@
+import Header from '@/components/Header'
 import Head from 'next/head'
 import { env } from 'process'
 import React from 'react'
@@ -8,7 +9,7 @@ function UiUxDevelopment() {
     <>
       <Head>
         <title>Predien | UI UX Development</title>
-        <link rel="icon" href="/favicon.ico" />
+        <link rel="icon" href="/predien.png" />
 
         <meta name="description" content="Build high-performance, cross-platform mobile apps with React Native, Expo, and Django REST Framework. Eensuring seamless user experiences across iOS and Android devices." />
   
@@ -38,6 +39,7 @@ function UiUxDevelopment() {
 
       </Head>
       <div>
+        <Header/>
         UiUxDevelopment
       </div>
     </>
