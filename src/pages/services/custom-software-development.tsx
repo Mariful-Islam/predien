@@ -8,6 +8,7 @@ import stack from '@/assets/STack.svg'
 import stackVisual from '@/assets/stack visuals.svg'
 import Link from "next/link";
 import theme from "@/assets/724eb7550018979e478737975038495a_high.webp"
+import Footer from "@/components/Footer";
 
 
 function CustomSoftwareDevelopment() {
@@ -231,6 +232,7 @@ function CustomSoftwareDevelopment() {
           </div>
         </div>
       </div>
+      <Footer/>
     </>
   );
 }
