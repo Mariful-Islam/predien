@@ -81,7 +81,7 @@ function CustomSoftwareDevelopment() {
                 </h3>
                 <div className="mt-10 flex flex-col gap-2 xs:flex-row justify-center">
                 <Link
-                  href="mailto:mariful@heliosinsider.com"
+                  href="mailto:marifulesgiu@gmail.com"
                   target="_blank"
                   className="border text-center border-green-500 rounded-md px-8 py-2 text-green-500 hover:bg-green-50 dark:hover:bg-green-950 duration-200"
                 >
@@ -97,7 +97,7 @@ function CustomSoftwareDevelopment() {
             </div>
           </div>
           <div className="absolute top-0 z-10 ">
-            <div className="backdrop-blur-3xl bg-black opacity-60 h-full w-full absolute top-0 right-0">
+            <div className="backdrop-blur-3xl bg-black opacity-70 h-full w-full absolute top-0 right-0">
 
             </div>
             <Image
@@ -113,8 +113,8 @@ function CustomSoftwareDevelopment() {
 
             <div className="xs:mt-[30px]">
               <div>
-                <h1 className="text-green-500 font-bold">Introduction</h1>
-                <div className="text-slate-500 dark:text-slate-300">
+                <h1 className="text-green-500 font-bold text-2xl">Introduction</h1>
+                <div className="text-slate-500 dark:text-slate-300 mt-2">
                   We specialize in designing custom UI/UX from the ground up,
                   ensuring an intuitive and seamless user experience. Our
                   process begins with creating tailored user interfaces, which
@@ -128,7 +128,7 @@ function CustomSoftwareDevelopment() {
               </div>
 
               <div className="mt-3">
-                <h1 className="text-green-500 font-bold">Technology</h1>
+                <h1 className="text-green-500 font-bold text-2xl">Technology</h1>
                 <div className="">
                   <Image
                     src={stack}
@@ -216,7 +216,7 @@ function CustomSoftwareDevelopment() {
 
               <div className="mt-10 flex flex-col gap-2 xs:flex-row justify-center">
                 <Link
-                  href="mailto:mariful@heliosinsider.com"
+                  href="mailto:marifulesgiu@gmail.com"
                   target="_blank"
                   className="text-center border border-green-500 rounded-md px-8 py-2 text-green-500 hover:bg-green-50 dark:hover:bg-green-950 duration-200"
                 >
@@ -234,6 +234,8 @@ function CustomSoftwareDevelopment() {
           </div>
         </div>
       </div>
+
+      
       <Footer/>
     </>
   );

@@ -9,7 +9,7 @@ import { BsArrowUpRight } from "react-icons/bs";
 
 function Footer() {
   return (
-    <div className="bg-gray-900 text-white z-20 mt-16">
+    <div className="bg-gray-900 text-white z-20 pt-16">
       <div className="max-w-[1200px] mx-auto w-full px-4 py-8 sm:px-20 flex flex-wrap flex-col xs:flex-row items-center justify-between xs:items-start">
         <div>
           <h1 className="text-2xl font-bold">
@@ -27,10 +27,10 @@ function Footer() {
 
           <div className="text-slate-400 max-w-[215px] xs:w-[200px] mt-4">
             <Link
-              href='mailto:mariful@heliosinsider.com'
+              href='mailto:marifulesgiu@gmail.com'
               className="hover:text-white flex items-center "
             >
-              mariful@heliosinsider.com
+              marifulesgiu@gmail.com
             </Link>
             <Link
               href='tel:+8801823242870'
@@ -93,6 +93,15 @@ function Footer() {
               </Link>
             </li>
           </ul>
+
+          <div className="mt-[200px] text-slate-400">
+            <div> 
+              Copyright @ 2025 Predien
+            </div>
+            <div className="mt-4">
+              Crafted by <span className="text-blue-500 font-bold">Mariful</span>
+            </div>
+          </div>
         </div>
       </div>
     </div>

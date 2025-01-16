@@ -8,7 +8,7 @@ export const TeamMembers = [
         role: 'Founder and CEO',
         connect: {
             linkedin: 'https://www.linkedin.com/in/mariful-islam-saad-a479a2192/',
-            email: 'mariful@heliosinsider.com'
+            email: 'marifulesgiu@gmail.com'
         }
     },
     // {

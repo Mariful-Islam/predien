@@ -75,7 +75,7 @@ function Header() {
         </div>
         <div className='flex items-center'>
           <Link
-            href="mailto:mariful@heliosinsider.com"
+            href="mailto:marifulesgiu@gmail.com"
             target="_blank"
             className='hidden ml:flex items-center group bg-white hover:bg-gray-100 duration-200 shadow-md rounded-full text-slate-600 font-bold text-sm px-6 py-1'
           >
