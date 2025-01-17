@@ -6,6 +6,8 @@ import { env } from 'process'
 import React from 'react'
 import theme from '@/assets/gis.png'
 import Footer from '@/components/Footer'
+import Introduction from '@/components/GIS/Introduction'
+import TechStack from '@/components/GIS/TechStack'
 
 function GeographicInformationSystem() {
   const BASE_URL = env.NODE_ENV === "production" ? 'https://predien.vercel.app' : 'http://localhost:3000'
@@ -84,8 +86,13 @@ function GeographicInformationSystem() {
             />
           </div>
         </div>
-      </div>
+      
+        <div className="max-w-[1200px] mx-auto w-full px-4 py-12 sm:px-20 xs:mt-[30px]">
+          <Introduction/>
+          <TechStack/>
+        </div>
 
+      </div>
       <Footer/>
     </>
   )

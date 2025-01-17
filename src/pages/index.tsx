@@ -23,7 +23,7 @@ export default function Home() {
     <div
       className={`${geistSans.variable} ${geistMono.variable} font-[family-name:var(--font-geist-sans)] dark:bg-black bg-white dark:text-white text-black`}
     >
-      <div className="bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 dark:from-black dark:via-purple-900 dark:bg-pink-800 w-full">
+      <div className="bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 dark:from-black dark:via-purple-900 dark:bg-pink-800 w-full h-screen">
         <Header/>
         <Introduction/>
       </div>
