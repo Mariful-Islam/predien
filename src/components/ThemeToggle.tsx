@@ -3,7 +3,7 @@ import { IoSunnyOutline } from "react-icons/io5";
 import { MdOutlineNightlight } from "react-icons/md";
 
 
-const ThemeToggle: React.FC = () => {
+const ThemeToggle = ({isVisible}:{isVisible?: boolean}) => {
   const [theme, setTheme] = useState<'light' | 'dark'>('light');
 
   useEffect(() => {
@@ -22,9 +22,9 @@ const ThemeToggle: React.FC = () => {
   return (
     <button
       onClick={toggleTheme}
-      className="p-2 rounded-full text-gray-500 dark:text-gray-500 hover:bg-gray-500 hover:dark:bg-gray-500 duration-200"
+      className={`p-2 rounded-full text-gray-500 dark:text-gray-500 hover:bg-gray-500 hover:dark:bg-gray-500 duration-200`}
     >
-      {theme === 'light' ? <IoSunnyOutline className='text-slate-200'/> : <MdOutlineNightlight className='text-white'/> }
+      {theme === 'light' ? <IoSunnyOutline className={`${ !isVisible ? 'text-white' : 'text-black dark:text-slate-200'} `}/> : <MdOutlineNightlight className='text-white'/> }
       
     </button>
   );

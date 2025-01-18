@@ -1,7 +1,7 @@
 import Header from "@/components/Header";
 import Head from "next/head";
 import { env } from "process";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import howWeWork from '@/assets/How We Work Section_ - visual selection.svg'
 import Image from "next/image";
 import stack from '@/assets/STack.svg'
@@ -15,6 +15,29 @@ function CustomSoftwareDevelopment() {
   const BASE_URL = env.NODE_ENV === "production"
       ? "https://predien.vercel.app"
       : "http://localhost:3000";
+
+    const [isVisible, setIsVisible] = useState(false);
+  
+    // Handle scroll event
+    const handleScroll = () => {
+      if((window.scrollY > 100) ){
+        setIsVisible(true)
+      } else {
+        setIsVisible(false); // Hide button when back to the top
+      }
+    };
+  
+  
+    // Listen to the scroll event
+    useEffect(() => {
+      window.addEventListener('scroll', handleScroll);
+      return () => {
+        window.removeEventListener('scroll', handleScroll);
+      };
+    }, []);
+
+    console.log(isVisible, "======")
+
   return (
     <>
       <Head>
@@ -63,12 +86,14 @@ function CustomSoftwareDevelopment() {
         <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
         <meta property="al:ios:app_name" content="Predien" />
       </Head>
+      
       <div className="bg-white dark:bg-black">
+      
         <div className="relative ">
           <div className="z-20 relative">
             <Header />
             <div
-                className="max-w-[1200px] mx-auto w-full px-4 sm:px-20 mt-[80px] pb-12"
+                className={` max-w-[1200px] mx-auto w-full px-4 sm:px-20 flex flex-col justify-center h-[320px]`}
                 data-aos="fade-down"
                 data-aos-duration="1000"
                 data-aos-delay="500"
@@ -80,20 +105,20 @@ function CustomSoftwareDevelopment() {
                   Building Scalable and Efficient Solutions with Modern Technologies
                 </h3>
                 <div className="mt-10 flex flex-col gap-2 xs:flex-row justify-center">
-                <Link
-                  href="mailto:marifulesgiu@gmail.com"
-                  target="_blank"
-                  className="border text-center border-green-500 rounded-md px-8 py-2 text-green-500 hover:bg-green-50 dark:hover:bg-green-950 duration-200"
-                >
-                  Contact
-                </Link>
-                <Link
-                  href="#"
-                  className=" ml-0 text-center xs:ml-4 bg-green-500 px-8 py-2 text-white rounded-md hover:bg-green-700 duration-200"
-                >
-                  Learn more
-                </Link>
-              </div>
+                  <Link
+                    href="mailto:marifulesgiu@gmail.com"
+                    target="_blank"
+                    className="border text-center border-green-500 rounded-md px-8 py-2 text-green-500 hover:bg-green-50 dark:hover:bg-green-950 duration-200"
+                  >
+                    Contact
+                  </Link>
+                  <Link
+                    href="#"
+                    className=" ml-0 text-center xs:ml-4 bg-green-500 px-8 py-2 text-white rounded-md hover:bg-green-700 duration-200"
+                  >
+                    Learn more
+                  </Link>
+                </div>
             </div>
           </div>
           <div className="absolute top-0 z-10 ">
@@ -108,10 +133,10 @@ function CustomSoftwareDevelopment() {
           </div>
         </div>
         <div>
-          <div className="max-w-[1200px] mx-auto w-full px-4 py-12 sm:px-20">
+          <div className="max-w-[1200px] mx-auto w-full px-4 py-20 md:px-20">
            
 
-            <div className="xs:mt-[30px]">
+            <div className="">
               <div>
                 <h1 className="text-green-500 font-bold text-2xl">Introduction</h1>
                 <div className="text-slate-500 dark:text-slate-300 mt-2">

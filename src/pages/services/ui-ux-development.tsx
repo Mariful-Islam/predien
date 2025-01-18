@@ -48,7 +48,7 @@ function UiUxDevelopment() {
           <div className="z-20 relative">
             <Header />
             <div
-                className="max-w-[1200px] mx-auto w-full px-4 sm:px-20 mt-[80px] pb-12"
+                className="max-w-[1200px] mx-auto w-full px-4 sm:px-20 flex flex-col justify-center h-[320px]"
                 data-aos="fade-down"
                 data-aos-duration="1000"
                 data-aos-delay="500"

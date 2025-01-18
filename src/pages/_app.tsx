@@ -60,6 +60,7 @@ export default function App({ Component, pageProps }: AppProps) {
 
 
         <script async src="https://www.googletagmanager.com/gtag/js?id=G-4EW3H102VV"></script>
+        <meta name="google-adsense-account" content="ca-pub-9169170789711891"/>
         <script
           dangerouslySetInnerHTML={{
             __html: `

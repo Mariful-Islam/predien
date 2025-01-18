@@ -47,7 +47,7 @@ function GeographicInformationSystem() {
           <div className="z-20 relative">
             <Header />
             <div
-                className="max-w-[1200px] mx-auto w-full px-4 sm:px-20 mt-[80px] pb-12"
+                className="max-w-[1200px] mx-auto w-full px-4 sm:px-20 flex flex-col justify-center h-[320px]"
                 data-aos="fade-down"
                 data-aos-duration="1000"
                 data-aos-delay="500"
@@ -87,7 +87,7 @@ function GeographicInformationSystem() {
           </div>
         </div>
       
-        <div className="max-w-[1200px] mx-auto w-full px-4 py-12 sm:px-20 xs:mt-[30px]">
+        <div className="max-w-[1200px] mx-auto w-full px-4 py-20 sm:px-20">
           <Introduction/>
           <TechStack/>
         </div>

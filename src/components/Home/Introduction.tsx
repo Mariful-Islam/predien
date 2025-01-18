@@ -8,7 +8,7 @@ import Link from 'next/link'
 function Introduction() {
   return (
     <div 
-      className='max-w-[1200px] mx-auto w-full px-4 sm:px-20 h-fit ml:h-[92vh] flex flex-col ml:flex-row items-center justify-between overflow-hidden'
+      className='max-w-[1200px] mx-auto w-full px-4 sm:px-20 h-fit ml:h-screen flex flex-col ml:flex-row items-center justify-between overflow-hidden'
     >
       <div 
         className='mt-[150px] ml:mt-0'
