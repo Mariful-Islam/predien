@@ -2,33 +2,26 @@ import React from "react";
 
 function Introduction() {
   return (
-    <div>
+    <div
+      className=""
+      data-aos="fade-up"
+      data-aos-duration="1000"
+      data-aos-delay="500"
+    >
       <h1 className="text-green-500 font-bold text-2xl">Introduction</h1>
-      <div className="text-slate-500 dark:text-slate-300 mt-2">
-        We crafted scaled, efficient, clean coded and robust mobile applications
-        and also api development. We use react native and expo tools to develop
-        mobile application development for it's cross platform and django and
-        Django Rest Framework for scalable and reliable backend API development.
-        <ol className=" list-decimal ml-4 mt-4">
-          <li>
-            <b>Quality-first development</b>
-            <ul className="list-disc mt-2 ml-2">
-              <li>
-                We follow industry coding standard so that it is easy to
-                maintain, modify and integrate new features. Bacause quality
-                code is a indecator of a good software.
-              </li>
-              <li>
-                We stick to modern coding standards and always peer-review every
-                single line of code.{" "}
-              </li>
-              <li>
-                We implement Test Driven Development(TTD) to our working
-                process, so that the software reliable, efficient and bug free.
-              </li>
-            </ul>
-          </li>
-        </ol>
+      <div className="text-slate-500 dark:text-slate-300 mt-2 text-justify">
+        A modern, responsive, slick-looking website is critical in today's
+        industry. Because a website may improve client interaction and sales by
+        correctly displaying your products and services. Wordpress is the ideal
+        answer, allowing you to create a website in a matter of minutes by
+        customising a theme or starting from scratch. There are numerous plugins
+        available to help developers automate their workflow and create fully
+        functional websites. If you need to make changes to your website, you
+        may easily modify or update it so that maintenance is simple, and if you
+        require assistance in the future, we will respond as quickly as
+        possible.
+
+        
       </div>
     </div>
   );

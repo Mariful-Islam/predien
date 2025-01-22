@@ -6,6 +6,7 @@ import { env } from 'process'
 import React from 'react'
 import theme from '@/assets/wordpress.png'
 import Footer from '@/components/Footer'
+import Introduction from '@/components/WordpressDevelopment/Introduction'
 
 function WordpressDevelopment() {
   const BASE_URL = env.NODE_ENV === "production" ? 'https://predien.vercel.app' : 'http://localhost:3000'
@@ -53,7 +54,7 @@ function WordpressDevelopment() {
                   Wordpress Development
                 </h1>
                 <h3 className="text-slate-50 dark:text-slate-300 text-2xl md:text-5xl font-semibold text-center mt-4">
-                  Building Website with Responsive
+                  Build Responsive, Functional and Modern Website
                 </h3>
                 <div className="mt-10 flex flex-col gap-2 xs:flex-row justify-center">
                 <Link
@@ -83,6 +84,13 @@ function WordpressDevelopment() {
             />
           </div>
         </div>
+      
+
+      <div className="max-w-[1200px] mx-auto w-full px-4 py-20 md:px-20 text-slate-800 dark:text-slate-200 ">
+        <Introduction/>
+
+      </div>
+
       </div>
 
       

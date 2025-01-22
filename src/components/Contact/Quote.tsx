@@ -5,7 +5,7 @@ import { toast } from "react-toastify";
 import { env } from "process";
 import axios from "axios";
 
-const BASE_URL = env.NODE_ENV === "production" ? 'https://predien.vercel.app' : 'http://localhost:3000'
+const BASE_URL = 'https://predien.vercel.app' 
 
 function Quote() {
   const [formData, setFormData] = useState<any>();
