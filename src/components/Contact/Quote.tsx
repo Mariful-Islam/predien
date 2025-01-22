@@ -69,7 +69,7 @@ function Quote() {
       </div>
 
       <div 
-        className="w-full md:w-1/2 ml-10 h-[500px] flex flex-col justify-center mr-10 md:ml-0"
+        className="w-full md:w-1/2 ml-10 h-[500px] flex flex-col justify-center mr-10 md:mr-0"
         data-aos="fade-left"
         data-aos-duration="1000"
         data-aos-delay="500"
