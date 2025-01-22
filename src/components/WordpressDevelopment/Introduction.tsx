@@ -3,7 +3,7 @@ import React from "react";
 function Introduction() {
   return (
     <div>
-      <h1 className="text-blue-500 font-bold text-2xl">Introduction</h1>
+      <h1 className="text-green-500 font-bold text-2xl">Introduction</h1>
       <div className="text-slate-500 dark:text-slate-300 mt-2">
         We crafted scaled, efficient, clean coded and robust mobile applications
         and also api development. We use react native and expo tools to develop

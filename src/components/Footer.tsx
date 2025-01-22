@@ -73,22 +73,22 @@ function Footer() {
           <h2 className="text-xl font-bold">Connect with us</h2>
           <ul className="mt-3 flex gap-4">
             <li>
-              <Link href={`https://www.linkedin.com/company/predien/`} legacyBehavior>
+              <Link href={`https://www.linkedin.com/company/predien/`} target="_blank" >
                 <FaLinkedin className="w-6 h-6 hover:text-blue-500 duration-200"/>
               </Link>
             </li>
             <li>
-              <Link href={`https://x.com/Predien191587`} legacyBehavior>
+              <Link href={`https://x.com/Predien191587`} target="_blank" >
                 <FaXTwitter className="w-6 h-6 hover:text-gray-500 duration-200"/>
               </Link>
             </li>
             <li>
-              <Link href={`https://www.facebook.com/profile.php?id=61571565728848`} legacyBehavior>
+              <Link href={`https://www.facebook.com/profile.php?id=61571565728848`} target="_blank" >
                 <FaFacebook className="w-6 h-6 hover:text-blue-700 duration-200"/>
               </Link>
             </li>
             <li>
-              <Link href={`https://www.instagram.com/predien_software/`} legacyBehavior>
+              <Link href={`https://www.instagram.com/predien_software/`} target="_blank" >
                 <FaInstagram className="w-6 h-6 hover:text-pink-500 duration-200"/>
               </Link>
             </li>

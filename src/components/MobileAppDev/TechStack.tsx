@@ -7,7 +7,7 @@ import techStack from "@/assets/Mobile application development  tect stack.svg"
 function TechStack() {
   return (
     <div className="mt-6">
-      <h1 className="text-green-500 font-bold text-2xl">Technologies We Use</h1>
+      <h1 className="text-blue-500 font-bold text-2xl">Technologies We Use</h1>
       <div className="flex justify-center">
         <Image
             src={techStack}

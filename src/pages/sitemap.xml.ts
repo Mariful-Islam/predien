@@ -13,7 +13,6 @@ interface PageInfo {
 // Define your static pages here
 const pages: PageInfo[] = [
   { url: "/", changefreq: "daily", priority: 1.0 },
-  { url: "/projects", changefreq: "weekly", priority: 0.7 },
   { url: "/contact", changefreq: "weekly", priority: 0.7 },
   { url: "/services/custom-software-development", changefreq: "daily", priority: 1.0 },
   { url: "/services/mobile-application-development", changefreq: "daily", priority: 1.0  },
@@ -21,7 +20,7 @@ const pages: PageInfo[] = [
   { url: "/services/data-extraction", changefreq: "daily", priority: 1.0 },
   { url: "/services/wordpress-development", changefreq: "daily", priority: 1.0 },
   { url: "/services/geographic-information-system", changefreq: "daily", priority: 1.0 },
-
+  { url: "/services/ui-ux-development", changefreq: "daily", priority: 1.0 },
 
   // Add more static pages here
 ];

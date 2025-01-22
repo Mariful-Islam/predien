@@ -8,6 +8,10 @@ import Head from "next/head";
 import { env } from "process";
 import ScrollToTop from "@/components/common/scrollToTop";
 import Script from "next/script";
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
+
 
 export default function App({ Component, pageProps }: AppProps) {
   
@@ -88,6 +92,7 @@ export default function App({ Component, pageProps }: AppProps) {
       <ThemeProvider>
         <Component {...pageProps} />
         <ScrollToTop/>
+        <ToastContainer />
       </ThemeProvider>
     </>
   )
