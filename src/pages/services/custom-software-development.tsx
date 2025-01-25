@@ -12,9 +12,7 @@ import Footer from "@/components/Footer";
 
 
 function CustomSoftwareDevelopment() {
-  const BASE_URL = env.NODE_ENV === "production"
-      ? "https://predien.vercel.app"
-      : "http://localhost:3000";
+  const BASE_URL = "https://predien.vercel.app"
 
     const [isVisible, setIsVisible] = useState(false);
   
@@ -36,55 +34,30 @@ function CustomSoftwareDevelopment() {
       };
     }, []);
 
-    console.log(isVisible, "======")
-
   return (
     <>
       <Head>
         <title>Predien | Custom Software Development</title>
         <link rel="icon" href="/predien.png" />
 
-        <meta
-          name="description"
-          content="Predien creates tailored software solutions to meet yoour business needs. We main focus on django, django rest framework, reactjs, nextjs, react-native and expo."
-        />
+        <meta name="description" content="Custom software development tailored to your business needs. We create innovative, scalable solutions that drive growth and optimize performance for any industry." />
         <meta name="robots" content="index, follow" />
         <meta name="author" content="Md Marful Islam" />
-        <link
-          rel="canonical"
-          href={`${BASE_URL}/services/custom-software-development`}
-        />
+        <link rel="canonical" href={`${BASE_URL}/services/custom-software-development`} />
 
-        <meta
-          property="og:title"
-          content="Predien | Custom Software Development"
-        />
-        <meta
-          property="og:description"
-          content="Description for social sharing"
-        />
-        <meta property="og:image" content="https://example.com/og-image.jpg" />
-        <meta
-          property="og:url"
-          content={`${BASE_URL}/services/custom-software-development`}
-        />
+        <meta property="og:title" content="Predien | Custom Software Development" />
+        <meta property="og:description" content="Custom software development tailored to your business needs. We create innovative, scalable solutions that drive growth and optimize performance for any industry."/>
+        <meta property="og:image" content="https://muuqbjrcjnumvsekecmg.supabase.co/storage/v1/object/public/avatars/undefined_image%20(1).png" />
+        <meta property="og:url" content={`${BASE_URL}/services/custom-software-development`} />
         <meta property="og:type" content="website" />
         <meta property="og:site_name" content="Predien" />
 
         <meta name="twitter:card" content="summary_large_image" />
-        <meta
-          name="twitter:title"
-          content="Predien | Custom Software Development"
-        />
-        <meta
-          name="twitter:description"
-          content="Page description for Twitter"
-        />
-        <meta name="twitter:image" content="" />
+        <meta name="twitter:title" content="Predien | Custom Software Development" />
+        <meta name="twitter:description" content="Custom software development tailored to your business needs. We create innovative, scalable solutions that drive growth and optimize performance for any industry." />
+        <meta name="twitter:image" content="https://muuqbjrcjnumvsekecmg.supabase.co/storage/v1/object/public/avatars/undefined_image%20(1).png"/>
         <meta name="twitter:site" content="@predien" />
 
-        <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
-        <meta property="al:ios:app_name" content="Predien" />
       </Head>
       
       <div className="bg-white dark:bg-black">

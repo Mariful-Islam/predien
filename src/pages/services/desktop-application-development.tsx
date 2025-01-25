@@ -2,14 +2,13 @@ import Header from '@/components/Header'
 import Head from 'next/head'
 import Image from 'next/image'
 import Link from 'next/link'
-import { env } from 'process'
 import React from 'react'
 import theme from '@/assets/desktop application developmetnt.png'
 import Footer from '@/components/Footer'
 
 
 function DesktopApplicationDevelopment() {
-  const BASE_URL = env.NODE_ENV === "production" ? 'https://predien.vercel.app' : 'http://localhost:3000'
+  const BASE_URL = 'https://predien.vercel.app'
   return (
     <>
       <Head>
@@ -22,24 +21,17 @@ function DesktopApplicationDevelopment() {
         <link rel="canonical" href={`${BASE_URL}/services/desktop-application-development`}/>
 
         <meta property="og:title" content="Predien | Desktop Application Development " />
-        <meta property="og:description" content="Description for social sharing" />
-        <meta property="og:image" content="https://example.com/og-image.jpg" />
+        <meta property="og:description" content="Specialized in desktop application development for enterprise platforms. We create robust, scalable desktop solutions to enhance business productivity and performance." />
+        <meta property="og:image" content="https://muuqbjrcjnumvsekecmg.supabase.co/storage/v1/object/public/avatars/desktop%20application%20developmetnt.png?t=2025-01-25T09%3A48%3A05.615Z" />
         <meta property="og:url" content={`${BASE_URL}/services/desktop-application-development`} />
         <meta property="og:type" content="website" />
         <meta property="og:site_name" content="Predien" />
 
-
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content="Predien | Desktop Application Development " />
-        <meta name="twitter:description" content="Page description for Twitter" />
-        <meta name="twitter:image" content="" />
+        <meta name="twitter:description" content="Specialized in desktop application development for enterprise platforms. We create robust, scalable desktop solutions to enhance business productivity and performance." />
+        <meta name="twitter:image" content="https://muuqbjrcjnumvsekecmg.supabase.co/storage/v1/object/public/avatars/desktop%20application%20developmetnt.png?t=2025-01-25T09%3A48%3A05.615Z" />
         <meta name="twitter:site" content="@predien" />
-
-
-        <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
-        <meta property="al:ios:app_name" content="Predien" />
-
-
 
       </Head>
       <div className="bg-white dark:bg-black">

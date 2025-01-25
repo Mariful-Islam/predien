@@ -2,28 +2,27 @@ import Header from '@/components/Header'
 import Head from 'next/head'
 import Image from 'next/image'
 import Link from 'next/link'
-import { env } from 'process'
 import React from 'react'
 import theme from '@/assets/wordpress.png'
 import Footer from '@/components/Footer'
 import Introduction from '@/components/WordpressDevelopment/Introduction'
 
 function WordpressDevelopment() {
-  const BASE_URL = env.NODE_ENV === "production" ? 'https://predien.vercel.app' : 'http://localhost:3000'
+  const BASE_URL = 'https://predien.vercel.app'
   return (
     <>
       <Head>
         <title>Predien | Wordpress Development </title>
         <link rel="icon" href="/predien.png" />
-        <meta name="description" content="Expert WordPress development services for custom websites, themes, and plugins. Enhance your online presence with responsive, SEO-friendly solutions." />
+        <meta name="description" content="Boost your online presence with custom WordPress and web development services. We create responsive, SEO-friendly websites tailored to your business needs." />
 
         <meta name="robots" content="index, follow" />
         <meta name="author" content="Md Marful Islam" />
         <link rel="canonical" href={`${BASE_URL}/services/wordpress-development`}/>
 
         <meta property="og:title" content="Predien | Wordpress Development" />
-        <meta property="og:description" content="Description for social sharing" />
-        <meta property="og:image" content="https://example.com/og-image.jpg" />
+        <meta property="og:description" content="Boost your online presence with custom WordPress and web development services. We create responsive, SEO-friendly websites tailored to your business needs." />
+        <meta property="og:image" content="https://muuqbjrcjnumvsekecmg.supabase.co/storage/v1/object/public/avatars/wordpress.png" />
         <meta property="og:url" content={`${BASE_URL}/services/wordpress-development`} />
         <meta property="og:type" content="website" />
         <meta property="og:site_name" content="Predien" />
@@ -31,13 +30,9 @@ function WordpressDevelopment() {
 
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content="Predien | Wordpress Development" />
-        <meta name="twitter:description" content="Page description for Twitter" />
-        <meta name="twitter:image" content="" />
+        <meta name="twitter:description" content="Boost your online presence with custom WordPress and web development services. We create responsive, SEO-friendly websites tailored to your business needs." />
+        <meta name="twitter:image" content="https://muuqbjrcjnumvsekecmg.supabase.co/storage/v1/object/public/avatars/wordpress.png" />
         <meta name="twitter:site" content="@predien" />
-
-
-        <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
-        <meta property="al:ios:app_name" content="Predien" />
 
       </Head>
       <div className="bg-white dark:bg-black">

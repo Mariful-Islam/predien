@@ -2,29 +2,28 @@ import Header from '@/components/Header'
 import Head from 'next/head'
 import Image from 'next/image'
 import Link from 'next/link'
-import { env } from 'process'
 import React from 'react'
 import theme from '@/assets/ui ux.png'
 import Footer from '@/components/Footer'
 
 
 function UiUxDevelopment() {
-  const BASE_URL = env.NODE_ENV === "production" ? 'https://predien.vercel.app' : 'http://localhost:3000'
+  const BASE_URL = 'https://predien.vercel.app'
   return (
     <>
       <Head>
         <title>Predien | UI UX Development</title>
         <link rel="icon" href="/predien.png" />
 
-        <meta name="description" content="Build high-performance, cross-platform mobile apps with React Native, Expo, and Django REST Framework. Eensuring seamless user experiences across iOS and Android devices." />
+        <meta name="description" content="Elevate your digital experience with expert UI/UX design and frontend development. We specialize in Figma to create intuitive, user-friendly interfaces." />
   
         <meta name="robots" content="index, follow" />
         <meta name="author" content="Md Marful Islam" />
         <link rel="canonical" href={`${BASE_URL}/services/ui-ux-development`}/>
 
         <meta property="og:title" content="Predien | UI UX Development" />
-        <meta property="og:description" content="Description for social sharing" />
-        <meta property="og:image" content="https://example.com/og-image.jpg" />
+        <meta property="og:description" content="Elevate your digital experience with expert UI/UX design and frontend development. We specialize in Figma to create intuitive, user-friendly interfaces." />
+        <meta property="og:image" content="https://muuqbjrcjnumvsekecmg.supabase.co/storage/v1/object/public/avatars/ui%20ux.png?t=2025-01-25T09%3A31%3A30.571Z" />
         <meta property="og:url" content={`${BASE_URL}/services/ui-ux-development`} />
         <meta property="og:type" content="website" />
         <meta property="og:site_name" content="Predien" />
@@ -32,15 +31,9 @@ function UiUxDevelopment() {
 
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content="Predien | UI UX Development" />
-        <meta name="twitter:description" content="Page description for Twitter" />
-        <meta name="twitter:image" content="" />
+        <meta name="twitter:description" content="Elevate your digital experience with expert UI/UX design and frontend development. We specialize in Figma to create intuitive, user-friendly interfaces." />
+        <meta name="twitter:image" content="https://muuqbjrcjnumvsekecmg.supabase.co/storage/v1/object/public/avatars/ui%20ux.png?t=2025-01-25T09%3A31%3A30.571Z" />
         <meta name="twitter:site" content="@predien" />
-
-
-        <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
-        <meta property="al:ios:app_name" content="Predien" />
-
-
 
       </Head>
       <div className="bg-white dark:bg-black">
