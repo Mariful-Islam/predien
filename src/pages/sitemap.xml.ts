@@ -2,8 +2,11 @@
 
 import { blogItems } from "@/components/Blog/blogSample";
 import { jobs } from "@/components/Career/JobList";
+import axios from "axios";
 import { GetServerSideProps } from "next";
 import { SitemapStream, streamToPromise } from "sitemap";
+
+const API_URL = process.env.NODE_ENV==="production" ? "https://predien.vercel.app" : "http://localhost:3000"
 
 interface PageInfo {
   url: string;
@@ -35,27 +38,47 @@ const jobList: PageInfo[] = jobs.map((job, index)=>({url: `/career/${job.slug}`,
 
 
 export const getServerSideProps: GetServerSideProps = async ({ res }) => {
-  const BASE_URL = 'https://predien.vercel.app'
-  
-  const sitemap = new SitemapStream({ hostname: BASE_URL });
+  try {
+    // Fetch blog data from the API
+    const blogsResponse = await axios.get(`${API_URL}/api/blogs/`);
+    const blogs = blogsResponse.data.map((item: { slug: string }) => ({
+      url: `/blog/${item.slug}`,
+      changefreq: "daily",
+      priority: 1.0,
+    }));
 
-  // Push each page to the sitemap stream
-  pages.forEach((page) => sitemap.write(page));
-  blogs.forEach((blog) => sitemap.write(blog))
-  jobList.forEach((job) => sitemap.write(job))
+    // Fetch job data from the API
+    const jobsResponse = await axios.get(`${API_URL}/api/jobs`);
+    const jobList = jobsResponse.data.map((job: { slug: string }) => ({
+      url: `/career/${job.slug}`,
+      changefreq: "daily",
+      priority: 1.0,
+    }));
+    const BASE_URL = 'https://predien.vercel.app'
+    
+    const sitemap = new SitemapStream({ hostname: BASE_URL });
+
+    // Push each page to the sitemap stream
+    pages.forEach((page) => sitemap.write(page));
+    blogs.forEach((blog:any) => sitemap.write(blog))
+    jobList.forEach((job:any) => sitemap.write(job))
 
 
-  sitemap.end();
+    sitemap.end();
 
-  // Generate the sitemap XML
-  const sitemapXML = await streamToPromise(sitemap).then((data) => data.toString());
+    // Generate the sitemap XML
+    const sitemapXML = await streamToPromise(sitemap).then((data) => data.toString());
 
-  // Set the response type to XML
-  res.setHeader("Content-Type", "application/xml");
-  res.write(sitemapXML);
-  res.end();
+    // Set the response type to XML
+    res.setHeader("Content-Type", "application/xml");
+    res.write(sitemapXML);
+    res.end();
 
-  return { props: {} }; // We don't need to pass props here
+    return { props: {} }; // We don't need to pass props here
+
+  } catch {
+    return { props: {} };
+  }
 };
 
 // The component won't be used as it's handled by `getServerSideProps`
