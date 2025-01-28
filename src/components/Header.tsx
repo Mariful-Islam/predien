@@ -45,7 +45,7 @@ function Header() {
   
 
   return (
-    <div className='max-w-[1200px] mx-auto'>
+    <div className='max-w-[1200px] mx-auto z-40'>
       <div className={`flex justify-between items-center  w-full px-4 sm:px-20  ${isVisible ? 'bg-white shadow-lg dark:bg-black fixed left-0 right-0 py-4 ' : 'py-4 md:py-6'} duration-500 z-50`}>
         <div className='flex gap-16 lg:gap-20  ml:items-center '>
           <div>
@@ -69,7 +69,7 @@ function Header() {
                       <div className='absolute ml-[-100px] pt-6 shadow-xl z-30'>
                         <Link href={`/services/`} className='bg-white  dark:bg-gray-700 p-4 rounded-md grid grid-cols-1 ml:grid-cols-2 '>
                           {item.subItems.map((subItem, index)=>(
-                            <Link href={`/services/${subItem.link}`} className='group hover:bg-slate-100 dark:hover:bg-slate-600 duration-200 p-2 rounded-md w-[310px]'>
+                            <Link key={index} href={`/services/${subItem.link}`} className='group hover:bg-slate-100 dark:hover:bg-slate-600 duration-200 p-2 rounded-md w-[310px]'>
                               <div className='text-md font-bold text-gray-600 dark:text-slate-200 flex gap-1 items-center'>
                                 {subItem.name} <TiArrowRight className={` group-hover:translate-x-2 opacity-0 group-hover:opacity-100 duration-200`}/>
                               </div>
@@ -145,7 +145,7 @@ function Header() {
                     <div className='absolute ml-[-80px] pt-6 shadow-xl'>
                       <Link href={`/services/`} className='bg-white  dark:bg-gray-700 p-4 rounded-md grid grid-cols-1 ml:grid-cols-2'>
                         {item.subItems.map((subItem, index)=>(
-                          <Link href={`/services/${subItem.link}`} className='group hover:bg-slate-100 dark:hover:bg-slate-600 duration-200 p-2 rounded-md w-[310px]'>
+                          <Link key={index} href={`/services/${subItem.link}`} className='group hover:bg-slate-100 dark:hover:bg-slate-600 duration-200 p-2 rounded-md w-[310px]'>
                             <div className='text-md font-bold text-gray-600 dark:text-slate-200 flex gap-1 items-center'>
                               {subItem.name} <TiArrowRight className={` group-hover:translate-x-2 opacity-0 group-hover:opacity-100 duration-200`}/>
                             </div>

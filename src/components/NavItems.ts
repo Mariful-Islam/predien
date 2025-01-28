@@ -64,8 +64,14 @@ export const NavItems = [
     },
     {
         id: 3,
-        name: 'Projects',
-        link: '/projects',
+        name: 'Blog',
+        link: '/blog',
+        subItems: []
+    },
+    {
+        id: 3,
+        name: 'Career',
+        link: '/career',
         subItems: []
     },
     {
