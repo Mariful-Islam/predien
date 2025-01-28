@@ -10,7 +10,6 @@ import { HiArrowDownRight, HiArrowTurnRightDown } from "react-icons/hi2";
 
 const API_URL = process.env.NODE_ENV==="production" ? "https://predien.vercel.app" : "http://localhost:3000"
 
-
 function Career({data}:{data: any}) {
 
   return (
