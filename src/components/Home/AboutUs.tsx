@@ -87,8 +87,7 @@ function AboutUs() {
             </div>
             <div className="mt-10">
               <Link
-                href="mailto:marifulesgiu@gmail.com"
-                target="_blank"
+                href="/contact#contact"
                 className="border border-green-500 rounded-md px-8 py-2 text-green-500 hover:bg-green-50 dark:hover:bg-green-950 duration-200"
               >
                 Contact

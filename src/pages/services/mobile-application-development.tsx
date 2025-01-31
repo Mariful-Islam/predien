@@ -61,8 +61,7 @@ function MobileApplicationDevelopment() {
               </h3>
               <div className="mt-10 flex flex-col gap-2 xs:flex-row justify-center">
                 <Link
-                  href="mailto:marifulesgiu@gmail.com"
-                  target="_blank"
+                  href="/contact#contact"
                   className="border text-center border-blue-500 rounded-md px-8 py-2 text-blue-500 hover:bg-blue-50 dark:hover:bg-blue-950 duration-200"
                 >
                   Contact

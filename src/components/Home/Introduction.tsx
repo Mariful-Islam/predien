@@ -24,8 +24,7 @@ function Introduction() {
         </div>
         <div>
           <Link
-            href="mailto:marifulesgiu@gmail.com"
-            target="_blank"
+            href="/contact#contact"
             rel="noopener noreferrer"
             className='group bg-[#001440] dark:bg-blue-800 hover:bg-blue-950 dark:hover:bg-blue-900 duration-200 mt-5 px-8 py-1 text-white font-bold rounded-full flex gap-2 items-center w-fit'
           >

@@ -55,8 +55,7 @@ function GeographicInformationSystem() {
                 </h3>
                 <div className="mt-10 flex flex-col gap-2 xs:flex-row justify-center">
                 <Link
-                  href="mailto:marifulesgiu@gmail.com"
-                  target="_blank"
+                  href="/contact#contact"
                   className="border text-center border-orange-500 rounded-md px-8 py-2 text-orange-500 hover:bg-orange-50 dark:hover:bg-orange-950 duration-200"
                 >
                   Contact

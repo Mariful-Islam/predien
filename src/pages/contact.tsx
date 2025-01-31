@@ -112,7 +112,7 @@ function ContactUs() {
           </div>
         </div>
         
-        <div className="mt-12">
+        <div className="mt-12 scroll-mt-[80px]" id="contact">
           <Quote/>
         </div>
 

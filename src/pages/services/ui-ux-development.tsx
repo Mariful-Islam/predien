@@ -54,8 +54,7 @@ function UiUxDevelopment() {
                 </h3>
                 <div className="mt-10 flex flex-col gap-2 xs:flex-row justify-center">
                 <Link
-                  href="mailto:marifulesgiu@gmail.com"
-                  target="_blank"
+                  href="/contact#contact"
                   className="border text-center border-red-500 rounded-md px-8 py-2 text-red-500 hover:bg-red-50 dark:hover:bg-red-950 duration-200"
                 >
                   Contact
