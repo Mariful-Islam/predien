@@ -5,6 +5,7 @@ import React, { useState } from "react";
 import career from "@/assets/Career.jpg";
 import Link from "next/link";
 import { HiArrowDownRight, HiArrowTurnRightDown } from "react-icons/hi2";
+import Head from "next/head";
 
 
 
@@ -14,6 +15,10 @@ function Career({data}:{data: any}) {
 
   return (
     <>
+      <Head>
+        <title>Predien | Career</title>
+        <link rel="canonical" href="https://predien.vercel.app/career"/>
+      </Head>
       <div className="text-black relative overflow-hidden h-screen bg-gradient-to-l from-blue-600 dark:from-blue-800 via-orange-500 dark:via-orange-700 to-red-400 dark:to-red-700 dark:bg-black ">
         <Header />
         <div className="z-10 relative h-screen flex items-start ml:items-center">

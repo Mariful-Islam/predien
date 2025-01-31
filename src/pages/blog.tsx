@@ -8,6 +8,7 @@ import blog from '@/assets/blog.jpg'
 import { blogItems } from '@/components/Blog/blogSample'
 import moment from 'moment'
 import { SlCalender } from 'react-icons/sl'
+import Head from 'next/head'
 
 
 const API_URL = process.env.NODE_ENV==="production" ? "https://predien.vercel.app" : "http://localhost:3000"
@@ -16,6 +17,10 @@ function Blog({data}:{data:any}) {
 
   return (
     <div className=''>
+      <Head>
+        <title>Predien | Blog</title>
+        <link rel='canonical' href='https://predien.vercel.app/blog'/>
+      </Head>
       <div className="text-black relative overflow-hidden h-screen bg-gradient-to-l from-green-600 dark:from-green-800 via-violet-500 dark:via-violet-700 to-blue-400 dark:to-blue-700 ">
         <Header />
         <div className="z-10 relative h-screen flex items-start ml:items-center">

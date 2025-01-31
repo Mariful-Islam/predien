@@ -1,6 +1,5 @@
 import Header from "@/components/Header";
 import Head from "next/head";
-import { env } from "process";
 import React, { useEffect, useState } from "react";
 import howWeWork from '@/assets/How We Work Section_ - visual selection.svg'
 import Image from "next/image";
@@ -43,7 +42,7 @@ function CustomSoftwareDevelopment() {
         <meta name="description" content="Custom software development tailored to your business needs. We create innovative, scalable solutions that drive growth and optimize performance for any industry." />
         <meta name="robots" content="index, follow" />
         <meta name="author" content="Md Marful Islam" />
-        <link rel="canonical" href={`${BASE_URL}/services/custom-software-development`} />
+        <link rel="canonical" href="https://predien.vercel.app/services/custom-software-development" />
 
         <meta property="og:title" content="Predien | Custom Software Development" />
         <meta property="og:description" content="Custom software development tailored to your business needs. We create innovative, scalable solutions that drive growth and optimize performance for any industry."/>

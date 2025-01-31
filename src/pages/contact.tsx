@@ -9,9 +9,15 @@ import { FaFacebook, FaInstagram, FaLinkedin } from "react-icons/fa";
 import { FaXTwitter } from "react-icons/fa6";
 import { Flags } from "@/components/Contact/Flags";
 import Quote from "@/components/Contact/Quote";
+import Head from "next/head";
 
 function ContactUs() {
   return (
+    <>
+    <Head>
+      <title>Predien | Contact</title>
+      <link rel="canonical" href="https://predien.vercel.app/contact"/>
+    </Head>
     <div className=" relative overflow-hidden">
       <div className="z-10 relative h-screen">
         <Header />
@@ -119,6 +125,7 @@ function ContactUs() {
         <Footer />
       </div>
     </div>
+    </>
   );
 }
 

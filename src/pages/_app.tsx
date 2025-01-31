@@ -42,7 +42,6 @@ export default function App({ Component, pageProps }: AppProps) {
         
         <meta name="robots" content="index, follow" />
         <meta name="author" content="Md Marful Islam" />
-        <link rel="canonical" href={`${BASE_URL}/`}/>
 
         <meta
           name="description"
@@ -83,7 +82,7 @@ export default function App({ Component, pageProps }: AppProps) {
             `,
           }}
         />
-        <link rel="canonical" href="https://predien.vercel.app"></link>
+        {/* <link rel="canonical" href="https://predien.vercel.app"/> */}
         <meta name="google-site-verification" content="0eB9dS8KcnJhSKZfdIbPDKlV9Mu2paLVQPPqiAind" />
         
         <script
