@@ -17,7 +17,6 @@ function DataExtraction() {
 
         <meta name="description" content="Expert data extraction and analysis services using ETL processes and efficient pipelines. Transform raw data into actionable insights for smarter business decisions." />
         <meta name="robots" content="index, follow" />
-        <meta name="author" content="Md Marful Islam" />
         <link rel="canonical" href={`${BASE_URL}/services/data-extraction`}/>
 
         <meta property="og:title" content="Predien | Data Extraction and Analysis" />

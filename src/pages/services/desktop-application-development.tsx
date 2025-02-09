@@ -17,7 +17,6 @@ function DesktopApplicationDevelopment() {
 
         <meta name="description" content="Custom desktop application development services for seamless, high-performance software solutions tailored to your business requirements and workflow." />
         <meta name="robots" content="index, follow" />
-        <meta name="author" content="Md Marful Islam" />
         <link rel="canonical" href={`${BASE_URL}/services/desktop-application-development`}/>
 
         <meta property="og:title" content="Predien | Desktop Application Development " />

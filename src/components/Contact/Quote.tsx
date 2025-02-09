@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import consulting from "@/assets/consulting.jpg";
 import Image from "next/image";
 import { toast } from "react-toastify";
-import { env } from "process";
 import axios from "axios";
 
 const BASE_URL = 'https://predien.vercel.app' 
@@ -35,9 +34,7 @@ function Quote() {
       text: text,
     };
 
-    if ((formData?.text?.trim()?.split(/\s+/).length < 20)) {
-      toast.error('Your description is too short, at least have 100 words !')
-    } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData?.client_email)) {
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData?.client_email)) {
       toast.error('Email is not valid.')
     } else {
       axios.post(`${BASE_URL}/api/sendEmail/`, newFormData)
@@ -81,6 +78,7 @@ function Quote() {
             type="email"
             name="client_email"
             placeholder="Your email"
+            value={formData?.client_email}
             onChange={handleChange}
             className="bg-white dark:bg-gray-800 px-4 py-2 rounded-none border border-blue-500 outline-none focus:ring-2 "
             required
@@ -91,6 +89,7 @@ function Quote() {
             type="text"
             name="client_phone"
             placeholder="Your phone"
+            value={formData?.client_phone}
             onChange={handleChange}
             className="bg-white dark:bg-gray-800 px-4 py-2 rounded-none border border-blue-500 outline-none focus:ring-2 "
             required
@@ -100,6 +99,7 @@ function Quote() {
             type="text"
             name="subject"
             placeholder="Subject"
+            value={formData?.subject}
             onChange={handleChange}
             className="bg-white dark:bg-gray-800 px-4 py-2 rounded-none border border-blue-500 outline-none focus:ring-2 "
             required
@@ -108,6 +108,7 @@ function Quote() {
           <textarea
             name="text"
             placeholder="Type your message"
+            value={formData?.text}
             onChange={handleChange}
             className="bg-white dark:bg-gray-800 px-4 py-2 mt-[-16px] rounded-none border border-blue-500 outline-none focus:ring-2 "
             required

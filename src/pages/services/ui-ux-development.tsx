@@ -18,7 +18,6 @@ function UiUxDevelopment() {
         <meta name="description" content="Elevate your digital experience with expert UI/UX design and frontend development. We specialize in Figma to create intuitive, user-friendly interfaces." />
   
         <meta name="robots" content="index, follow" />
-        <meta name="author" content="Md Marful Islam" />
         <link rel="canonical" href={`${BASE_URL}/services/ui-ux-development`}/>
 
         <meta property="og:title" content="Predien | UI UX Development" />

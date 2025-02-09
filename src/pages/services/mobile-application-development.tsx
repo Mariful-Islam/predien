@@ -24,7 +24,6 @@ function MobileApplicationDevelopment() {
         />
 
         <meta name="robots" content="index, follow" />
-        <meta name="author" content="Md Marful Islam" />
         <link rel="canonical" href={`${BASE_URL}/services/mobile-application-development`}/>
 
         <meta property="og:title" content="Predien | Mobile Application Development" />

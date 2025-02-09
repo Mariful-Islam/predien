@@ -19,7 +19,6 @@ function GeographicInformationSystem() {
         <meta name="description" content="Leverage ArcGIS and Web GIS for powerful, scalable mapping and spatial analysis solutions. Enhance decision-making with interactive, real-time geospatial data." />
     
         <meta name="robots" content="index, follow" />
-        <meta name="author" content="Md Marful Islam" />
         <link rel="canonical" href={`${BASE_URL}/services/geographic-information-system`}/>
 
         <meta property="og:title" content="Predien | Geographic Information System " />

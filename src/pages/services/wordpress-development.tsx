@@ -17,7 +17,6 @@ function WordpressDevelopment() {
         <meta name="description" content="Boost your online presence with custom WordPress and web development services. We create responsive, SEO-friendly websites tailored to your business needs." />
 
         <meta name="robots" content="index, follow" />
-        <meta name="author" content="Md Marful Islam" />
         <link rel="canonical" href={`${BASE_URL}/services/wordpress-development`}/>
 
         <meta property="og:title" content="Predien | Wordpress Development" />
