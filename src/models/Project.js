@@ -11,6 +11,10 @@ const ProjectSchema = new mongoose.Schema({
     required: true,
     unique: true,
   },
+  brief:{
+    type: String,
+    required: true,
+  },
   description: {
     type: String,
     required: true,
@@ -19,7 +23,6 @@ const ProjectSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
-
 
   post_date: {
     type: Date,

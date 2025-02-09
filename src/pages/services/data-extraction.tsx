@@ -5,10 +5,13 @@ import Link from 'next/link'
 import React from 'react'
 import theme from '@/assets/data engineer.png'
 import Footer from '@/components/Footer'
+import Introduction from '@/components/DataAnalysis/Introduction'
+import { BASE_URL } from './custom-software-development'
+import Project from '@/components/DataAnalysis/Project'
 
 
-function DataExtraction() {
-  const BASE_URL = 'https://predien.vercel.app' 
+
+function DataExtraction({data}: {data: any}) {
   return (
     <>
       <Head>
@@ -76,7 +79,15 @@ function DataExtraction() {
             />
           </div>
         </div>
+
+
+        <div className="max-w-[1200px] mx-auto w-full px-4 py-20 md:px-20 text-slate-800 dark:text-slate-200 ">
+          <Introduction/>
+          <Project data={data} />
+        </div>
+
       </div>
+  
 
       <Footer/>
     </>
@@ -84,3 +95,13 @@ function DataExtraction() {
 }
 
 export default DataExtraction
+
+
+export async function getServerSideProps() {
+  const response = await fetch(`${BASE_URL}/api/projects?type=web`, {cache: 'no-cache'})
+  const data = await response.json()
+
+  return {
+    props: {data}
+  }
+}

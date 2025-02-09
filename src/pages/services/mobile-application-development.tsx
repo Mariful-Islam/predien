@@ -7,10 +7,12 @@ import theme from "@/assets/mobile application development.png";
 import Footer from "@/components/Footer";
 import TechStack from "@/components/MobileAppDev/TechStack";
 import Introduction from "@/components/MobileAppDev/Introduction";
+import { BASE_URL } from "./custom-software-development";
+import Project from "@/components/MobileAppDev/Project";
 
 
 
-function MobileApplicationDevelopment() {
+function MobileApplicationDevelopment({data}: {data:any}) {
   const BASE_URL = "https://predien.vercel.app"
   return (
     <>
@@ -87,6 +89,7 @@ function MobileApplicationDevelopment() {
         <div className="max-w-[1200px] mx-auto w-full px-4 py-12 sm:px-20 mt-[20px]">
           
           <Introduction/>
+          <Project data={data} />
           
           <TechStack/>
 
@@ -103,3 +106,15 @@ function MobileApplicationDevelopment() {
 }
 
 export default MobileApplicationDevelopment;
+
+
+
+
+export async function getServerSideProps() {
+  const response = await fetch(`${BASE_URL}/api/projects?type=web`, {cache: 'no-cache'})
+  const data = await response.json()
+
+  return {
+    props: {data}
+  }
+}

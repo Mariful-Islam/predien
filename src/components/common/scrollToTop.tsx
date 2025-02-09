@@ -28,7 +28,7 @@ const ScrollToTop: React.FC = () => {
 
   return (
     <div
-      className={`${ isVisible ? 'block' : 'hidden' } z-50 bg-green-500 fixed bottom-8 right-6 w-8 h-8 flex justify-center items-center rounded-full cursor-pointer hover:bg-green-700 duration-200`}
+      className={`${ isVisible ? 'bottom-8 duration-200' : 'bottom-[-40px]' } z-50 bg-green-500 shadow-xl hover:shadow-xl fixed  right-6 w-8 h-8 flex justify-center items-center rounded-full cursor-pointer hover:bg-green-700 duration-200`}
       onClick={scrollToTop}
     >
       <GoArrowUp className='text-white h-5 w-5' />

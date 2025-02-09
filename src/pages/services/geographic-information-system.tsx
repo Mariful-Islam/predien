@@ -7,8 +7,10 @@ import theme from '@/assets/gis.png'
 import Footer from '@/components/Footer'
 import Introduction from '@/components/GIS/Introduction'
 import TechStack from '@/components/GIS/TechStack'
+import { BASE_URL } from './custom-software-development'
+import Project from '@/components/GIS/Project'
 
-function GeographicInformationSystem() {
+function GeographicInformationSystem({data}: {data: any}) {
   const BASE_URL = 'https://predien.vercel.app'
   return (
     <>
@@ -82,6 +84,7 @@ function GeographicInformationSystem() {
       
         <div className="max-w-[1200px] mx-auto w-full px-4 py-20 sm:px-20">
           <Introduction/>
+          <Project data={data} />
           <TechStack/>
         </div>
 
@@ -92,3 +95,13 @@ function GeographicInformationSystem() {
 }
 
 export default GeographicInformationSystem
+
+
+export async function getServerSideProps() {
+  const response = await fetch(`${BASE_URL}/api/projects?type=web`, {cache: 'no-cache'})
+  const data = await response.json()
+
+  return {
+    props: {data}
+  }
+}

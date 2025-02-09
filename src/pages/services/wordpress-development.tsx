@@ -6,8 +6,10 @@ import React from 'react'
 import theme from '@/assets/wordpress.png'
 import Footer from '@/components/Footer'
 import Introduction from '@/components/WordpressDevelopment/Introduction'
+import { BASE_URL } from './custom-software-development'
+import Project from '@/components/WordpressDevelopment/Project'
 
-function WordpressDevelopment() {
+function WordpressDevelopment({data}: {data: any}) {
   const BASE_URL = 'https://predien.vercel.app'
   return (
     <>
@@ -81,7 +83,7 @@ function WordpressDevelopment() {
 
       <div className="max-w-[1200px] mx-auto w-full px-4 py-20 md:px-20 text-slate-800 dark:text-slate-200 ">
         <Introduction/>
-
+        <Project data={data} />
       </div>
 
       </div>
@@ -93,3 +95,14 @@ function WordpressDevelopment() {
 }
 
 export default WordpressDevelopment
+
+
+
+export async function getServerSideProps() {
+  const response = await fetch(`${BASE_URL}/api/projects?type=web`, {cache: 'no-cache'})
+  const data = await response.json()
+
+  return {
+    props: {data}
+  }
+}

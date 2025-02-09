@@ -8,9 +8,12 @@ import stackVisual from "@/assets/stack visuals.svg";
 import Link from "next/link";
 import theme from "@/assets/724eb7550018979e478737975038495a_high.webp";
 import Footer from "@/components/Footer";
+import Project from "@/components/CustomSoftwareDevelopment/Project";
 
-function CustomSoftwareDevelopment() {
-  const BASE_URL = "https://predien.vercel.app";
+export const BASE_URL = process.env.NODE_ENV === "production" ? "https://predien.vercel.app" : "http://localhost:3000";
+
+function CustomSoftwareDevelopment({data}: {data: any}) {
+
 
   const [isVisible, setIsVisible] = useState(false);
 
@@ -126,12 +129,25 @@ function CustomSoftwareDevelopment() {
         </div>
         <div>
           <div className="max-w-[1200px] mx-auto w-full px-4 py-20 md:px-20">
-            <div className="">
+            <div 
+              className=""
+              
+            >
               <div>
-                <h1 className="text-green-500 font-bold text-2xl">
+                <h1 
+                  className="text-green-500 font-bold text-2xl" 
+                  data-aos="fade-up"
+                  data-aos-duration="1000"
+                  data-aos-delay="500"
+                >
                   Introduction
                 </h1>
-                <div className="text-slate-500 dark:text-slate-300 mt-2 text-justify">
+                <div 
+                  className="text-slate-500 dark:text-slate-300 mt-2 text-justify"
+                  data-aos="fade-up"
+                  data-aos-duration="1000"
+                  data-aos-delay="500"
+                >
                   Introducing Custom Software Development, one of the most
                   popular services on the market right now for developing a
                   special software solution that will automate, protect, and
@@ -155,20 +171,23 @@ function CustomSoftwareDevelopment() {
                 </div>
               </div>
 
-              <div className="mt-3">
-                <h1 className="text-green-500 font-bold text-2xl">
-                  Projects
-                </h1>
-                <div>
-                  
-                </div>
-              </div>
+              <Project data={data} />
 
-              <div className="mt-3">
-                <h1 className="text-green-500 font-bold text-2xl">
+              <div className="mt-8">
+                <h1 
+                  className="text-green-500 font-bold text-2xl"
+                  data-aos="fade-up"
+                  data-aos-duration="1000"
+                  data-aos-delay="500"
+                >
                   Technology
                 </h1>
-                <div className="flex flex-col gap-6 items-center">
+                <div 
+                  className="flex flex-col gap-6 items-center"
+                  data-aos="fade-up"
+                  data-aos-duration="1000"
+                  data-aos-delay="500"
+                >
                   <Image
                     src={stack}
                     alt="stack"
@@ -318,3 +337,15 @@ function CustomSoftwareDevelopment() {
 }
 
 export default CustomSoftwareDevelopment;
+
+
+
+export async function getServerSideProps() {
+  const response = await fetch(`${BASE_URL}/api/projects?type=web`, {cache: 'no-cache'})
+  const data = await response.json()
+
+  return {
+    props: {data}
+  }
+}
+

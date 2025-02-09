@@ -8,7 +8,7 @@ export default async function handler(req, res) {
         const jobs = await Job.find();
         return res.status(200).json(jobs);
       } catch (error) {
-        return res.status(500).json({ message: 'Failed to fetch blogs', error: error.message });
+        return res.status(500).json({ message: 'Failed to fetch jobs', error: error.message });
       }
     } else if (req.method === 'POST') {
       try {
@@ -17,7 +17,7 @@ export default async function handler(req, res) {
         await job.save();
         return res.status(201).json(job);
       } catch (error) {
-        return res.status(500).json({ message: 'Failed to create blog post', error: error.message });
+        return res.status(500).json({ message: 'Failed to create blog job', error: error.message });
       }
     } else {
       return res.status(405).json({ message: 'Method Not Allowed' });
