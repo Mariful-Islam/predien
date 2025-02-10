@@ -9,6 +9,10 @@ import TechStack from "@/components/MobileAppDev/TechStack";
 import Introduction from "@/components/MobileAppDev/Introduction";
 import { BASE_URL } from "./custom-software-development";
 import Project from "@/components/MobileAppDev/Project";
+import { MdOutlineKeyboardArrowRight } from "react-icons/md";
+import { GoArrowRight } from "react-icons/go";
+import { FiArrowDownRight } from "react-icons/fi";
+import ServiceHeading from "@/components/services/ServiceHeading";
 
 
 
@@ -44,47 +48,14 @@ function MobileApplicationDevelopment({data}: {data:any}) {
       </Head>
       
       <div className="bg-white dark:bg-black">
-        <div className="relative ">
-          <div className="z-20 relative">
-            <Header />
-            <div
-              className="max-w-[1200px] mx-auto w-full px-4 sm:px-20 flex flex-col justify-center h-[320px]"
-              data-aos="fade-down"
-              data-aos-duration="1000"
-              data-aos-delay="500"
-            >
-              <h1 className="text-blue-500 text-xl font-bold text-center">
-                Mobile Application Development
-              </h1>
-              <h3 className="text-slate-50 dark:text-slate-300 text-2xl md:text-5xl font-semibold text-center mt-4">
-                Building Scalable and Efficient Solutions with Modern
-                Technologies
-              </h3>
-              <div className="mt-10 flex flex-col gap-2 xs:flex-row justify-center">
-                <Link
-                  href="/contact#contact"
-                  className="border text-center border-blue-500 rounded-md px-8 py-2 text-blue-500 hover:bg-blue-50 dark:hover:bg-blue-950 duration-200"
-                >
-                  Contact
-                </Link>
-                <Link
-                  href="#"
-                  className=" ml-0 text-center xs:ml-4 bg-blue-500 px-8 py-2 text-white rounded-md hover:bg-blue-700 duration-200"
-                >
-                  Learn more
-                </Link>
-              </div>
-            </div>
-          </div>
-          <div className="absolute top-0 z-10 ">
-            <div className="backdrop-blur-3xl bg-black opacity-80 h-full w-full absolute top-0 right-0"></div>
-            <Image
-              src={theme}
-              alt=""
-              className="h-[430px] w-screen object-cover"
-            />
-          </div>
-        </div>
+
+        <ServiceHeading 
+          data={{
+            title: 'Mobile Application Development', 
+            description: 'Building Scalable and Efficient Solutions with Modern Technologies',
+            bgImage: theme,
+            color: 'blue'
+          }}/>
 
         <div className="max-w-[1200px] mx-auto w-full px-4 py-12 sm:px-20 mt-[20px]">
           

@@ -8,6 +8,7 @@ import Footer from '@/components/Footer'
 import Introduction from '@/components/DesktopAppDev/Introduction'
 import { BASE_URL } from './custom-software-development'
 import Project from '@/components/DesktopAppDev/Project'
+import ServiceHeading from '@/components/services/ServiceHeading'
 
 
 
@@ -38,48 +39,15 @@ function DesktopApplicationDevelopment({data}: {data:any}) {
 
       </Head>
       <div className="bg-white dark:bg-black">
-        <div className="relative ">
-          <div className="z-20 relative">
-            <Header />
-            <div
-                className="max-w-[1200px] mx-auto w-full px-4 sm:px-20 flex flex-col justify-center h-[320px]"
-                data-aos="fade-down"
-                data-aos-duration="1000"
-                data-aos-delay="500"
-              >
-                <h1 className="text-yellow-500 text-xl font-bold text-center">
-                  Desktop Application Development
-                </h1>
-                <h3 className="text-slate-50 dark:text-slate-300 text-2xl md:text-5xl font-semibold text-center mt-4">
-                  Building Robust Scalabale Application
-                </h3>
-                <div className="mt-10 flex flex-col gap-2 xs:flex-row justify-center">
-                <Link
-                  href="/contact#contact"
-                  className="border text-center border-yellow-500 rounded-md px-8 py-2 text-yellow-500 hover:bg-yellow-50 dark:hover:bg-yellow-950 duration-200"
-                >
-                  Contact
-                </Link>
-                <Link
-                  href="#"
-                  className=" ml-0 text-center xs:ml-4 bg-yellow-500 px-8 py-2 text-white rounded-md hover:bg-yellow-700 duration-200"
-                >
-                  Learn more
-                </Link>
-              </div>
-            </div>
-          </div>
-          <div className="absolute top-0 z-10 ">
-            <div className="backdrop-blur-3xl bg-black opacity-80 h-full w-full absolute top-0 right-0">
 
-            </div>
-            <Image
-              src={theme}
-              alt=""
-              className="h-[430px] w-screen object-cover"
-            />
-          </div>
-        </div>
+        <ServiceHeading
+          data={{
+            title: 'Desktop Application Development',
+            description: ' Building Robust Scalabale Destop Application',
+            bgImage: theme,
+            color: 'yellow'
+          }}
+        />
 
         <div className="max-w-[1200px] mx-auto w-full px-4 py-20 md:px-20 text-slate-800 dark:text-slate-200 ">
           <Introduction/>

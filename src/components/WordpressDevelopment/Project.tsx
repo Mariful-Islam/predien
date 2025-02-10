@@ -18,7 +18,7 @@ function Project({data}: {data: any}) {
         className="grid grid-cols-1 xs:grid-cols-2 sm:grid-cols-3 gap-4 mt-4"
         data-aos="fade-up"
         data-aos-duration="1000"
-        data-aos-delay="500"
+        data-aos-delay="1000"
       >
         {data?.map((item: any, index: number) => (
           <Link href={`/projects/${item?.slug}/`} key={index}>

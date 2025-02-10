@@ -4,12 +4,22 @@ function Introduction() {
   return (
     <div
       className=""
-      data-aos="fade-up"
-      data-aos-duration="1000"
-      data-aos-delay="500"
+    
     >
-      <h1 className="text-green-500 font-bold text-2xl">Introduction</h1>
-      <div className="text-slate-500 dark:text-slate-300 mt-2 text-justify">
+      <h1 
+        className="text-sky-500 font-bold text-2xl" 
+        data-aos="fade-up"
+        data-aos-duration="1000"
+        data-aos-delay="500"
+      >
+        Introduction
+      </h1>
+      <div 
+        className="text-slate-500 dark:text-slate-300 mt-2 text-justify"
+        data-aos="fade-up"
+        data-aos-duration="1000"
+        data-aos-delay="500"
+      >
         A modern, responsive, slick-looking website is critical in today's
         industry. Because a website may improve client interaction and sales by
         correctly displaying your products and services. Wordpress is the ideal

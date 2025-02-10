@@ -69,7 +69,7 @@ function Header() {
                       <div className='absolute ml-[-100px] pt-6 shadow-xl z-30'>
                         <Link href={`/services/`} className='bg-white  dark:bg-gray-700 p-4 rounded-md grid grid-cols-1 ml:grid-cols-2 '>
                           {item.subItems.map((subItem, index)=>(
-                            <Link key={index} href={`/services/${subItem.link}`} className='group hover:bg-slate-100 dark:hover:bg-slate-600 duration-200 p-2 rounded-md w-[310px]'>
+                            <Link key={index} href={`/services/${subItem.link}`} prefetch={true} className='group hover:bg-slate-100 dark:hover:bg-slate-600 duration-200 p-2 rounded-md w-[310px]'>
                               <div className='text-md font-bold text-gray-600 dark:text-slate-200 flex gap-1 items-center'>
                                 {subItem.name} <TiArrowRight className={` group-hover:translate-x-2 opacity-0 group-hover:opacity-100 duration-200`}/>
                               </div>
