@@ -65,7 +65,7 @@ export default DesktopApplicationDevelopment
 
 
 export async function getServerSideProps() {
-  const response = await fetch(`${BASE_URL}/api/projects?type=web`, {cache: 'no-cache'})
+  const response = await fetch(`${BASE_URL}/api/projects?type=desktop`, {cache: 'no-cache'})
   const data = await response.json()
 
   return {

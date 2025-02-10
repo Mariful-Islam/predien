@@ -2,7 +2,7 @@ import React from "react";
 
 function Introduction() {
   return (
-    <div>
+    <div id="intro" className=" scroll-mt-32">
       <h1
         className="text-green-500 font-bold text-2xl"
         data-aos="fade-up"

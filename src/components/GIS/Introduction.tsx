@@ -2,9 +2,21 @@ import React from "react";
 
 function Introduction() {
   return (
-    <div>
-      <h1 className="text-orange-500 font-bold text-2xl">Introduction</h1>
-      <div className="text-slate-500 dark:text-slate-300 mt-2 text-justify">
+    <div id="intro" className=" scroll-mt-32">
+      <h1 
+        className="text-orange-500 font-bold text-2xl"
+        data-aos="fade-up"
+        data-aos-duration="1000"
+        data-aos-delay="500"
+      >
+        Introduction
+      </h1>
+      <div 
+        className="text-slate-500 dark:text-slate-300 mt-2 text-justify"
+        data-aos="fade-up"
+        data-aos-duration="1000"
+        data-aos-delay="1000"
+      >
         Predien provides cutting-edge Geographic Information System (GIS) solutions
         that analyze real-world data, including both location-based
         and attribute data into insightful maps. These Map represent a meaningful,

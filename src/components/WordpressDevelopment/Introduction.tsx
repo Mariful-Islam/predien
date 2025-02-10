@@ -3,8 +3,7 @@ import React from "react";
 function Introduction() {
   return (
     <div
-      className=""
-    
+      id="intro" className=" scroll-mt-32"
     >
       <h1 
         className="text-sky-500 font-bold text-2xl" 
@@ -18,7 +17,7 @@ function Introduction() {
         className="text-slate-500 dark:text-slate-300 mt-2 text-justify"
         data-aos="fade-up"
         data-aos-duration="1000"
-        data-aos-delay="500"
+        data-aos-delay="1000"
       >
         A modern, responsive, slick-looking website is critical in today's
         industry. Because a website may improve client interaction and sales by

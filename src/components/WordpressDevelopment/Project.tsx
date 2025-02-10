@@ -23,7 +23,7 @@ function Project({data}: {data: any}) {
         {data?.map((item: any, index: number) => (
           <Link href={`/projects/${item?.slug}/`} key={index}>
             <div className="border border-sky-500 p-5 group relative h-[300px] rounded-xl overflow-hidden shadow-md hover:shadow-2xl">
-              <div className="uppercase text-sky-500 text-sm font-semibold relative z-10">
+              <div className="uppercase text-sky-500 text-sm font-semibold relative z-10 tracking-widest">
                 {item?.type}
               </div>
               <div className="text-slate-800 dark:text-slate-200 text-xl font-semibold group-hover:text-sky-500 duration-200 relative z-10">

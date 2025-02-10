@@ -57,7 +57,7 @@ function Footer() {
                 <Link href={`/services/desktop-application-development`}>Desktop Application Development</Link>
               </li>
               <li className="hover:text-slate-100 duration-200">
-                <Link href={`/services/data-extraction`}>Data Extraction</Link>
+                <Link href={`/services/data-extraction`}>Data Extraction and Analysis</Link>
               </li>
               <li className="hover:text-slate-100 duration-200">
                 <Link href={`/services/wordpress-development`}>Wordpress Development</Link>

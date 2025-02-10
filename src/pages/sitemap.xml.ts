@@ -54,6 +54,14 @@ export const getServerSideProps: GetServerSideProps = async ({ res }) => {
       changefreq: "daily",
       priority: 1.0,
     }));
+
+    const projectsResponse = await axios.get(`${API_URL}/api/projects`);
+    const projectsList = projectsResponse.data.map((job: { slug: string }) => ({
+      url: `/projects/${job.slug}`,
+      changefreq: "daily",
+      priority: 1.0,
+    }));
+
     const BASE_URL = 'https://predien.vercel.app'
     
     const sitemap = new SitemapStream({ hostname: BASE_URL });
@@ -62,6 +70,7 @@ export const getServerSideProps: GetServerSideProps = async ({ res }) => {
     pages.forEach((page) => sitemap.write(page));
     blogs.forEach((blog:any) => sitemap.write(blog))
     jobList.forEach((job:any) => sitemap.write(job))
+    projectsList.forEach((project:any) => sitemap.write(project))
 
 
     sitemap.end();
