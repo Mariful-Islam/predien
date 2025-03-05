@@ -139,7 +139,7 @@ function Apply({slug}:{slug: string}) {
                 type="file" 
                 className="hidden" 
                 onChange={(e)=>{
-                  setFormData((prev:any)=>({...prev, resume: e.target.files[0] })) 
+                  setFormData((prev:any)=>({...prev, resume: e.target.files && e.target.files[0] })) 
 
                 }}
               />
