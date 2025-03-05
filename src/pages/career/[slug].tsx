@@ -12,19 +12,20 @@ const API_URL =
     : "http://localhost:3000";
 
 function CareerView({ data }: { data: any }) {
+  const router = useRouter()
   return (
     <div className="bg-white dark:bg-black">
       <div className="bg-gradient-to-l from-yellow-400 via-violet-400 to-red-400">
         <Header />
       </div>
       <div className="max-w-[1200px] mx-auto px-4 sm:px-20 py-12 text-gray-700 dark:text-white">
-        <Link
-          href={`/career`}
+        <button
+          onClick={()=>router.back()}
           className=" group flex gap-2 items-center justify-center  mb-4 text-blue-500 focus:ring-1 w-[80px]"
         >
           <GoArrowLeft className="text-blue-500 group-hover:-translate-x-2 duration-200" />{" "}
           Back
-        </Link>
+        </button>
         <div className="flex flex-col md:flex-row gap-8">
           <div className="w-full md:w-3/4">
             <div className="text-5xl font-bold text-green-500 ">
