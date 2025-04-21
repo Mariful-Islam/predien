@@ -24,12 +24,13 @@ export const locationChoice = [
 
 ]
 
+export const API_URL = process.env.NODE_ENV==="production" ? "https://predien.vercel.app" : "http://localhost:3000"
 
 function JobCreate() {
   const [formData, setFormDta] = useState<any>();
   const [jobs, setJobs] = useState<any[]>([])
 
-  const API_URL = process.env.NODE_ENV==="production" ? "https://predien.vercel.app" : "http://localhost:3000"
+  
 
   const getJobs = () => {
     axios

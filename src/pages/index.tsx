@@ -7,6 +7,9 @@ import FAQ from "@/components/Home/FAQ";
 import Header from "@/components/Header";
 import Team from "@/components/Home/Team";
 import Document from "@/components/Home/Document";
+import Clients from "@/components/Home/Clients";
+
+
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -30,6 +33,8 @@ export default function Home() {
       <Document/>
       <Team/>
       <AboutUs/>
+      <Clients/>
+      
       <FAQ/>
       
       

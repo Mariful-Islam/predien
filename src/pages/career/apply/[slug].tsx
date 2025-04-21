@@ -86,73 +86,76 @@ function Apply({slug}:{slug: string}) {
             Thank for applying for this position <div className="text-blue-500">{slug.split('-').join(' ')}</div>
           </div>
           :
-          <form onSubmit={handleApply} className="flex flex-col gap-4 mt-6 w-full px-4 sm:px-12">
-            <input
-              type="email"
-              name="candidate_email"
-              placeholder="Your email"
-              value={formData?.candidate_email}
-              onChange={handleChange}
-              className="bg-white dark:bg-gray-800 px-4 py-2 rounded-none border border-blue-500 outline-none focus:ring-2 "
-              required
-            
-            />
-
-            <input
-              type="text"
-              name="candidate_phone"
-              placeholder="Your phone"
-              value={formData?.candidate_phone}
-              onChange={handleChange}
-              className="bg-white dark:bg-gray-800 px-4 py-2 rounded-none border border-blue-500 outline-none focus:ring-2 "
-              required
-            />
-
-            <textarea
-              name="text"
-              placeholder="Cover letter"
-              value={formData?.text}
-              onChange={handleChange}
-              className="bg-white dark:bg-gray-800 px-4 py-2 min-h-[300px] rounded-none border border-blue-500 outline-none focus:ring-2 "
-              required
-            />
-
-            <div>
-              <div className="text-blue-500">Upload your resume </div>
-              {formData?.resume ? 
-                <div>
-                  <button 
-                    onClick={handleRemoveResume} 
-                    className="w-full flex justify-end my-2"
-                  >
-                    <AiOutlineDelete className="w-6 h-6 text-red-500" />
-                  </button>
-                  <div>{formData?.resume?.name}</div>
-                </div>
-                :
-                <label htmlFor="resume" className="border border-gray-300 rounded-md p-10 mt-2 flex justify-center hover:border-blue-500 group duration-200">
-                  <LuUpload className=" group-hover:text-blue-500 duration-200 h-12 w-12"/>
-                </label>
-              }
-              <input 
-                id="resume" 
-                type="file" 
-                className="hidden" 
-                onChange={(e)=>{
-                  setFormData((prev:any)=>({...prev, resume: e.target.files && e.target.files[0] })) 
-
-                }}
+          <div>
+            <h2 className="font-bold text-xl text-center">Applying for <div className="text-green-500">{slug.split('-').join(' ')}</div></h2>
+            <form onSubmit={handleApply} className="flex flex-col gap-4 mt-6 w-full px-4 sm:px-12">
+              <input
+                type="email"
+                name="candidate_email"
+                placeholder="Your email"
+                value={formData?.candidate_email}
+                onChange={handleChange}
+                className="bg-white dark:bg-gray-800 px-4 py-2 rounded-none border border-blue-500 outline-none focus:ring-2 "
+                required
+              
               />
-            </div>
-            
 
-            <button 
-              type="submit"
-              className="bg-blue-500 text-white  hover:bg-blue-700 duration-200 py-2 font-bold text-lg"
-            >
-              Apply
-            </button>
-          </form>
+              <input
+                type="text"
+                name="candidate_phone"
+                placeholder="Your phone"
+                value={formData?.candidate_phone}
+                onChange={handleChange}
+                className="bg-white dark:bg-gray-800 px-4 py-2 rounded-none border border-blue-500 outline-none focus:ring-2 "
+                required
+              />
+
+              <textarea
+                name="text"
+                placeholder="Cover letter"
+                value={formData?.text}
+                onChange={handleChange}
+                className="bg-white dark:bg-gray-800 px-4 py-2 min-h-[300px] rounded-none border border-blue-500 outline-none focus:ring-2 "
+                required
+              />
+
+              <div>
+                <div className="text-blue-500">Upload your resume </div>
+                {formData?.resume ? 
+                  <div>
+                    <button 
+                      onClick={handleRemoveResume} 
+                      className="w-full flex justify-end my-2"
+                    >
+                      <AiOutlineDelete className="w-6 h-6 text-red-500" />
+                    </button>
+                    <div>{formData?.resume?.name}</div>
+                  </div>
+                  :
+                  <label htmlFor="resume" className="border border-gray-300 rounded-md p-10 mt-2 flex justify-center hover:border-blue-500 group duration-200">
+                    <LuUpload className=" group-hover:text-blue-500 duration-200 h-12 w-12"/>
+                  </label>
+                }
+                <input 
+                  id="resume" 
+                  type="file" 
+                  className="hidden" 
+                  onChange={(e)=>{
+                    setFormData((prev:any)=>({...prev, resume: e.target.files && e.target.files[0] })) 
+
+                  }}
+                />
+              </div>
+              
+
+              <button 
+                type="submit"
+                className="bg-blue-500 text-white  hover:bg-blue-700 duration-200 py-2 font-bold text-lg"
+              >
+                Apply
+              </button>
+            </form>
+          </div>
           }
         </div>
       </div>

@@ -2,7 +2,7 @@ import connectToDatabase from "../../../lib/mongodb";
 import Project from "../../../models/Project"
 
 export default async function handler(req, res) {
-    
+    console.log(req.method, 'method')
     const {slug} = req.query
     if (req.method === 'GET') {
       try {

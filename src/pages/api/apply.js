@@ -1,8 +1,19 @@
 import nodemailer from 'nodemailer';
 import multer from 'multer';
 
-// Set up multer for file upload handling
-const upload = multer({ dest: 'uploads/' }); // The uploaded files will be stored in the "uploads" folder
+const storage = multer.diskStorage({
+  destination: (req, file, cb) => {
+    cb(null, './uploads');
+  },
+  filename: (req, file, cb) => {
+    cb(null, Date.now() + '-' + file.originalname);
+  }
+});
+
+const upload = multer({
+  storage: storage,
+  limits: { fileSize: 10 * 1024 * 1024 },  
+})
 
 export const config = {
   api: {
