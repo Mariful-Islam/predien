@@ -25,8 +25,8 @@ function ContactUs() {
           <div 
             className="w-full sm:w-1/2 text-justify flex flex-col justify-center h-full text-white"
             data-aos="fade-right"
-            data-aos-duration="1000"
-            data-aos-delay="500"
+            data-aos-duration="500"
+            data-aos-delay="300"
           >
             <h1 className="font-bold text-green-500 ">About</h1>
             Hi, <br />
@@ -42,8 +42,8 @@ function ContactUs() {
           <div 
             className="w-full sm:w-1/2 flex flex-col justify-start mt-6 sm:mt-0 sm:justify-center h-full text-white"
             data-aos="fade-left"
-            data-aos-duration="1000"
-            data-aos-delay="500"
+            data-aos-duration="500"
+            data-aos-delay="300"
           >
             Agency: Predien <br />
             Founder: Mariful Islam Saad <br />
@@ -80,7 +80,7 @@ function ContactUs() {
         </div>
       </div>
 
-      <div className="z-0 absolute top-0 w-full h-screen bg-black backdrop-blur-xl opacity-20">
+      <div className="z-0 absolute top-0 w-full h-screen bg-black backdrop-blur-xl opacity-0">
         <Image
           src={contact}
           alt="contact"

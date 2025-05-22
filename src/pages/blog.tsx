@@ -11,7 +11,7 @@ import { SlCalender } from 'react-icons/sl'
 import Head from 'next/head'
 
 
-const API_URL = process.env.NODE_ENV==="production" ? "https://predien.vercel.app" : "http://localhost:3000"
+export const API_URL = process.env.NODE_ENV==="production" ? "https://predien.vercel.app" : "http://localhost:3000"
 
 function Blog({data}:{data:any}) {
 
@@ -94,7 +94,7 @@ function Blog({data}:{data:any}) {
                 <Link href={`/blog/${item.slug}`} className='z-30 absolute bottom-0 p-6 h-0 w-0 overflow-hidden group-hover:h-full group-hover:w-full duration-200 rounded-3xl'>
                   <div className='text-white font-bold text-xl'>{item.title}</div>
                   <br /> <br />
-                  <div className='flex gap-2 items-center mt-6'><SlCalender /><span>{moment(item.datetime).format('DD-MMMM-YYYY')}</span></div>
+                  <div className='flex gap-2 items-center mt-6 text-white'><SlCalender /><span className='text-white'>{moment(item.datetime).format('DD-MMMM-YYYY')}</span></div>
 
                  
                 </Link>

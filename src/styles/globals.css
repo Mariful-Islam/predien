@@ -4,18 +4,38 @@
 
 
 
-.prestyle {
-    h1, h2, h3, h4, h5, h6 {
-       font-style: revert;
-       font-size: revert;
-       font-weight: revert;
-    }
 
-    ul {
-        list-style: revert;
-        margin-left: 18px;
-    }
+h1, h2, h3, h4, h5, h6 {
+  font: revert;
+  font-size: revert;
+  font-weight: revert;
+  font-style: revert;
+  
+
 }
+
+.line-clamp-2 {
+  display: -webkit-box;
+  -webkit-line-clamp: 2; /* Limit the number of lines */
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis; /* Add the ellipsis (...) */
+}
+
+
+ul {
+  list-style: revert;
+}
+
+ol {
+  list-style: revert;
+}
+
+blockquote {
+  background-color: revert;
+  font-family: revert;
+}
+
 
 
 html {

@@ -22,24 +22,24 @@ function ServiceHeading({data}:{data: HeadingType}) {
           <h1
             className={`text-${data?.color}-500 text-xl font-bold text-center`}
             data-aos="fade-up"
-            data-aos-duration="1000"
-            data-aos-delay="500"
+            data-aos-duration="200"
+            data-aos-delay="100"
           >
             {data?.title}
           </h1>
           <h3
             className="text-slate-50 dark:text-slate-300 text-2xl md:text-5xl font-semibold text-center mt-4"
             data-aos="fade-up"
-            data-aos-duration="1000"
-            data-aos-delay="1000"
+            data-aos-duration="600"
+            data-aos-delay="250"
           >
             {data?.description}
           </h3>
           <div
             className="mt-10 flex flex-col gap-2 xs:flex-row justify-center"
             data-aos="fade-up"
-            data-aos-duration="1000"
-            data-aos-delay="1500"
+            data-aos-duration="600"
+            data-aos-delay="400"
           >
             <Link
               href="/contact#contact"

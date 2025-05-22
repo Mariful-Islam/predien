@@ -44,7 +44,7 @@ function Footer() {
         <div className="mt-6 xs:mt-0">
           <h2 className="text-xl font-bold">Services</h2>
           <nav>
-            <ul className="mt-3 text-slate-400 flex flex-col gap-2">
+            <ul className="mt-3 text-slate-400 flex flex-col gap-2 list-none">
               <li className="hover:text-slate-100 duration-200">
                 <Link href={`/services/custom-software-development`}>
                   Custom Software Development
@@ -71,7 +71,7 @@ function Footer() {
 
         <div className="mt-6 xs:mt-0">
           <h2 className="text-xl font-bold">Connect with us</h2>
-          <ul className="mt-3 flex gap-4">
+          <ul className="mt-3 flex gap-4 list-none">
             <li>
               <Link href={`https://www.linkedin.com/company/predien/`} target="_blank" >
                 <FaLinkedin className="w-6 h-6 hover:text-blue-500 duration-200"/>

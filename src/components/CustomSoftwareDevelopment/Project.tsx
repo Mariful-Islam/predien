@@ -10,16 +10,16 @@ function Project({ data }: { data: any }) {
       <h1
         className={`text-green-500 font-bold text-2xl`}
         data-aos="fade-up"
-        data-aos-duration="1000"
-        data-aos-delay="500"
+        data-aos-duration="600"
+        data-aos-delay="100"
       >
         Projects
       </h1>
       <div
         className="grid grid-cols-1 xs:grid-cols-2 ml:grid-cols-3 gap-4 mt-4"
         data-aos="fade-up"
-        data-aos-duration="1000"
-        data-aos-delay="1000"
+        data-aos-duration="600"
+        data-aos-delay="150"
       >
         {data?.map((item: any, index: number) => (
           <Link href={`/projects/${item?.slug}/`} key={index}>

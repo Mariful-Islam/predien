@@ -53,7 +53,7 @@ function Header() {
           </div>
           <div>
             <nav >
-              <ul className='hidden ml:flex gap-10'>
+              <ul className='hidden ml:flex gap-10 list-none'>
               {NavItems.map((item, index)=>(
                 <li key={index} >
                 <Link

@@ -17,8 +17,8 @@ const Table = ({ columns, data }: TableProps) => {
 
   if (!data){
     return (
-      <div className="flex justify-center items-center  w-full">
-        <div className="spinner">
+      <div className="flex justify-center items-center w-full w-min-full">
+        <div className="spinner w-full">
 
         </div>
       </div>

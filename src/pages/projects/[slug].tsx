@@ -1,5 +1,6 @@
 import Footer from "@/components/Footer";
 import Header from "@/components/Header";
+import { SlateRenderer } from "@/components/Renderer";
 import moment from "moment";
 import Link from "next/link";
 import { useRouter } from "next/router";
@@ -36,7 +37,10 @@ function Project({ data }: { data: any }) {
               <h1 className="text-3xl">{data.project_name}</h1>
               <div className="mt-4">{data?.brief}</div>
 
-              <div className="mt-4" dangerouslySetInnerHTML={{__html: data?.description}}/>
+              <SlateRenderer
+                data={data?.description}
+
+              />
             </div>
           </div>
         </div>

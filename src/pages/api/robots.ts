@@ -9,8 +9,7 @@ export default function handler(req:any, res:any) {
     // You can modify the content dynamically based on conditions
     const robotsTxt = `
       User-agent: *
-      
-      Allow: /
+
   
       # Sitemap location
       Sitemap: ${BASE_URL}/sitemap.xml/

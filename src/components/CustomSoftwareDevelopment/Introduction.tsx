@@ -6,16 +6,16 @@ function Introduction() {
       <h1
         className="text-green-500 font-bold text-2xl"
         data-aos="fade-up"
-        data-aos-duration="1000"
-        data-aos-delay="500"
+        data-aos-duration="600"
+        data-aos-delay="100"
       >
         Introduction
       </h1>
       <div
         className="text-slate-500 dark:text-slate-300 mt-2 text-justify"
         data-aos="fade-up"
-        data-aos-duration="1000"
-        data-aos-delay="500"
+        data-aos-duration="600"
+        data-aos-delay="150"
       >
         Introducing Custom Software Development, one of the most popular
         services on the market right now for developing a special software

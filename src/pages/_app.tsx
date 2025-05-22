@@ -91,6 +91,9 @@ export default function App({ Component, pageProps }: AppProps) {
             __html: JSON.stringify(structuredData),
           }}
         />
+
+        <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
+
       </Head>
       <ThemeProvider>
         <Component {...pageProps} />

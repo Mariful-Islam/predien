@@ -13,11 +13,11 @@ export default function Career() {
     const [edit, setEdit] = useState<any>(null);
   
     const columns: ColumnsProps[] = [
-      {
-        label: "ID",
-        accessor: "_id",
-        render: (item) => <div>{item._id}</div>,
-      },
+      // {
+      //   label: "ID",
+      //   accessor: "_id",
+      //   render: (item) => <div>{item._id}</div>,
+      // },
       {
         label: "Job title",
         accessor: "job_title",

@@ -9,18 +9,26 @@ import ContentView from "@/components/admin/contentView";
 import { MdDelete } from "react-icons/md";
 import DeleteConsent from "@/components/admin/deleteConsent";
 import Button from "@/components/Button";
+import ProjectForm from "@/components/admin/project/ProjectForm";
+
+
 
 export default function Project() {
   const [projects, setProjects] = useState<any>();
   const [View, setView] = useState<any>(null);
   const [dlt, setDlt] = useState<any>(null)
+  const [isOpenProjectCreateForm, setIsOpenProjectCreateForm] = useState<boolean>(false)
+
+  const handleProjectCreateForm = () => {
+    setIsOpenProjectCreateForm(!isOpenProjectCreateForm)
+  }
 
   const columns: ColumnsProps[] = [
-    {
-      label: "ID",
-      accessor: "_id",
-      render: (item) => <div>{item._id}</div>,
-    },
+    // {
+    //   label: "ID",
+    //   accessor: "_id",
+    //   render: (item) => <div>{item._id}</div>,
+    // },
     {
       label: "Project name",
       accessor: "project_name",
@@ -73,7 +81,7 @@ export default function Project() {
     <AdminLayout>
 
       <div className="flex justify-end mb-6">
-        <Button type="Normal">
+        <Button type="Normal" onClick={handleProjectCreateForm}>
           Add Project
         </Button>
       </div>
@@ -96,6 +104,17 @@ export default function Project() {
           onClose={()=>setDlt(null)}
           item={dlt}
           name="project"
+          refresh={fetchProjects}
+        />
+      )}
+
+
+      {isOpenProjectCreateForm && (
+        <ProjectForm 
+          isOpen={isOpenProjectCreateForm}
+          onClose={handleProjectCreateForm}
+          title="Create Project"
+          refresh={fetchProjects}
         />
       )}
 

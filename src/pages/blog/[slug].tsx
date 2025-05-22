@@ -3,14 +3,19 @@ import Footer from '@/components/Footer'
 import Header from '@/components/Header'
 import moment from 'moment'
 import Link from 'next/link'
+import { useRouter } from 'next/router'
 import React from 'react'
+import { GoArrowLeft } from 'react-icons/go'
 import { SlCalender } from 'react-icons/sl'
+import { SlateRenderer } from '@/components/Renderer'
 
 
 const API_URL = process.env.NODE_ENV==="production" ? "https://predien.vercel.app" : "http://localhost:3000"
 
 
 function Blog({data}: {data:any}) {
+  const router = useRouter()
+
 
   const extractH2Tags = (html:any) => {
     const matches = [...html.matchAll(/<h2[^>]*>(.*?)<\/h2>/g)];
@@ -27,26 +32,40 @@ function Blog({data}: {data:any}) {
         <Header/>
       </div>
       <div className='max-w-[1200px] mx-auto px-4 sm:px-20 py-12 dark:text-white text-black'>
+        <button
+          onClick={()=>router.back()}
+          className=" group flex gap-2 items-center justify-center  mb-4 text-blue-500 focus:ring-1 w-[80px]"
+        >
+          <GoArrowLeft className="text-blue-500 group-hover:-translate-x-2 duration-200" />{" "}
+          Back
+        </button>
         <div className='flex flex-col-reverse md:flex-row gap-12'>
 
           <div className='w-full md:w-3/4'>
             <h1 className='text-5xl font-bold '>{data?.title}</h1>
             <div className='flex gap-2 items-center mt-3 '><SlCalender className='stroke-1'/>{moment(data?.datetime).format('DD MMM YYYY')}</div>
             <div className='mt-3'>
-              <div dangerouslySetInnerHTML={{__html: data?.description || ''}} className='text-justify prestyle'/>
+              <SlateRenderer
+                data={data.description}
+              />
             </div>
             
           </div>
           <div className='w-full md:w-1/4'>
             <h1 className='text-2xl font-bold'>Content</h1>
-            <ul>
-              {h2List?.map((head, index)=>(
-                <li key={index} className=' hover:underline font-bold'>
-                  <Link href={`#head-${index+1}`}>{head}</Link>
-                </li>
+
+            {data.description &&
+                JSON.parse(data.description)?.map((item:any, index:number)=>(
+                <div key={index}>
+                  {item.type === "heading-one" &&
+                    <Link href={`#head-${index+1}`} role="button" key={index} className="text-sm font-semibold hover:underline">
+                      {item?.children[0].text}  
+                    </Link>
+                  
+                  }
+                </div>
               ))}
-              
-            </ul>
+  
           </div>
         </div>
       </div>

@@ -11,6 +11,7 @@ interface DeleteConsentProps {
   onClose: VoidFunction;
   item: any;
   name: string;
+  refresh: VoidFunction;
 }
 
 export default function DeleteConsent({
@@ -18,11 +19,14 @@ export default function DeleteConsent({
   onClose,
   item,
   name,
+  refresh
 }: DeleteConsentProps) {
   const deleteItem = () => {
     axios
       .delete(`${API_URL}/api/${name}s/${item?.slug}`)
       .then(() => {
+        onClose()
+        refresh()
         toast.success(`Deleted ${name} !`);
       })
       .catch(() => {
@@ -33,7 +37,7 @@ export default function DeleteConsent({
   return (
     <Modal isOpen={isOpen} onClose={onClose} title="Consent">
       <div className="h-[300px] flex flex-col gap-8 justify-center items-center">
-        <h1 className="text-2xl font-bold">Are you delete <span className="text-red-500">{item?.project_name}</span> {name} ?</h1>
+        <h1 className="text-2xl font-bold">Are you delete <span className="text-red-500">{item?.slug}</span> {name} ?</h1>
         <MdDelete  className="w-10 h-10 text-red-500"/>
       </div>
       <div className="flex gap-6 justify-end">
