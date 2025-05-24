@@ -4,6 +4,7 @@ import axios from "axios";
 import { API_URL } from "@/pages/career/create";
 import { toast } from "react-toastify";
 import Contentdit from "./contentdit";
+import { SlateRenderer } from "../Renderer";
 
 interface ContentViewProps {
   isOpen: boolean;
@@ -64,13 +65,12 @@ export default function ContentView({
               {keys?.map((key, index) => {
                 if (key === "description") {
                   return (
-                    <div className="flex gap-2" key={index}>
+                    <div className="flex flex-col gap-2" key={index}>
                       <div className="text-gray-600 font-bold">
                         {key?.split("_")?.join(" ")?.toUpperCase()}:{" "}
                       </div>
-                      <div
-                        className=" break-after-auto"
-                        dangerouslySetInnerHTML={{ __html: item?.[key as any] }}
+                      <SlateRenderer
+                        data={item?.[key as any]}
                       />
                     </div>
                   );

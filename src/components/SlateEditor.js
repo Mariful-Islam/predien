@@ -26,7 +26,7 @@ const SlateEditor = ({onChange}) => {
     {
       type: 'paragraph',
       children: [
-        { text: 'Start writing article' }
+        { text: '' }
       ],
     },
    
@@ -45,6 +45,7 @@ const SlateEditor = ({onChange}) => {
         setData(value)
         onChange(value)
       }}
+    
       
     >
       <Toolbar>
@@ -152,7 +153,7 @@ export const Element = ({ attributes, children, element }) => {
       )
     case 'bulleted-list':
       return (
-        <ul style={style} {...attributes}>
+        <ul style={style} {...attributes} className='list-disc ml-4'>
           {children}
         </ul>
       )
@@ -176,7 +177,7 @@ export const Element = ({ attributes, children, element }) => {
       )
     case 'numbered-list':
       return (
-        <ol style={style} {...attributes}>
+        <ol className='list-decimal ml-4' style={style} {...attributes}>
           {children}
         </ol>
       )

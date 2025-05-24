@@ -1,36 +1,10 @@
 import nodemailer from 'nodemailer';
-import multer from 'multer';
-
-const storage = multer.diskStorage({
-  destination: (req, file, cb) => {
-    cb(null, './uploads');
-  },
-  filename: (req, file, cb) => {
-    cb(null, Date.now() + '-' + file.originalname);
-  }
-});
-
-const upload = multer({
-  storage: storage,
-  limits: { fileSize: 10 * 1024 * 1024 },  
-})
-
-export const config = {
-  api: {
-    bodyParser: false, // Disable the default bodyParser to handle file uploads manually
-  },
-};
 
 export default async function handler(req, res) {
   if (req.method === 'POST') {
-    // Use multer to parse the form-data, including the file
-    upload.single('resume')(req, res, async (err) => {
-      if (err) {
-        return res.status(400).json({ error: 'File upload failed', details: err });
-      }
+ 
 
       const { to, subject, text, html } = req.body;
-      const resume = req.file; // This is the file that was uploaded
 
       // Create a transporter using your email service's settings
       const transporter = nodemailer.createTransport({
@@ -48,12 +22,7 @@ export default async function handler(req, res) {
         subject,                      // Subject line
         text,                         // Plain text body
         html,                         // HTML body
-        attachments: [
-          {
-            filename: resume.originalname,  // Use the original file name
-            path: resume.path,              // Path to the file (saved by multer)
-          },
-        ],
+    
       };
 
       try {
@@ -62,8 +31,7 @@ export default async function handler(req, res) {
       } catch (error) {
         res.status(500).json({ error: 'Failed to send email', details: error });
       }
-    });
-  } else {
+    } else {
     res.status(405).json({ error: 'Method Not Allowed' });
   }
 }

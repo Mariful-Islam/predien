@@ -57,7 +57,7 @@ function Blog({data}: {data:any}) {
             {data.description &&
                 JSON.parse(data.description)?.map((item:any, index:number)=>(
                 <div key={index}>
-                  {item.type === "heading-one" &&
+                  {(item.type === "heading-one" || item.type === "heading-one") &&
                     <Link href={`#head-${index+1}`} role="button" key={index} className="text-sm font-semibold hover:underline">
                       {item?.children[0].text}  
                     </Link>

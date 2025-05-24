@@ -24,11 +24,7 @@ export default function Project() {
   }
 
   const columns: ColumnsProps[] = [
-    // {
-    //   label: "ID",
-    //   accessor: "_id",
-    //   render: (item) => <div>{item._id}</div>,
-    // },
+
     {
       label: "Project name",
       accessor: "project_name",

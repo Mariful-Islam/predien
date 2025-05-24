@@ -43,15 +43,14 @@ function Apply({slug}:{slug: string}) {
 
     const newFormData = {
       subject: subject,
-      text: text,
-      resume: formData?.resume
+      text: text
     };
 
     if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData?.candidate_email)) {
       toast.error('Email is not valid.')
     } else {
       axios.post(`${BASE_URL}/api/apply/`, newFormData, {headers: {
-        'Content-Type': 'multipart/form-data',
+        'Content-Type': 'application/json',
       }})
         .then((response: any) => {
           setConfirmation(true)
@@ -110,6 +109,8 @@ function Apply({slug}:{slug: string}) {
                 required
               />
 
+              <span className="text-sm font-bold text-red-500">Lastly attachted resume link</span>
+
               <textarea
                 name="text"
                 placeholder="Cover letter"
@@ -119,7 +120,7 @@ function Apply({slug}:{slug: string}) {
                 required
               />
 
-              <div>
+              {/* <div>
                 <div className="text-blue-500">Upload your resume </div>
                 {formData?.resume ? 
                   <div>
@@ -145,7 +146,7 @@ function Apply({slug}:{slug: string}) {
 
                   }}
                 />
-              </div>
+              </div> */}
               
 
               <button 

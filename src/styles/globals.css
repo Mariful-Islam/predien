@@ -24,12 +24,16 @@ h1, h2, h3, h4, h5, h6 {
 
 
 ul {
-  list-style: revert;
+  list-style: disc;
+  list-style-position: inside;
+
 }
 
 ol {
-  list-style: revert;
+  list-style: decimal;
+  list-style-position: outside;
 }
+
 
 blockquote {
   background-color: revert;

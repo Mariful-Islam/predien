@@ -62,13 +62,16 @@ function Form({
               >
                 {field.split("_").join(" ").toUpperCase()}
               </label>
+              
               <SlateEditor
+            
                 onChange={(value:any)=>{
                   setFormData((prev:any)=>({
                     ...prev,
                     'description': JSON.stringify(value)
                   }))
                 }}
+              
               />
             </div>
           );
@@ -125,7 +128,30 @@ function Form({
               />
             </div>
           );
-        } else {
+        } else if (field.split("*")[1] === "date") {
+          return (
+            <div key={index} className="flex flex-col gap-2">
+              <label
+                htmlFor={field}
+                className="text-sm font-medium text-slate-500 dark:text-slate-300"
+              >
+                {field?.split("*")[0]?.split("_")?.join(" ")?.toUpperCase()}
+              </label>
+              <input
+                id={field}
+                type="date"
+                name={field?.split("*")[0]}
+                placeholder={`Type ${field
+                  ?.split("*")[0]
+                  ?.split("_")
+                  ?.join(" ")}`}
+                value={formData?.[field?.split("*")[0]] || ""}
+                onChange={onChange}
+                className="bg-white block w-full rounded-md  px-3 py-1.5 text-base text-slate-900 dark:text-slate-50 outline-1 -outline-offset-1 outline-slate-400 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-blue-500 sm:text-sm/6"
+              />
+            </div>
+          );
+        }  else {
           return (
             <div key={index} className="flex flex-col gap-2">
               <label
