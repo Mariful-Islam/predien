@@ -1,10 +1,11 @@
 import React from "react";
 import Modal from "../Modal";
 import axios from "axios";
-import { API_URL } from "@/pages/career/create";
+
 import { toast } from "react-toastify";
 import Button from "../Button";
 import { MdDelete } from "react-icons/md";
+import { API_URL } from "@/pages/blog";
 
 interface DeleteConsentProps {
   isOpen: boolean;

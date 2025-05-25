@@ -7,13 +7,11 @@ import { useRouter } from "next/router";
 import React from "react";
 import { GoArrowLeft } from "react-icons/go";
 import { SlCalender } from "react-icons/sl";
+import { API_URL } from "../blog";
 
-const API_URL =
-  process.env.NODE_ENV === "production"
-    ? "https://predien.vercel.app"
-    : "http://localhost:3000";
 
-function Project({ data }: { data: any }) {
+
+function Product({ data }: { data: any }) {
   const router = useRouter()
   return (
     <>
@@ -31,10 +29,8 @@ function Project({ data }: { data: any }) {
           </button>
           <div className="flex flex-col-reverse md:flex-row gap-12">
             <div className="w-full md:w-3/4">
-              <h1 className="text-5xl font-bold ">{data?.title}</h1>
-
-              <h1 className="text-3xl">{data.project_name}</h1>
-              <div className="mt-4">{data?.brief}</div>
+              <h1 className="text-5xl font-bold ">{data?.name}</h1>
+    
 
               <SlateRenderer
                 data={data?.description}
@@ -49,13 +45,13 @@ function Project({ data }: { data: any }) {
   );
 }
 
-export default Project;
+export default Product;
 
 export async function getServerSideProps(context: any) {
   const { slug } = context.params;
 
   try {
-    const res = await fetch(`${API_URL}/api/projects/${slug}/`);
+    const res = await fetch(`${API_URL}/api/products/${slug}/`);
     const data = await res.json();
 
     if (!res.ok) {

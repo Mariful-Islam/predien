@@ -19,16 +19,16 @@ function ContactUs() {
       <link rel="canonical" href="https://predien.vercel.app/contact"/>
     </Head>
     <div className=" relative overflow-hidden">
-      <div className="z-10 relative h-screen">
-        <Header />
-        <div className="max-w-[1200px] mx-auto flex flex-col sm:flex-row gap-0 sm:gap-12 px-4 md:px-20 h-full">
+    <div className="z-20 text-black relative overflow-hidden h-screen bg-gradient-to-l from-green-600 dark:from-green-800 via-blue-500 dark:via-blue-700 to-gray-600 dark:to-gray-700 dark:bg-black ">
+      <Header />
+        <div className="  max-w-[1200px] mx-auto flex flex-col sm:flex-row gap-0 sm:gap-12 px-4 md:px-20 h-full">
           <div 
             className="w-full sm:w-1/2 text-justify flex flex-col justify-center h-full text-white"
             data-aos="fade-right"
             data-aos-duration="500"
             data-aos-delay="300"
           >
-            <h1 className="font-bold text-green-500 ">About</h1>
+            <h1 className="font-bold text-white ">About</h1>
             Hi, <br />
             This is Predin, a global software development agency
             that specializes in developing custom software, desktop and mobile
@@ -53,7 +53,7 @@ function ContactUs() {
             
             <div className="flex flex-col gap-4 mt-12">
               <h2 className="text-xl font-bold">Connect with us</h2>
-                <ul className="mt-3 flex gap-4">
+                <ul className="mt-3 flex gap-4 list-none">
                   <li>
                     <Link href={`https://www.linkedin.com/company/predien/`} target="_blank" >
                       <FaLinkedin className="w-6 h-6 hover:text-blue-500 duration-200"/>
@@ -80,13 +80,13 @@ function ContactUs() {
         </div>
       </div>
 
-      <div className="z-0 absolute top-0 w-full h-screen bg-black backdrop-blur-xl opacity-0">
+      {/* <div className="z-0 absolute top-0 w-full h-screen bg-black backdrop-blur-xl">
         <Image
           src={contact}
           alt="contact"
           className="w-full h-screen object-cover"
         />
-      </div>
+      </div> */}
 
       <div className="bg-white dark:bg-black text-black dark:text-gray-300">
 

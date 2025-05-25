@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from "react";
 import Drawer from "../Drawer";
 import axios from "axios";
-import { API_URL } from "@/pages/career/create";
 import { toast } from "react-toastify";
 import Contentdit from "./contentdit";
 import { SlateRenderer } from "../Renderer";
+import { API_URL } from "@/pages/blog";
 
 interface ContentViewProps {
   isOpen: boolean;

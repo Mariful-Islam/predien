@@ -6,6 +6,7 @@ import React, { useEffect, useState } from "react";
 import { AiOutlineDelete } from "react-icons/ai";
 import { FiEdit2 } from "react-icons/fi";
 import { toast } from "react-toastify";
+import { API_URL } from "../blog";
 
 
 export const durationChoice = [
@@ -24,7 +25,6 @@ export const locationChoice = [
 
 ]
 
-export const API_URL = process.env.NODE_ENV==="production" ? "https://predien.vercel.app" : "http://localhost:3000"
 
 function JobCreate() {
   const [formData, setFormDta] = useState<any>();

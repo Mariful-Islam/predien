@@ -1,6 +1,7 @@
 import Link from 'next/link'
 import { useRouter } from 'next/router';
 import React from 'react'
+import { FaProductHunt } from 'react-icons/fa6';
 import { GoProject, GoTasklist } from 'react-icons/go';
 import { GrBlog } from 'react-icons/gr';
 import { MdOutlineRateReview } from 'react-icons/md';
@@ -14,6 +15,9 @@ interface menuItemsType {
 const menuItems: menuItemsType[] = [
     {
         label: 'Project', url: '/admin/project', icon: <GoProject />
+    },
+    {
+        label: 'Product', url: '/admin/product', icon: <FaProductHunt />
     },
     {
         label: 'Blog', url: '/admin/blog', icon: <GrBlog />

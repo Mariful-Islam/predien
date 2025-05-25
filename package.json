@@ -30,7 +30,8 @@
     "sitemap": "^8.0.0",
     "slate": "^0.112.0",
     "slate-history": "^0.113.1",
-    "slate-react": "^0.112.1"
+    "slate-react": "^0.112.1",
+    "swagger-ui-express": "^5.0.1"
   },
   "devDependencies": {
     "@types/aos": "^3.0.7",
@@ -39,6 +40,7 @@
     "@types/react-dom": "^19",
     "daisyui": "^4.12.23",
     "postcss": "^8",
+    "swagger-autogen": "^2.23.7",
     "tailwindcss": "^3.4.1",
     "typescript": "^5.7.2"
   }

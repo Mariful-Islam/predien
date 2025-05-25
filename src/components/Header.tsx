@@ -47,13 +47,13 @@ function Header() {
   return (
     <div className='max-w-[1200px] mx-auto z-40'>
       <div className={`flex justify-between items-center  w-full px-4 sm:px-20  ${isVisible ? 'bg-white shadow-lg dark:bg-black fixed left-0 right-0 py-4 ' : 'py-4 md:py-6'} duration-500 z-50`}>
-        <div className='flex gap-16 lg:gap-20  ml:items-center '>
+        <div className='flex gap-12 lg:gap-20  ml:items-center '>
           <div>
             <h1 className={`text-xl font-bold ${!isVisible ? 'text-gray-50' : 'text-black dark:text-gray-50'} `}><Link href='/'>predien</Link></h1>
           </div>
           <div>
             <nav >
-              <ul className='hidden ml:flex gap-10 list-none'>
+              <ul className='hidden ml:flex gap-6 xl:gap-10 list-none'>
               {NavItems.map((item, index)=>(
                 <li key={index} >
                 <Link

@@ -3,7 +3,7 @@ import Form from '../Form'
 import Modal from '../Modal'
 import axios from 'axios';
 import { toast } from 'react-toastify';
-import { API_URL } from '@/pages/career/create';
+import { API_URL } from '@/pages/blog';
 
 
 
