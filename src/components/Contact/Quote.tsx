@@ -71,9 +71,9 @@ function Quote() {
         data-aos-duration="1000"
         data-aos-delay="500"
       >
-        <h1 className="text-blue-500 font-bold">Send us Quote</h1>
+        <div className="text-blue-500 font-bold text-lg">Send us Quote</div>
 
-        <form onSubmit={handleQuote} className="flex flex-col gap-4 mt-6 w-full md:w-[315px] lg:w-[400px]">
+        <form onSubmit={handleQuote} className="mt-4 flex flex-col gap-4 mt-6 w-full md:w-[315px] lg:w-[400px]">
           <input
             type="email"
             name="client_email"

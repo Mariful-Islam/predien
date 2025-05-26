@@ -29,10 +29,15 @@ function Career({data}:{data: any}) {
               data-aos-duration="1000"
               data-aos-delay="500"
             >
-              <h1 className="text-3xl text-center ml:text-start ml:text-6xl text-white mt-16 ml:mt-[100px]">
+              <h1 className="text-3xl text-center ml:text-start ml:text-6xl text-white mt-16">
+                <div className="text-lg font-bold text-white mb-4">Career</div>
+                
                 Become a part of our dynamic and innovative team{" "}
                 <span className="font-bold text-blue-600">_</span>
               </h1>
+
+              <div className="text-white mt-6 text-center ml:text-start ">Find out job, contribute and gain something new.</div>
+
             </div>
 
             <div className="w-full ml:w-1/2">

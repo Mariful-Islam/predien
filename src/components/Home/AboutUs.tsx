@@ -25,8 +25,8 @@ function AboutUs() {
           data-aos-duration="1000"
           data-aos-delay="500"
         >
-          <h1 className="text-blue-500 font-bold">About Us</h1>
-          <h3 className="text-slate-500 dark:text-slate-300 text-5xl font-semibold">
+          <div className="text-blue-500 font-bold text-lg">About Us</div>
+          <h3 className="text-gray-800 dark:text-slate-300 text-5xl font-semibold pt-4">
             Dedicated to delivering exceptional service 
           </h3>
         </div>

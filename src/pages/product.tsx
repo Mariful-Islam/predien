@@ -18,7 +18,7 @@ function Product({data}:{data: any}) {
         <title>Predien | Career</title>
         <link rel="canonical" href="https://predien.vercel.app/career" />
       </Head>
-      <div className="text-black relative overflow-hidden h-screen bg-gradient-to-l from-violet-600 dark:from-violet-800 via-green-500 dark:via-green-700 to-lime-400 dark:to-lime-700 dark:bg-black ">
+      <div className="text-black relative overflow-hidden h-screen bg-gradient-to-l from-violet-600 dark:from-violet-800 via-green-500 dark:via-green-700 to-lime-400 dark:to-lime-700 bg-white dark:bg-black ">
         <Header />
         <div className="z-10 relative h-screen flex items-start ml:items-center">
           <div className="max-w-[1200px] mx-auto  px-4 sm:px-20 flex flex-col ml:flex-row gap-10 ml:gap-4 relative">
@@ -28,10 +28,13 @@ function Product({data}:{data: any}) {
               data-aos-duration="1000"
               data-aos-delay="500"
             >
-              <h1 className="text-3xl text-center ml:text-start ml:text-6xl text-white mt-16 ml:mt-[100px]">
+             
+              <h1 className="text-3xl text-center ml:text-start ml:text-6xl text-white mt-16">
+                <div className="text-lg font-bold text-white mb-4">Product</div>
                 Explore our products
                 <span className="font-bold text-blue-600">_</span>
               </h1>
+              <div className="text-white mt-6 text-center ml:text-start">Serve modern, robust, fast, scalable and secure product</div>
             </div>
 
             <div className="w-full ml:w-1/2">

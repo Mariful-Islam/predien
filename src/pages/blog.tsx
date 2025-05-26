@@ -57,9 +57,14 @@ function Blog({data}:{data:any}) {
               data-aos-delay="500"
             >
               <h1 className="text-3xl text-center ml:text-start ml:text-6xl text-white mt-16 ml:mt-[100px]">
+                <div className="text-lg font-bold text-white mb-4">Blog</div>
+                
                 Deep dive into technology
                 <span className="font-bold text-red-400">_</span>
               </h1>
+
+              <div className="text-white mt-6 text-center ml:text-start">Know more about the product. Provide solution of any issue of the product. </div>
+
             </div>
 
 

@@ -17,11 +17,11 @@ function Team() {
           data-aos-delay="500"
           style={{zIndex: 20}}
         >
-          <h1 className="text-blue-500 font-bold ">
+          <div className="text-blue-500 font-bold text-lg ">
             Core Team Members
-          </h1>
+          </div>
           <h3 
-            className="text-slate-500 dark:text-slate-300 text-5xl font-semibold"
+            className="text-gray-800 dark:text-slate-300 text-5xl font-semibold pt-4"
           >
             Members of our excellence team
           </h3>

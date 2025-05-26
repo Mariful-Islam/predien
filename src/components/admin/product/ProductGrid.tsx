@@ -6,7 +6,7 @@ import { MdOutlineKeyboardArrowRight } from "react-icons/md";
 function ProductGrid({ data }: { data: any }) {
   return (
     <>
-    <div className="my-8 mb-16">
+    <div className="pt-8 pb-16">
       <h1
         className={`text-green-500 font-bold text-2xl`}
         data-aos="fade-up"

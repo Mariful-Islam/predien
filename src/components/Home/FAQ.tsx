@@ -11,8 +11,8 @@ function FAQ() {
             data-aos-duration="1000"
             data-aos-delay="500"
           >
-            <h1 className="text-blue-500 font-bold">Frequently Ask Question</h1>
-            <h3 className="text-slate-500 dark:text-slate-300 text-5xl font-semibold">
+            <div className="text-blue-500 font-bold text-lg">Frequently Ask Question</div>
+            <h3 className="text-gray-800 dark:text-slate-300 text-5xl font-semibold pt-4">
               To clarify about us, read these
             </h3>
           </div>

@@ -19,7 +19,7 @@ function Introduction() {
         <div>
           <h1 className='text-5xl text-white font-bold '>Software Development</h1>
         </div>
-        <div className='mt-4 text-white'>
+        <div className='mt-4 text-gray-300 font-bold'>
           Providing top-tier business solutions for success
         </div>
         <div>

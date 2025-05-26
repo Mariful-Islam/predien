@@ -17,8 +17,8 @@ function Document() {
         <div
           data-aos="fade-down"
         >
-          <h1 className="text-blue-500 font-bold">Pitch Deck</h1>
-          <h3 className="text-slate-500 dark:text-slate-300 text-5xl font-semibold">
+          <div className="text-blue-500 font-bold text-lg">Pitch Deck</div>
+          <h3 className="text-gray-800 dark:text-slate-300 text-5xl font-semibold pt-4">
             A quick overview of our agency
           </h3>
         </div>
