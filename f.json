@@ -1,0 +1,1161 @@
+[
+  {
+    "type": "paragraph",
+    "children": [
+      { "text": "Here I implemented " },
+      { "text": "Shopify Custom Image Text Design", "bold": true },
+      {
+        "text": ". Where you will full freedom to customize image text as your wish"
+      }
+    ]
+  },
+  { "type": "paragraph", "children": [{ "text": "" }] },
+  {
+    "type": "paragraph",
+    "children": [
+      {
+        "text": "To implement in your shopify store you should follow this step by step"
+      }
+    ]
+  },
+  { "type": "paragraph", "children": [{ "text": "" }] },
+  {
+    "type": "heading-two",
+    "children": [{ "text": "1. Goto your shopify store." }]
+  },
+  {
+    "type": "paragraph",
+    "children": [
+      {
+        "text": "Goto your shopify store. Then find online store and then click three dot then press edit code."
+      }
+    ]
+  },
+  { "type": "paragraph", "children": [{ "text": "" }] },
+  {
+    "type": "paragraph",
+    "children": [
+      {
+        "text": "store > online store > edit code",
+        "code": true,
+        "italic": true
+      },
+      { "text": " ", "italic": true }
+    ]
+  },
+  { "type": "paragraph", "children": [{ "text": "" }] },
+  { "type": "heading-two", "children": [{ "text": "2. Find section folder" }] },
+  {
+    "type": "paragraph",
+    "children": [
+      { "text": "In section folder, you have to create a file name like " },
+      { "text": "\"custom-image-text.liquid\"", "bold": true },
+      { "text": " then press enter." }
+    ]
+  },
+  { "type": "paragraph", "children": [{ "text": "" }] },
+  {
+    "type": "heading-two",
+    "children": [{ "text": "3. Copy and paste the code " }]
+  },
+  {
+    "type": "paragraph",
+    "children": [{ "text": "Copy and paste the code in that file and save" }]
+  },
+  { "type": "paragraph", "children": [{ "text": "" }] },
+  { "type": "paragraph", "children": [{ "text": "" }] },
+  { "type": "paragraph", "children": [{ "code": true, "text": "" }] },
+  {
+    "type": "paragraph",
+    "children": [{ "code": true, "text": "{% schema %}" }]
+  },
+  { "type": "paragraph", "children": [{ "text": "{", "code": true }] },
+  {
+    "type": "paragraph",
+    "children": [{ "text": "  \"name\": \"My Image Text\",", "code": true }]
+  },
+  {
+    "type": "paragraph",
+    "children": [{ "text": "  \"settings\": [", "code": true }]
+  },
+  { "type": "paragraph", "children": [{ "text": "    {", "code": true }] },
+  {
+    "type": "paragraph",
+    "children": [{ "text": "      \"type\": \"image_picker\",", "code": true }]
+  },
+  {
+    "type": "paragraph",
+    "children": [{ "text": "      \"id\": \"side-image\",", "code": true }]
+  },
+  {
+    "type": "paragraph",
+    "children": [{ "text": "      \"label\": \"Side Image\"", "code": true }]
+  },
+  { "type": "paragraph", "children": [{ "text": "    },", "code": true }] },
+  { "type": "paragraph", "children": [{ "text": "    {", "code": true }] },
+  {
+    "type": "paragraph",
+    "children": [{ "text": "      \"type\": \"select\",", "code": true }]
+  },
+  {
+    "type": "paragraph",
+    "children": [
+      { "text": "      \"id\": \"image-text-swipe\",", "code": true }
+    ]
+  },
+  {
+    "type": "paragraph",
+    "children": [{ "text": "      \"label\": \"Align\",", "code": true }]
+  },
+  {
+    "type": "paragraph",
+    "children": [{ "text": "      \"options\": [", "code": true }]
+  },
+  { "type": "paragraph", "children": [{ "text": "        {", "code": true }] },
+  {
+    "type": "paragraph",
+    "children": [{ "text": "          \"label\": \"Left\",", "code": true }]
+  },
+  {
+    "type": "paragraph",
+    "children": [{ "text": "          \"value\": \"left\"", "code": true }]
+  },
+  { "type": "paragraph", "children": [{ "text": "        },", "code": true }] },
+  { "type": "paragraph", "children": [{ "text": "        {", "code": true }] },
+  {
+    "type": "paragraph",
+    "children": [{ "text": "          \"label\": \"Right\",", "code": true }]
+  },
+  {
+    "type": "paragraph",
+    "children": [{ "text": "          \"value\": \"right\"", "code": true }]
+  },
+  { "type": "paragraph", "children": [{ "text": "        }", "code": true }] },
+  { "type": "paragraph", "children": [{ "text": "      ]", "code": true }] },
+  { "type": "paragraph", "children": [{ "text": "    },", "code": true }] },
+  { "type": "paragraph", "children": [{ "text": "    {", "code": true }] },
+  {
+    "type": "paragraph",
+    "children": [{ "text": "      \"type\": \"text\",", "code": true }]
+  },
+  {
+    "type": "paragraph",
+    "children": [{ "text": "      \"id\": \"heading-text\",", "code": true }]
+  },
+  {
+    "type": "paragraph",
+    "children": [{ "text": "      \"label\": \"Heading Text\",", "code": true }]
+  },
+  {
+    "type": "paragraph",
+    "children": [{ "text": "      \"default\": \"Heading\"", "code": true }]
+  },
+  { "type": "paragraph", "children": [{ "text": "    },", "code": true }] },
+  { "type": "paragraph", "children": [{ "text": "    {", "code": true }] },
+  {
+    "type": "paragraph",
+    "children": [{ "text": "      \"type\": \"text\",", "code": true }]
+  },
+  {
+    "type": "paragraph",
+    "children": [
+      { "text": "      \"id\": \"heading_text_size\",", "code": true }
+    ]
+  },
+  {
+    "type": "paragraph",
+    "children": [
+      { "text": "      \"label\": \"Heading text size\",", "code": true }
+    ]
+  },
+  {
+    "type": "paragraph",
+    "children": [{ "text": "      \"default\": \"30\"", "code": true }]
+  },
+  { "type": "paragraph", "children": [{ "text": "    },", "code": true }] },
+  { "type": "paragraph", "children": [{ "text": "    {", "code": true }] },
+  {
+    "type": "paragraph",
+    "children": [{ "text": "      \"type\": \"select\",", "code": true }]
+  },
+  {
+    "type": "paragraph",
+    "children": [
+      { "text": "      \"id\": \"heading_font_weight\",", "code": true }
+    ]
+  },
+  {
+    "type": "paragraph",
+    "children": [
+      { "text": "      \"label\": \"heading font weight\",", "code": true }
+    ]
+  },
+  {
+    "type": "paragraph",
+    "children": [{ "text": "      \"options\": [", "code": true }]
+  },
+  { "type": "paragraph", "children": [{ "text": "        {", "code": true }] },
+  {
+    "type": "paragraph",
+    "children": [
+      { "text": "          \"label\": \"Extra Bold\",", "code": true }
+    ]
+  },
+  {
+    "type": "paragraph",
+    "children": [{ "text": "          \"value\": \"bolder\"", "code": true }]
+  },
+  { "type": "paragraph", "children": [{ "text": "        },", "code": true }] },
+  { "type": "paragraph", "children": [{ "text": "        {", "code": true }] },
+  {
+    "type": "paragraph",
+    "children": [{ "text": "          \"label\": \"Bold\",", "code": true }]
+  },
+  {
+    "type": "paragraph",
+    "children": [{ "text": "          \"value\": \"bold\"", "code": true }]
+  },
+  { "type": "paragraph", "children": [{ "text": "        },", "code": true }] },
+  { "type": "paragraph", "children": [{ "text": "", "code": true }] },
+  { "type": "paragraph", "children": [{ "text": "        {", "code": true }] },
+  {
+    "type": "paragraph",
+    "children": [{ "text": "          \"label\": \"Normal\",", "code": true }]
+  },
+  {
+    "type": "paragraph",
+    "children": [{ "text": "          \"value\": \"500\"", "code": true }]
+  },
+  { "type": "paragraph", "children": [{ "text": "        }", "code": true }] },
+  { "type": "paragraph", "children": [{ "text": "      ]", "code": true }] },
+  { "type": "paragraph", "children": [{ "text": "    },", "code": true }] },
+  { "type": "paragraph", "children": [{ "text": "    {", "code": true }] },
+  {
+    "type": "paragraph",
+    "children": [{ "text": "      \"type\": \"color\",", "code": true }]
+  },
+  {
+    "type": "paragraph",
+    "children": [
+      { "text": "      \"id\": \"text_color_heading\",", "code": true }
+    ]
+  },
+  {
+    "type": "paragraph",
+    "children": [
+      { "text": "      \"label\": \"Heading Text color\",", "code": true }
+    ]
+  },
+  {
+    "type": "paragraph",
+    "children": [{ "text": "      \"default\": \"#000000\"", "code": true }]
+  },
+  { "type": "paragraph", "children": [{ "text": "    },", "code": true }] },
+  { "type": "paragraph", "children": [{ "text": "", "code": true }] },
+  { "type": "paragraph", "children": [{ "text": "    {", "code": true }] },
+  {
+    "type": "paragraph",
+    "children": [{ "text": "      \"type\": \"text\",", "code": true }]
+  },
+  {
+    "type": "paragraph",
+    "children": [{ "text": "      \"id\": \"subheading-text\",", "code": true }]
+  },
+  {
+    "type": "paragraph",
+    "children": [
+      { "text": "      \"label\": \"Sub Heading Text\",", "code": true }
+    ]
+  },
+  {
+    "type": "paragraph",
+    "children": [{ "text": "      \"default\": \"Sub Heading\"", "code": true }]
+  },
+  { "type": "paragraph", "children": [{ "text": "    },", "code": true }] },
+  { "type": "paragraph", "children": [{ "text": "    {", "code": true }] },
+  {
+    "type": "paragraph",
+    "children": [{ "text": "      \"type\": \"text\",", "code": true }]
+  },
+  {
+    "type": "paragraph",
+    "children": [
+      { "text": "      \"id\": \"subheading-text-size\",", "code": true }
+    ]
+  },
+  {
+    "type": "paragraph",
+    "children": [
+      { "text": "      \"label\": \"Sub Heading text size\",", "code": true }
+    ]
+  },
+  {
+    "type": "paragraph",
+    "children": [{ "text": "      \"default\": \"16\"", "code": true }]
+  },
+  { "type": "paragraph", "children": [{ "text": "    },", "code": true }] },
+  { "type": "paragraph", "children": [{ "text": "", "code": true }] },
+  { "type": "paragraph", "children": [{ "text": "    {", "code": true }] },
+  {
+    "type": "paragraph",
+    "children": [{ "text": "      \"type\": \"select\",", "code": true }]
+  },
+  {
+    "type": "paragraph",
+    "children": [
+      { "text": "      \"id\": \"subheading_font_weight\",", "code": true }
+    ]
+  },
+  {
+    "type": "paragraph",
+    "children": [
+      { "text": "      \"label\": \"Sub heading font weight\",", "code": true }
+    ]
+  },
+  {
+    "type": "paragraph",
+    "children": [{ "text": "      \"options\": [", "code": true }]
+  },
+  { "type": "paragraph", "children": [{ "text": "        {", "code": true }] },
+  {
+    "type": "paragraph",
+    "children": [
+      { "text": "          \"label\": \"Extra Bold\",", "code": true }
+    ]
+  },
+  {
+    "type": "paragraph",
+    "children": [{ "text": "          \"value\": \"bolder\"", "code": true }]
+  },
+  { "type": "paragraph", "children": [{ "text": "        },", "code": true }] },
+  { "type": "paragraph", "children": [{ "text": "        {", "code": true }] },
+  {
+    "type": "paragraph",
+    "children": [{ "text": "          \"label\": \"Bold\",", "code": true }]
+  },
+  {
+    "type": "paragraph",
+    "children": [{ "text": "          \"value\": \"bold\"", "code": true }]
+  },
+  { "type": "paragraph", "children": [{ "text": "        },", "code": true }] },
+  { "type": "paragraph", "children": [{ "text": "", "code": true }] },
+  { "type": "paragraph", "children": [{ "text": "        {", "code": true }] },
+  {
+    "type": "paragraph",
+    "children": [{ "text": "          \"label\": \"Normal\",", "code": true }]
+  },
+  {
+    "type": "paragraph",
+    "children": [{ "text": "          \"value\": \"500\"", "code": true }]
+  },
+  { "type": "paragraph", "children": [{ "text": "        }", "code": true }] },
+  { "type": "paragraph", "children": [{ "text": "      ],", "code": true }] },
+  {
+    "type": "paragraph",
+    "children": [{ "text": "      \"default\": \"500\"", "code": true }]
+  },
+  { "type": "paragraph", "children": [{ "text": "    },", "code": true }] },
+  { "type": "paragraph", "children": [{ "text": "    {", "code": true }] },
+  {
+    "type": "paragraph",
+    "children": [{ "text": "      \"type\": \"color\",", "code": true }]
+  },
+  {
+    "type": "paragraph",
+    "children": [
+      { "text": "      \"id\": \"subheading_text_color\",", "code": true }
+    ]
+  },
+  {
+    "type": "paragraph",
+    "children": [
+      { "text": "      \"label\": \"Sub Heading Text color\",", "code": true }
+    ]
+  },
+  {
+    "type": "paragraph",
+    "children": [{ "text": "      \"default\": \"#000000\"", "code": true }]
+  },
+  { "type": "paragraph", "children": [{ "text": "    },", "code": true }] },
+  { "type": "paragraph", "children": [{ "text": "", "code": true }] },
+  { "type": "paragraph", "children": [{ "text": "    {", "code": true }] },
+  {
+    "type": "paragraph",
+    "children": [{ "text": "      \"type\": \"select\",", "code": true }]
+  },
+  {
+    "type": "paragraph",
+    "children": [{ "text": "      \"id\": \"header_justify\",", "code": true }]
+  },
+  {
+    "type": "paragraph",
+    "children": [
+      {
+        "text": "      \"label\": \"Header section horizontal\",",
+        "code": true
+      }
+    ]
+  },
+  {
+    "type": "paragraph",
+    "children": [{ "text": "      \"options\": [", "code": true }]
+  },
+  {
+    "type": "paragraph",
+    "children": [
+      {
+        "text": "        { \"label\": \"Start\", \"value\": \"start\" },",
+        "code": true
+      }
+    ]
+  },
+  {
+    "type": "paragraph",
+    "children": [
+      {
+        "text": "        { \"label\": \"Center\", \"value\": \"center\" },",
+        "code": true
+      }
+    ]
+  },
+  {
+    "type": "paragraph",
+    "children": [
+      {
+        "text": "        { \"label\": \"End\", \"value\": \"end\" }",
+        "code": true
+      }
+    ]
+  },
+  { "type": "paragraph", "children": [{ "text": "      ]", "code": true }] },
+  { "type": "paragraph", "children": [{ "text": "    },", "code": true }] },
+  { "type": "paragraph", "children": [{ "text": "    {", "code": true }] },
+  {
+    "type": "paragraph",
+    "children": [{ "text": "      \"type\": \"select\",", "code": true }]
+  },
+  {
+    "type": "paragraph",
+    "children": [
+      { "text": "      \"id\": \"heading_text_align\",", "code": true }
+    ]
+  },
+  {
+    "type": "paragraph",
+    "children": [
+      { "text": "      \"label\": \"heading text align\",", "code": true }
+    ]
+  },
+  {
+    "type": "paragraph",
+    "children": [{ "text": "      \"options\": [", "code": true }]
+  },
+  { "type": "paragraph", "children": [{ "text": "        {", "code": true }] },
+  {
+    "type": "paragraph",
+    "children": [{ "text": "          \"label\": \"Start\",", "code": true }]
+  },
+  {
+    "type": "paragraph",
+    "children": [{ "text": "          \"value\": \"left\"", "code": true }]
+  },
+  { "type": "paragraph", "children": [{ "text": "        },", "code": true }] },
+  { "type": "paragraph", "children": [{ "text": "        {", "code": true }] },
+  {
+    "type": "paragraph",
+    "children": [{ "text": "          \"label\": \"Center\",", "code": true }]
+  },
+  {
+    "type": "paragraph",
+    "children": [{ "text": "          \"value\": \"center\"", "code": true }]
+  },
+  { "type": "paragraph", "children": [{ "text": "        },", "code": true }] },
+  { "type": "paragraph", "children": [{ "text": "", "code": true }] },
+  { "type": "paragraph", "children": [{ "text": "        {", "code": true }] },
+  {
+    "type": "paragraph",
+    "children": [{ "text": "          \"label\": \"End\",", "code": true }]
+  },
+  {
+    "type": "paragraph",
+    "children": [{ "text": "          \"value\": \"right\"", "code": true }]
+  },
+  { "type": "paragraph", "children": [{ "text": "        }", "code": true }] },
+  { "type": "paragraph", "children": [{ "text": "      ]", "code": true }] },
+  { "type": "paragraph", "children": [{ "text": "    },", "code": true }] },
+  { "type": "paragraph", "children": [{ "text": "    {", "code": true }] },
+  {
+    "type": "paragraph",
+    "children": [{ "text": "      \"type\": \"select\",", "code": true }]
+  },
+  {
+    "type": "paragraph",
+    "children": [{ "text": "      \"id\": \"header_align\",", "code": true }]
+  },
+  {
+    "type": "paragraph",
+    "children": [
+      { "text": "      \"label\": \"Header section vertical\",", "code": true }
+    ]
+  },
+  {
+    "type": "paragraph",
+    "children": [{ "text": "      \"options\": [", "code": true }]
+  },
+  {
+    "type": "paragraph",
+    "children": [
+      {
+        "text": "        { \"label\": \"Start\", \"value\": \"start\" },",
+        "code": true
+      }
+    ]
+  },
+  {
+    "type": "paragraph",
+    "children": [
+      {
+        "text": "        { \"label\": \"Center\", \"value\": \"center\" },",
+        "code": true
+      }
+    ]
+  },
+  {
+    "type": "paragraph",
+    "children": [
+      {
+        "text": "        { \"label\": \"End\", \"value\": \"end\" }",
+        "code": true
+      }
+    ]
+  },
+  { "type": "paragraph", "children": [{ "text": "      ]", "code": true }] },
+  { "type": "paragraph", "children": [{ "text": "    },", "code": true }] },
+  { "type": "paragraph", "children": [{ "text": "", "code": true }] },
+  { "type": "paragraph", "children": [{ "text": "    {", "code": true }] },
+  {
+    "type": "paragraph",
+    "children": [{ "text": "      \"type\": \"url\",", "code": true }]
+  },
+  {
+    "type": "paragraph",
+    "children": [{ "text": "      \"id\": \"button_link\",", "code": true }]
+  },
+  {
+    "type": "paragraph",
+    "children": [{ "text": "      \"label\": \"Button link\"", "code": true }]
+  },
+  { "type": "paragraph", "children": [{ "text": "    },", "code": true }] },
+  { "type": "paragraph", "children": [{ "text": "    {", "code": true }] },
+  {
+    "type": "paragraph",
+    "children": [{ "text": "      \"type\": \"text\",", "code": true }]
+  },
+  {
+    "type": "paragraph",
+    "children": [{ "text": "      \"id\": \"button_text\",", "code": true }]
+  },
+  {
+    "type": "paragraph",
+    "children": [{ "text": "      \"label\": \"Button text\",", "code": true }]
+  },
+  {
+    "type": "paragraph",
+    "children": [{ "text": "      \"default\": \"Shop Now\"", "code": true }]
+  },
+  { "type": "paragraph", "children": [{ "text": "    },", "code": true }] },
+  { "type": "paragraph", "children": [{ "text": "", "code": true }] },
+  { "type": "paragraph", "children": [{ "text": "    {", "code": true }] },
+  {
+    "type": "paragraph",
+    "children": [{ "text": "      \"type\": \"text\",", "code": true }]
+  },
+  {
+    "type": "paragraph",
+    "children": [
+      { "text": "      \"id\": \"button_border_radius\",", "code": true }
+    ]
+  },
+  {
+    "type": "paragraph",
+    "children": [
+      { "text": "      \"label\": \"button_border_radius\",", "code": true }
+    ]
+  },
+  {
+    "type": "paragraph",
+    "children": [{ "text": "      \"default\": \"12\"", "code": true }]
+  },
+  { "type": "paragraph", "children": [{ "text": "    },", "code": true }] },
+  { "type": "paragraph", "children": [{ "text": "    {", "code": true }] },
+  {
+    "type": "paragraph",
+    "children": [{ "text": "      \"type\": \"text\",", "code": true }]
+  },
+  {
+    "type": "paragraph",
+    "children": [
+      { "text": "      \"id\": \"button_text_size\",", "code": true }
+    ]
+  },
+  {
+    "type": "paragraph",
+    "children": [
+      { "text": "      \"label\": \"Button text size\",", "code": true }
+    ]
+  },
+  {
+    "type": "paragraph",
+    "children": [{ "text": "      \"default\": \"12\"", "code": true }]
+  },
+  { "type": "paragraph", "children": [{ "text": "    },", "code": true }] },
+  { "type": "paragraph", "children": [{ "text": "    {", "code": true }] },
+  {
+    "type": "paragraph",
+    "children": [{ "text": "      \"type\": \"text\",", "code": true }]
+  },
+  {
+    "type": "paragraph",
+    "children": [
+      { "text": "      \"id\": \"button_horizontal_padding\",", "code": true }
+    ]
+  },
+  {
+    "type": "paragraph",
+    "children": [
+      {
+        "text": "      \"label\": \"button_horizontal_padding\",",
+        "code": true
+      }
+    ]
+  },
+  {
+    "type": "paragraph",
+    "children": [{ "text": "      \"default\": \"30\"", "code": true }]
+  },
+  { "type": "paragraph", "children": [{ "text": "    },", "code": true }] },
+  { "type": "paragraph", "children": [{ "text": "    {", "code": true }] },
+  {
+    "type": "paragraph",
+    "children": [{ "text": "      \"type\": \"text\",", "code": true }]
+  },
+  {
+    "type": "paragraph",
+    "children": [
+      { "text": "      \"id\": \"button_vertical_padding\",", "code": true }
+    ]
+  },
+  {
+    "type": "paragraph",
+    "children": [
+      { "text": "      \"label\": \"button_vertical_padding\",", "code": true }
+    ]
+  },
+  {
+    "type": "paragraph",
+    "children": [{ "text": "      \"default\": \"15\"", "code": true }]
+  },
+  { "type": "paragraph", "children": [{ "text": "    },", "code": true }] },
+  { "type": "paragraph", "children": [{ "text": "", "code": true }] },
+  { "type": "paragraph", "children": [{ "text": "    {", "code": true }] },
+  {
+    "type": "paragraph",
+    "children": [{ "text": "      \"type\": \"select\",", "code": true }]
+  },
+  {
+    "type": "paragraph",
+    "children": [
+      { "text": "      \"id\": \"button_font_weight\",", "code": true }
+    ]
+  },
+  {
+    "type": "paragraph",
+    "children": [
+      { "text": "      \"label\": \"Button font weight\",", "code": true }
+    ]
+  },
+  {
+    "type": "paragraph",
+    "children": [{ "text": "      \"options\": [", "code": true }]
+  },
+  { "type": "paragraph", "children": [{ "text": "        {", "code": true }] },
+  {
+    "type": "paragraph",
+    "children": [{ "text": "          \"label\": \"Bold\",", "code": true }]
+  },
+  {
+    "type": "paragraph",
+    "children": [{ "text": "          \"value\": \"bold\"", "code": true }]
+  },
+  { "type": "paragraph", "children": [{ "text": "        },", "code": true }] },
+  { "type": "paragraph", "children": [{ "text": "", "code": true }] },
+  { "type": "paragraph", "children": [{ "text": "        {", "code": true }] },
+  {
+    "type": "paragraph",
+    "children": [{ "text": "          \"label\": \"Normal\",", "code": true }]
+  },
+  {
+    "type": "paragraph",
+    "children": [{ "text": "          \"value\": \"500\"", "code": true }]
+  },
+  { "type": "paragraph", "children": [{ "text": "        }", "code": true }] },
+  { "type": "paragraph", "children": [{ "text": "      ]", "code": true }] },
+  { "type": "paragraph", "children": [{ "text": "    },", "code": true }] },
+  { "type": "paragraph", "children": [{ "text": "    {", "code": true }] },
+  {
+    "type": "paragraph",
+    "children": [{ "text": "      \"type\": \"color\",", "code": true }]
+  },
+  {
+    "type": "paragraph",
+    "children": [
+      { "text": "      \"id\": \"hero-button-color\",", "code": true }
+    ]
+  },
+  {
+    "type": "paragraph",
+    "children": [{ "text": "      \"label\": \"Button Color\",", "code": true }]
+  },
+  {
+    "type": "paragraph",
+    "children": [{ "text": "      \"default\": \"#FFFFFF\"", "code": true }]
+  },
+  { "type": "paragraph", "children": [{ "text": "    },", "code": true }] },
+  { "type": "paragraph", "children": [{ "text": "    {", "code": true }] },
+  {
+    "type": "paragraph",
+    "children": [{ "text": "      \"type\": \"color\",", "code": true }]
+  },
+  {
+    "type": "paragraph",
+    "children": [
+      { "text": "      \"id\": \"hero-button-hover-color\",", "code": true }
+    ]
+  },
+  {
+    "type": "paragraph",
+    "children": [
+      { "text": "      \"label\": \"hero-button-hover-color\",", "code": true }
+    ]
+  },
+  {
+    "type": "paragraph",
+    "children": [{ "text": "      \"default\": \"#D6D6D6\"", "code": true }]
+  },
+  { "type": "paragraph", "children": [{ "text": "    },", "code": true }] },
+  { "type": "paragraph", "children": [{ "text": "    {", "code": true }] },
+  {
+    "type": "paragraph",
+    "children": [{ "text": "      \"type\": \"color\",", "code": true }]
+  },
+  {
+    "type": "paragraph",
+    "children": [
+      { "text": "      \"id\": \"hero-button-text-color\",", "code": true }
+    ]
+  },
+  {
+    "type": "paragraph",
+    "children": [
+      { "text": "      \"label\": \"hero-button-text-color\",", "code": true }
+    ]
+  },
+  {
+    "type": "paragraph",
+    "children": [{ "text": "      \"default\": \"#000000\"", "code": true }]
+  },
+  { "type": "paragraph", "children": [{ "text": "    },", "code": true }] },
+  { "type": "paragraph", "children": [{ "text": "    {", "code": true }] },
+  {
+    "type": "paragraph",
+    "children": [{ "text": "      \"type\": \"color\",", "code": true }]
+  },
+  {
+    "type": "paragraph",
+    "children": [
+      {
+        "text": "      \"id\": \"hero-button-text-hover-color\",",
+        "code": true
+      }
+    ]
+  },
+  {
+    "type": "paragraph",
+    "children": [
+      {
+        "text": "      \"label\": \"hero-button-text-hover-color\",",
+        "code": true
+      }
+    ]
+  },
+  {
+    "type": "paragraph",
+    "children": [{ "text": "      \"default\": \"#000000\"", "code": true }]
+  },
+  { "type": "paragraph", "children": [{ "text": "    }", "code": true }] },
+  { "type": "paragraph", "children": [{ "text": "  ],", "code": true }] },
+  {
+    "type": "paragraph",
+    "children": [{ "text": "  \"presets\": [", "code": true }]
+  },
+  { "type": "paragraph", "children": [{ "text": "    {", "code": true }] },
+  {
+    "type": "paragraph",
+    "children": [{ "text": "      \"name\": \"My Image Text\"", "code": true }]
+  },
+  { "type": "paragraph", "children": [{ "text": "    }", "code": true }] },
+  { "type": "paragraph", "children": [{ "text": "  ]", "code": true }] },
+  { "type": "paragraph", "children": [{ "text": "}", "code": true }] },
+  {
+    "type": "paragraph",
+    "children": [{ "text": "{% endschema %}", "code": true }]
+  },
+  { "type": "paragraph", "children": [{ "text": "", "code": true }] },
+  {
+    "type": "paragraph",
+    "children": [
+      { "text": "<section class=\" page-width h-full\">", "code": true }
+    ]
+  },
+  {
+    "type": "paragraph",
+    "children": [{ "text": "  <div class=\"flex ", "code": true }]
+  },
+  {
+    "type": "paragraph",
+    "children": [
+      {
+        "text": "    {% if section.settings.image-text-swipe == 'left' %}",
+        "code": true
+      }
+    ]
+  },
+  {
+    "type": "paragraph",
+    "children": [{ "text": "      flex-col md:flex-row", "code": true }]
+  },
+  {
+    "type": "paragraph",
+    "children": [{ "text": "    {% else %}", "code": true }]
+  },
+  {
+    "type": "paragraph",
+    "children": [
+      { "text": "      flex-col-reverse md:flex-row-reverse", "code": true }
+    ]
+  },
+  {
+    "type": "paragraph",
+    "children": [{ "text": "    {% endif %} ", "code": true }]
+  },
+  {
+    "type": "paragraph",
+    "children": [
+      {
+        "text": "    gap-16  h-full items-{{ section.settings.header_align }}\"",
+        "code": true
+      }
+    ]
+  },
+  { "type": "paragraph", "children": [{ "text": "  >", "code": true }] },
+  {
+    "type": "paragraph",
+    "children": [
+      { "text": "    <div class=\"w-full md:w-1/2 h-full\">", "code": true }
+    ]
+  },
+  { "type": "paragraph", "children": [{ "text": "      <img", "code": true }] },
+  {
+    "type": "paragraph",
+    "children": [
+      {
+        "text": "        src=\"{{ section.settings.side-image | img_url: 'master' }}\"",
+        "code": true
+      }
+    ]
+  },
+  {
+    "type": "paragraph",
+    "children": [
+      {
+        "text": "        alt=\"{{ section.settings.side-image.alt }}\"",
+        "code": true
+      }
+    ]
+  },
+  {
+    "type": "paragraph",
+    "children": [{ "text": "        height=\"\"", "code": true }]
+  },
+  {
+    "type": "paragraph",
+    "children": [{ "text": "        width=\"\"", "code": true }]
+  },
+  {
+    "type": "paragraph",
+    "children": [
+      {
+        "text": "        class=\"min-h-[500px] w-full object-cover\"",
+        "code": true
+      }
+    ]
+  },
+  { "type": "paragraph", "children": [{ "text": "      >", "code": true }] },
+  { "type": "paragraph", "children": [{ "text": "    </div>", "code": true }] },
+  { "type": "paragraph", "children": [{ "text": "", "code": true }] },
+  { "type": "paragraph", "children": [{ "text": "    <div", "code": true }] },
+  {
+    "type": "paragraph",
+    "children": [
+      {
+        "text": "      class=\"w-full md:w-1/2 h-full flex mt-16 mb-20\"",
+        "code": true
+      }
+    ]
+  },
+  {
+    "type": "paragraph",
+    "children": [
+      {
+        "text": "      style=\"display: flex; flex-direction: column; justify-content: {{ section.settings.header_align }}; align-items: {{ section.settings.header_justify }};\"",
+        "code": true
+      }
+    ]
+  },
+  { "type": "paragraph", "children": [{ "text": "    >", "code": true }] },
+  { "type": "paragraph", "children": [{ "text": "      <div", "code": true }] },
+  {
+    "type": "paragraph",
+    "children": [
+      {
+        "text": "        style=\"text-align: {{ section.settings.heading_text_align }};\"",
+        "code": true
+      }
+    ]
+  },
+  { "type": "paragraph", "children": [{ "text": "      >", "code": true }] },
+  {
+    "type": "paragraph",
+    "children": [
+      {
+        "text": "        <p style=\"margin-bottom: 4px; color: {{ section.settings.text_color_heading }}; font-size: {{ section.settings.heading_text_size }}px; font-weight: {{ section.settings.heading_font_weight }}\">",
+        "code": true
+      }
+    ]
+  },
+  {
+    "type": "paragraph",
+    "children": [
+      {
+        "text": "          {{ section.settings['heading-text'] }}",
+        "code": true
+      }
+    ]
+  },
+  {
+    "type": "paragraph",
+    "children": [{ "text": "        </p>", "code": true }]
+  },
+  {
+    "type": "paragraph",
+    "children": [
+      {
+        "text": "        <p style=\"font-size: {{ section.settings.subheading_text_size }}px; font-weight: {{ section.settings.subheading_font_weight }}\">",
+        "code": true
+      }
+    ]
+  },
+  {
+    "type": "paragraph",
+    "children": [
+      {
+        "text": "          {{ section.settings['subheading-text'] }}",
+        "code": true
+      }
+    ]
+  },
+  {
+    "type": "paragraph",
+    "children": [{ "text": "        </p>", "code": true }]
+  },
+  { "type": "paragraph", "children": [{ "text": "", "code": true }] },
+  {
+    "type": "paragraph",
+    "children": [{ "text": "        <div class=\"mt-16\">", "code": true }]
+  },
+  {
+    "type": "paragraph",
+    "children": [{ "text": "          <a", "code": true }]
+  },
+  {
+    "type": "paragraph",
+    "children": [
+      {
+        "text": "            href=\"{{ section.settings.button_link }}\"",
+        "code": true
+      }
+    ]
+  },
+  {
+    "type": "paragraph",
+    "children": [
+      {
+        "text": "            class=\"custom-hero__btn gradient duration-150\"",
+        "code": true
+      }
+    ]
+  },
+  {
+    "type": "paragraph",
+    "children": [
+      {
+        "text": "            style=\"font-size: {{ section.settings.button_text_size }}; background-color: {{ section.settings.hero-button-color}}; color: {{ section.settings.hero-button-text-color }}\"",
+        "code": true
+      }
+    ]
+  },
+  {
+    "type": "paragraph",
+    "children": [{ "text": "          >", "code": true }]
+  },
+  {
+    "type": "paragraph",
+    "children": [
+      {
+        "text": "            {{- section.settings.button_text -}}",
+        "code": true
+      }
+    ]
+  },
+  {
+    "type": "paragraph",
+    "children": [{ "text": "          </a>", "code": true }]
+  },
+  {
+    "type": "paragraph",
+    "children": [{ "text": "        </div>", "code": true }]
+  },
+  {
+    "type": "paragraph",
+    "children": [{ "text": "      </div>", "code": true }]
+  },
+  { "type": "paragraph", "children": [{ "text": "    </div>", "code": true }] },
+  { "type": "paragraph", "children": [{ "text": "  </div>", "code": true }] },
+  { "type": "paragraph", "children": [{ "text": "</section>", "code": true }] },
+  { "type": "paragraph", "children": [{ "text": "", "code": true }] },
+  {
+    "type": "paragraph",
+    "children": [
+      {
+        "text": "<script async src=\"https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4\"></script>",
+        "code": true
+      }
+    ]
+  },
+  {
+    "type": "paragraph",
+    "children": [
+      {
+        "text": "<script src=\"https://cdn.jsdelivr.net/npm/@tailwindplus/elements@1\" type=\"module\"></script>",
+        "code": true
+      }
+    ]
+  },
+  { "type": "paragraph", "children": [{ "text": "", "code": true }] },
+  { "type": "paragraph", "children": [{ "text": "<style>", "code": true }] },
+  {
+    "type": "paragraph",
+    "children": [{ "text": "    .custom-hero__btn {", "code": true }]
+  },
+  {
+    "type": "paragraph",
+    "children": [
+      {
+        "text": "    padding: {{ section.settings.button_vertical_padding }}px {{ section.settings.button_horizontal_padding }}px;",
+        "code": true
+      }
+    ]
+  },
+  {
+    "type": "paragraph",
+    "children": [{ "text": "    text-decoration: none;", "code": true }]
+  },
+  {
+    "type": "paragraph",
+    "children": [
+      {
+        "text": "    font-weight: {{ section.settings.button_font_weight }};",
+        "code": true
+      }
+    ]
+  },
+  {
+    "type": "paragraph",
+    "children": [
+      {
+        "text": "    border-radius: {{ section.settings.button_border_radius }}px;",
+        "code": true
+      }
+    ]
+  },
+  { "type": "paragraph", "children": [{ "text": "", "code": true }] },
+  { "type": "paragraph", "children": [{ "text": "  }", "code": true }] },
+  { "type": "paragraph", "children": [{ "text": "", "code": true }] },
+  {
+    "type": "paragraph",
+    "children": [{ "text": "  .custom-hero__btn:hover {", "code": true }]
+  },
+  {
+    "type": "paragraph",
+    "children": [
+      {
+        "text": "    background-color: {{ section.settings.hero-button-hover-color }} !important;",
+        "code": true
+      }
+    ]
+  },
+  {
+    "type": "paragraph",
+    "children": [
+      {
+        "text": "    color: {{ section.settings.hero-button-text-hover-color }} !important;",
+        "code": true
+      }
+    ]
+  },
+  { "type": "paragraph", "children": [{ "text": "", "code": true }] },
+  { "type": "paragraph", "children": [{ "text": "  }", "code": true }] },
+  { "type": "paragraph", "children": [{ "text": "</style>", "code": true }] },
+  { "type": "paragraph", "children": [{ "code": true, "text": "" }] },
+  { "type": "paragraph", "children": [{ "code": true, "text": "" }] },
+  { "type": "paragraph", "children": [{ "code": true, "text": "" }] },
+  { "type": "heading-two", "children": [{ "text": "4. Find the section" }] },
+  {
+    "type": "paragraph",
+    "children": [
+      {
+        "text": "Goto to your theme and click on add section find out the named "
+      },
+      { "text": "\"", "bold": true, "italic": true, "underline": true },
+      {
+        "text": "My Image Text\"",
+        "code": true,
+        "bold": true,
+        "italic": true,
+        "underline": true
+      },
+      { "text": " and select. " }
+    ]
+  },
+  { "type": "paragraph", "children": [{ "text": "" }] },
+  { "type": "heading-two", "children": [{ "text": "5. Not found it" }] },
+  {
+    "type": "paragraph",
+    "children": [
+      {
+        "text": "If you don't find you should refresh the page. I hop should find it."
+      }
+    ]
+  },
+  { "type": "paragraph", "children": [{ "code": true, "text": "" }] }
+]
