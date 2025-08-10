@@ -23,11 +23,11 @@ function serializeNode(node: any): string {
         .replace(/\s+/g, "-")
         .toLowerCase()} class="mt-6 scroll-mt-32">${children}</h2>`;
     case "block-quote":
-      return `<blockquote class="my-6">${children}</blockquote>`;
+      return `<blockquote class="ml-6">${children}</blockquote>`;
     case "bulleted-list":
-      return `<ul>${children}</ul>`;
+      return `<ul class="ml-6">${children}</ul>`;
     case "numbered-list":
-      return `<ol>${children}</ol>`;
+      return `<ol class="ml-6">${children}</ol>`;
     case "list-item":
       return `<li>${children}</li>`;
     case "code-block":

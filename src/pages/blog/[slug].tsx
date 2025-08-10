@@ -40,7 +40,7 @@ function Blog({ data }: { data: any }) {
           Back
         </button>
         <div className="flex flex-col-reverse md:flex-row gap-12">
-          <div className="w-full md:w-3/4">
+          <div className="w-full md:w-3/4 ">
             <h1 className="text-5xl font-bold ">{data?.title}</h1>
             <div className="flex gap-2 items-center mt-3 ">
               <SlCalender className="stroke-1" />
@@ -57,13 +57,13 @@ function Blog({ data }: { data: any }) {
               dangerouslySetInnerHTML={{ __html: serializeToHtml }}
             />
           </div>
-          <div className="w-full md:w-1/4">
+          <div className="w-full md:w-1/4 sticky top-16 self-start">
             <h1 className="text-2xl font-bold">Content</h1>
             <div className="mt-4">
               {data.description &&
                 JSON.parse(data.description)?.map(
                   (item: any, index: number) => (
-                    <div key={index} className="mb-3">
+                    <div key={index} className="mb-2">
                       {(item.type === "heading-one" ||
                         item.type === "heading-two") && (
                         <Link
@@ -72,7 +72,12 @@ function Blog({ data }: { data: any }) {
                             .toLowerCase()}`}
                           role="button"
                           key={index}
-                          className="text-sm hover:underline hover:text-blue-500"
+                          
+                          className={`text-sm hover:underline hover:text-blue-500 ${router.asPath === `/blog/${data.slug}#${item.children[0].text
+                            .replace(/\s+/g, "-")
+                            .toLowerCase()}`
+                            ? "text-blue-500"
+                            : "text-gray-600 dark:text-gray-400"}`}
                         >
                           {item?.children[0].text}
                         </Link>
