@@ -1,12 +1,13 @@
 import React, { useEffect, useState } from "react";
 import Button from "./Button";
 import SlateEditor from "@/components/SlateEditor"
+import { useRouter } from "next/router";
 
 interface FormProps {
   fields: any[];
   onChangeFields: (data: any) => void;
   edit?: any;
-  onClose: VoidFunction;
+  onClose?: VoidFunction;
   onSubmit: (e: React.FormEvent) => string | void;
   submitBtnName?: string;
 }
@@ -21,6 +22,7 @@ function Form({
 }: FormProps) {
   const [formData, setFormData] = useState<any>(edit ? edit : {});
   const [loading, setLoading] = useState<boolean>(false);
+  const router = useRouter()
 
   const onChange = (e: any) => {
     const { name, value } = e.target;
@@ -90,7 +92,7 @@ function Form({
                 name={field?.split("*")[0]}
                 value={formData?.[field?.split("*")[0]] || ""}
                 onChange={onChange}
-                className="block w-full rounded-md  px-3 py-1.5 text-base text-slate-900 dark:text-slate-50 outline-1 -outline-offset-1 outline-slate-400 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-blue-500 sm:text-sm/6"
+                className="block rounded-md  px-3 py-1.5 text-base text-slate-900 dark:text-slate-50 outline-1 -outline-offset-1 outline-slate-400 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-blue-500 sm:text-sm/6"
               >
                 <option>Select a option</option>
 
@@ -124,7 +126,7 @@ function Form({
                   ?.join(" ")}`}
                 value={formData?.[field?.split("*")[0]] || ""}
                 onChange={onChange}
-                className="bg-white block w-full rounded-md  px-3 py-1.5 text-base text-slate-900 dark:text-slate-50 outline-1 -outline-offset-1 outline-slate-400 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-blue-500 sm:text-sm/6"
+                className="bg-white block rounded-md  px-3 py-1.5 text-base text-slate-900 dark:text-slate-50 outline-1 -outline-offset-1 outline-slate-400 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-blue-500 sm:text-sm/6"
               />
             </div>
           );
@@ -175,7 +177,7 @@ function Form({
       })}
 
       <div className="mt-4 flex gap-4 justify-end">
-        <Button type="DangerOutline" onClick={onClose}>
+        <Button type="DangerOutline" onClick={()=>router.push(`/admin/blog`)}>
           Cancel
         </Button>
         <Button type="Normal" submit>

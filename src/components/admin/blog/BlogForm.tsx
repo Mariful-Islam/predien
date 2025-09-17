@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import Form from "../../Form";
 import Modal from "../../Modal";
 import { API_URL } from "@/pages/blog";
+import AdminLayout from "@/pages/admin/_layout";
 
 interface BlogForm {
   isOpen: boolean;
@@ -44,7 +45,7 @@ export default function BlogForm({
     "description",
   ];
   return (
-    <Modal isOpen={isOpen} onClose={onClose} title={`${title}`}>
+    <AdminLayout>
       <Form
         onClose={onClose}
         fields={fields}
@@ -54,6 +55,6 @@ export default function BlogForm({
         onSubmit={handleBlogCreate}
         submitBtnName="Create"
       />
-    </Modal>
+    </AdminLayout>
   );
 }

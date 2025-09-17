@@ -9,8 +9,10 @@ import DeleteConsent from "@/components/admin/deleteConsent";
 import BlogForm from "@/components/admin/blog/BlogForm";
 import moment from "moment";
 import { MdDelete } from "react-icons/md";
+import Router, { useRouter } from "next/router";
 
 export default function Blog() {
+  const router = useRouter();
   const [blogs, setblogs] = useState<any>();
   const [View, setView] = useState<any>(null);
   const [dlt, setDlt] = useState<any>(null)
@@ -19,7 +21,7 @@ export default function Blog() {
     useState<boolean>(false);
 
   const handleBlogCreateForm = () => {
-    setIsOpenBlogCreateForm(!isOpenBlogCreateForm);
+    router.push('/admin/blog/create')
   };
 
   const columns: ColumnsProps[] = [
@@ -94,9 +96,12 @@ export default function Blog() {
 
   return (
     <AdminLayout>
-      <div className="flex justify-end mb-6">
+      <div className="flex justify-between mb-6">
+        <h2>
+          Blog
+        </h2>
         <Button type="Normal" onClick={handleBlogCreateForm}>
-          Add Blog
+          Write Blog
         </Button>
       </div>
       <Table columns={columns} data={blogs} />
