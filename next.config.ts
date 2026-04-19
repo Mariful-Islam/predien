@@ -13,7 +13,20 @@ const nextConfig: NextConfig = {
     ]);
   },
   images: {
-    domains: ['predien.vercel.app', 'res.cloudinary.com', 'i.pravatar.cc'], // Add your image domains here
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: 'predien.vercel.app',
+      },
+      {
+        protocol: 'https',
+        hostname: 'res.cloudinary.com',
+      },
+      {
+        protocol: 'https',
+        hostname: 'i.pravatar.cc',
+      },
+    ],
   },
 };
 

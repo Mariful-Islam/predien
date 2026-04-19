@@ -45,4 +45,4 @@ const ApplicationSchema = new mongoose.Schema({
 
 const Application = mongoose.models.Application || mongoose.model('Application', ApplicationSchema);
 
-module.exports = Application;
+export default Application;
