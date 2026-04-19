@@ -8,6 +8,8 @@ import Header from "@/components/Header";
 import Team from "@/components/Home/Team";
 import Document from "@/components/Home/Document";
 import Clients from "@/components/Home/Clients";
+import CTA from "@/components/Home/CTA";
+import Testimonials from "@/components/Home/Testmonials";
 
 
 
@@ -24,16 +26,18 @@ const geistMono = Geist_Mono({
 export default function Home() {
   return (
     <div
-      className={`${geistSans.variable} ${geistMono.variable} font-[family-name:var(--font-geist-sans)] dark:bg-black bg-white dark:text-white text-black`}
+      className={`${geistSans.variable} ${geistMono.variable}  `}
     >
-      <div className="bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 dark:from-black dark:via-purple-900 dark:bg-pink-800 w-full h-screen">
+      <div className=" w-full h-screen">
         <Header/>
         <Introduction/>
       </div>
       <Document/>
       <Team/>
       <AboutUs/>
-      <Clients/>
+      <Testimonials/>
+      <CTA/>
+
       
       <FAQ/>
       

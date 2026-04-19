@@ -22,9 +22,9 @@ const ThemeToggle = ({isVisible}:{isVisible?: boolean}) => {
   return (
     <button
       onClick={toggleTheme}
-      className={`p-2 rounded-full text-gray-500 dark:text-gray-500 hover:bg-gray-500 hover:dark:bg-gray-500 duration-200`}
+      className={`p-2 rounded-full text-gray-500 dark:text-gray-500 hover:bg-gray-100 hover:ring-1 hover:ring-gray-300 hover:dark:bg-gray-500 duration-200`}
     >
-      {theme === 'light' ? <IoSunnyOutline className={`${ !isVisible ? 'text-white' : 'text-black dark:text-slate-200'} `}/> : <MdOutlineNightlight className='text-white'/> }
+      {theme === 'light' ? <IoSunnyOutline className={`${ !isVisible ? 'text-gray-600 ' : 'text-black dark:text-slate-200'} `}/> : <MdOutlineNightlight className='text-white'/> }
       
     </button>
   );

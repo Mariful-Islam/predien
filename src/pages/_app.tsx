@@ -11,6 +11,14 @@ import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 
+import { Inter } from 'next/font/google';
+
+
+const jost = Inter({
+  subsets: ['latin'],
+  weight: ['400', '500', '700', '800', '900'],
+  variable: '--font-jost', // Using CSS variable for Tailwind
+});
 
 export default function App({ Component, pageProps }: AppProps) {
   
@@ -35,7 +43,7 @@ export default function App({ Component, pageProps }: AppProps) {
 
 
   return (
-    <>
+    <div className={`${jost.variable} `}>
       <Head>
         <title>Predien | Software development agency</title>
         <link rel="icon" href="/predien.png" />
@@ -100,6 +108,6 @@ export default function App({ Component, pageProps }: AppProps) {
         <ScrollToTop/>
         <ToastContainer />
       </ThemeProvider>
-    </>
+    </div>
   )
 }

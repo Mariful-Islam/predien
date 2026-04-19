@@ -277,12 +277,12 @@ export default CustomSoftwareDevelopment;
 
 
 
-export async function getServerSideProps() {
-  const response = await fetch(`${BASE_URL}/api/projects?type=web`, {cache: 'no-cache'})
+export async function getStaticProps() {
+  const response = await fetch(`${BASE_URL}/api/projects?type=web`)
   const data = await response.json()
 
   return {
-    props: {data}
+    props: { data },
+    revalidate: 60 // ISR (recommended)
   }
 }
-

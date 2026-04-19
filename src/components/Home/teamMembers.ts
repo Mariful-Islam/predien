@@ -11,6 +11,26 @@ export const TeamMembers = [
             email: 'marifulesgiu@gmail.com'
         }
     },
+        {
+        id: 1, 
+        name: "Md Mariful Islam",
+        image: Mariful,
+        role: 'Founder and CEO',
+        connect: {
+            linkedin: 'https://www.linkedin.com/in/mariful-islam-saad-a479a2192/',
+            email: 'marifulesgiu@gmail.com'
+        }
+    },
+        {
+        id: 1, 
+        name: "Md Mariful Islam",
+        image: Mariful,
+        role: 'Founder and CEO',
+        connect: {
+            linkedin: 'https://www.linkedin.com/in/mariful-islam-saad-a479a2192/',
+            email: 'marifulesgiu@gmail.com'
+        }
+    },
     // {
     //     id: 2, 
     //     name: "Alen Walker",

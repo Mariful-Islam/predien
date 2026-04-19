@@ -110,6 +110,14 @@ function BlogCreate() {
               value={formData?.slug || ""}
               className="px-4 py-2 bg-white outline-none border border-blue-500 focus:ring focus:ring-blue-500 text-gray-700"
             />
+            <input
+              type="text"
+              name="slug"
+              placeholder="Slug"
+              onChange={handleChange}
+              value={formData?.slug || ""}
+              className="px-4 py-2 bg-white outline-none border border-blue-500 focus:ring focus:ring-blue-500 text-gray-700"
+            />
             <textarea
               name="description"
               placeholder="Description"

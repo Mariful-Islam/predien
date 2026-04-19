@@ -9,6 +9,14 @@ const BlogSchema = new mongoose.Schema({
     type: String,
     required: [true, 'Slug is required'],
   },
+  seoTitle: {
+    type: String,
+    required: [true, 'Description is required'],
+  },
+  seoDescription: {
+    type: String,
+    required: [true, 'Description is required'],
+  },
   description: {
     type: String,
     required: [true, 'Description is required'],

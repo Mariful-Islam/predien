@@ -8,6 +8,7 @@ import { GoArrowLeft } from "react-icons/go";
 import { SlCalender } from "react-icons/sl";
 import { SlateRenderer } from "@/components/Renderer";
 import { slateToHtml } from "@/components/slatetoHtml";
+import Head from "next/head";
 
 const API_URL =
   process.env.NODE_ENV === "production"
@@ -27,6 +28,28 @@ function Blog({ data }: { data: any }) {
   const serializeToHtml = slateToHtml(JSON.parse(data?.description || "[]"));
 
   return (
+    <>
+    <Head>
+      <title>{`Predien | ${data?.title}`}</title>
+      <link rel="icon" href="/predien.png" />
+
+      <meta name="description" content={data?.summary || "Read our latest blog post on Predien, where we share insights, tips, and updates about our services and the industry. Stay informed and inspired with our expert content."} />
+      <meta name="robots" content="index, follow" />
+      <link rel="canonical" href={`${API_URL}/blog/${data?.slug}`}/>
+
+      <meta property="og:title" content={`Predien | ${data?.title}`} />
+      <meta property="og:description" content={data?.summary || "Read our latest blog post on Predien, where we share insights, tips, and updates about our services and the industry. Stay informed and inspired with our expert content."} />
+      <meta property="og:image" content={data?.image || "https://muuqbjrcjnumvsekecmg.supabase.co/storage/v1/object/public/avatars/predien.png"} />
+      <meta property="og:url" content={`${API_URL}/blog/${data?.slug}`} />
+      <meta property="og:type" content="article" />
+      <meta property="og:site_name" content="Predien" />
+
+      <meta name="twitter:card" content="summary_large_image" />
+      <meta name="twitter:title" content={`Predien | ${data?.title}`} />
+      <meta name="twitter:description" content={data?.summary || "Read our latest blog post on Predien, where we share insights, tips, and updates about our services and the industry. Stay informed and inspired with our expert content."} />
+      <meta name="twitter:image" content={data?.image || "https://muuqbjrcjnumvsekecmg.supabase.co/storage/v1/object/public/avatars/predien.png"} />
+      <meta name="twitter:site" content="@predien" />
+    </Head>
     <div className="bg-white dark:bg-black" >
       <div className="bg-gradient-to-l from-green-600 dark:from-green-800 via-violet-500 dark:via-violet-700 to-blue-400 dark:to-blue-700">
         <Header />
@@ -91,6 +114,7 @@ function Blog({ data }: { data: any }) {
       </div>
       <Footer />
     </div>
+    </>
   );
 }
 

@@ -12,6 +12,9 @@ const nextConfig: NextConfig = {
       },
     ]);
   },
+  images: {
+    domains: ['predien.vercel.app', 'res.cloudinary.com', 'i.pravatar.cc'], // Add your image domains here
+  },
 };
 
 export default nextConfig;

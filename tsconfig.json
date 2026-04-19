@@ -17,6 +17,6 @@
       "@/*": ["./src/*"]
     }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "src/components/Render1.js"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "src/components/Render1.js", ".d.ts"],
   "exclude": ["node_modules"]
 }

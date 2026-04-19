@@ -1,73 +1,124 @@
 import Link from "next/link";
 import React, { useState } from "react";
-import Modal from "../common/Modal";
-import { GrDocumentPdf } from "react-icons/gr";
-import { BsDownload } from "react-icons/bs";
+import Modal from "../common/Modal"; // Ensure your Modal supports Framer Motion or accepts custom classNames
+import { motion, AnimatePresence } from "framer-motion";
+import { HiCheckCircle, HiMiniArrowDownTray, HiOutlineXMark } from "react-icons/hi2"; // Cleaner modern icons
 
 function Document() {
-  const [isOpen, setIsOpen] = useState<boolean>(false)
+  const [isOpen, setIsOpen] = useState<boolean>(false);
 
-  const handleOpen = (e: React.FormEvent) => {
-    e.preventDefault()
-    setIsOpen(true)
-  }
+  // Animation Variants
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.1,
+        delayChildren: 0.2,
+      },
+    },
+  };
+
+  const textVariants:any = {
+    hidden: { opacity: 0, y: 15 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: { duration: 0.8, ease: [0.16, 1, 0.3, 1] },
+    },
+  };
+
   return (
-    <div className="bg-white dark:bg-black">
-      <div className="max-w-[1200px] mx-auto w-full px-4 sm:px-20 py-20 relative">
-        <div
-          data-aos="fade-down"
-        >
-          <div className="text-blue-500 font-bold text-lg">Pitch Deck</div>
-          <h3 className="text-gray-800 dark:text-slate-300 text-5xl font-semibold pt-4">
-            A quick overview of our agency
-          </h3>
-        </div>
-
-        <div className="mt-16">
-
-          <button 
-            onClick={handleOpen}
-            className=" relative group py-2 px-8 bg-blue-600 text-white font-bold rounded-md flex gap-2 items-center hover:bg-blue-800 duration-200 overflow-hidden"
-          >
-            Dowload
-            <BsDownload className={`stroke-1 group-hover:translate-y-12 duration-200`}/>
-            <BsDownload className={`stroke-1 translate-y-[-30px] group-hover:translate-y-0 duration-200 absolute right-8`}/>
-          </button>
-
-          <Modal
-            isOpen={isOpen}
-            onClose={()=>setIsOpen(!isOpen)}
-          >
-            <div className="p-6">
-              <div className="text-center my-8 text-green-600 text-xl flex flex-col items-center gap-8 font-bold">
-                Are your want to download this document?
-                <GrDocumentPdf className="w-12 h-12"/>
-              </div>
-              <div className="bg-gray-50 sm:flex sm:flex-row-reverse ">
-                <Link
-                  href="/dummy.pdf" 
-                  download 
-                  target="_black"
-                  type="button"
-                  onClick={()=>setIsOpen(!isOpen)}
-                  className="inline-flex w-full justify-center rounded-md bg-blue-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-blue-500 sm:ml-3 sm:w-auto"
-                >
-                  Download
-                </Link>
-                <button
-                  data-autofocus
-                  onClick={()=>setIsOpen(!isOpen)}
-                  className="mt-3 inline-flex w-full justify-center rounded-md bg-white px-3 py-2 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50 sm:mt-0 sm:w-auto"
-                >
-                  Cancel
-                </button>
-              </div>
-            </div>
-          </Modal>
-        </div>
+    <section className="bg-slate-100 dark:bg-[#020617] relative"> {/* Dark background for modern look */}
+      {/* Dynamic Background Glow */}
+      
+      <motion.div 
+        variants={containerVariants}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, amount: 0.3 }}
+        className="max-w-[1280px] mx-auto w-full px-6 sm:px-12 py-32 relative z-10 grid grid-cols-1 md:grid-cols-[1fr,auto] gap-12 items-center"
+      >
         
-      </div>
-    </div>
+        {/* Left Side: Content */}
+        <div className="space-y-6">
+          <motion.div variants={textVariants} className="flex items-center gap-3">
+            <span className="w-12 h-[1px] bg-blue-500" />
+            <span className="text-blue-400 font-bold text-sm uppercase tracking-widest">
+              Pitch Deck
+            </span>
+          </motion.div>
+          
+          <motion.h3 variants={textVariants} className="text-black dark:text-white text-5xl md:text-6xl font-extrabold leading-[1.1] tracking-tighter max-w-2xl">
+            A quick overview of our <span className="text-blue-500">predien.</span> agency
+          </motion.h3>
+          
+          <motion.p variants={textVariants} className="text-slate-600 dark:text-slate-200 text-lg max-w-xl leading-relaxed">
+            Download our official presentation to explore our capabilities, process, and success stories.
+          </motion.p>
+        </div>
+
+        {/* Right Side: The Modern Button */}
+        <motion.div variants={textVariants} className="flex justify-start md:justify-end">
+          <button 
+            onClick={() => setIsOpen(true)}
+            className="group relative inline-flex items-center justify-center gap-2 px-8 py-5 bg-blue-600 text-white font-bold rounded-xl shadow-[0_0_20px_rgba(37,99,235,0.2)] hover:shadow-[0_0_30px_rgba(37,99,235,0.4)] transition-all duration-300"
+          >
+            {/* The primary Icon (Moves right on hover) */}
+            <HiMiniArrowDownTray className="text-xl group-hover:translate-x-1 transition-transform duration-300" />
+            
+            <span>Download Presentation</span>
+            
+            {/* Shimmer Effect */}
+            <div className="absolute inset-0 block w-full h-full bg-gradient-to-r from-transparent via-white/10 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-700" />
+          </button>
+        </motion.div>
+
+        {/* Modal: Styled for Minimalism */}
+        <Modal
+          isOpen={isOpen}
+          onClose={() => setIsOpen(false)}
+        >
+          {/* Use AnimatePresence in your Modal implementation if possible */}
+          <div className="bg-white dark:bg-slate-950 p-8 rounded-lg border border-slate-100 dark:border-slate-800 shadow-2xl relative">
+            
+            <button onClick={() => setIsOpen(false)} className="absolute top-5 right-5 p-1 text-slate-400 hover:text-red-500">
+                <HiOutlineXMark className="w-6 h-6"/>
+            </button>
+            
+            <div className="text-center my-6 flex flex-col items-center gap-4">
+              <HiCheckCircle className="w-16 h-16 text-emerald-500 shadow-xl shadow-emerald-500/20 rounded-full" />
+              <h4 className="text-2xl font-bold text-slate-900 dark:text-white pt-2">
+                Download Predien. Pitch Deck
+              </h4>
+              <p className="text-slate-500 dark:text-slate-100 text-sm max-w-xs">
+                This document provides a detailed overview of our methodology and pricing.
+              </p>
+            </div>
+            
+            <div className="bg-slate-50 dark:bg-slate-900 -mx-8 -mb-8 p-6 flex flex-col-reverse sm:flex-row gap-3 rounded-b-3xl">
+              <button
+                onClick={() => setIsOpen(false)}
+                className="w-full justify-center px-5 py-3 text-sm font-semibold text-slate-700 dark:text-slate-300 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800 transition"
+              >
+                Cancel
+              </button>
+              <Link
+                href="/dummy.pdf" 
+                download 
+                target="_blank"
+                onClick={() => setIsOpen(false)}
+                className="w-full justify-center inline-flex items-center gap-2 px-5 py-3 text-sm font-bold bg-blue-600 text-white rounded-lg hover:bg-blue-700 shadow-lg shadow-blue-500/20 transition-all"
+              >
+                Confirm Download
+                <HiMiniArrowDownTray />
+              </Link>
+            </div>
+          </div>
+        </Modal>
+
+      </motion.div>
+    </section>
   );
 }
 

@@ -1,108 +1,123 @@
 import Link from "next/link";
 import React from "react";
-import { FaSquareCheck } from "react-icons/fa6";
+import { HiOutlineCheckBadge } from "react-icons/hi2"; // Thinner, modern icon
 import { aboutUsItems } from "./AboutUsItems";
 import img from '@/assets/20250103_161042.jpg'
 import Image from "next/image";
-
-const colorClasses = {
-  green: 'bg-green-100 text-green-500',
-  blue: 'bg-blue-100 text-blue-500',
-  yellow: 'bg-yellow-100 text-yellow-500',
-  red: 'bg-red-100 text-red-500',
-  violet: 'bg-violet-100 text-violet-500',
-  sky: 'bg-sky-100 text-sky-500',
-  orange: 'bg-orange-100 text-orange-500',
-};
+import { motion } from "framer-motion";
 
 function AboutUs() {
   return (
-    <div className="">
-      <div className="max-w-[1200px] mx-auto w-full px-4 py-12 sm:px-20 overflow-hidden">
-        <div
-          className=""
-          data-aos="fade-down"
-          data-aos-duration="1000"
-          data-aos-delay="500"
+    <section className="bg-white dark:bg-[#020617] py-24 overflow-hidden font-jost">
+      <div className="max-w-7xl mx-auto px-6 md:px-12">
+        
+        {/* Header Section */}
+        <motion.div 
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="max-w-3xl mb-20"
         >
-          <div className="text-blue-500 font-bold text-lg">About Us</div>
-          <h3 className="text-gray-800 dark:text-slate-300 text-5xl font-semibold pt-4">
-            Dedicated to delivering exceptional service 
-          </h3>
-        </div>
-        <div className="flex mt-12">
-          <div 
-            className="w-0 overflow-hidden ml:w-1/2 flex items-center mr-0 ml:mr-12 h-full"
-            data-aos="fade-right"
-            data-aos-duration="1000"
-            data-aos-delay="500"
-          >
-            <Image
-              src={img}
-              alt=""
-              className="h-[1050px] object-cover rounded-md"
-            />
+          <div className="flex items-center gap-3 mb-4">
+            <span className="w-10 h-[1px] bg-blue-500" />
+            <span className="text-blue-400 font-bold tracking-[0.2em] uppercase text-sm">
+              Our Identity
+            </span>
           </div>
-          <div 
-            className="w-full ml:w-1/2 text-slate-600 dark:text-slate-200"
-            data-aos="fade-left"
-            data-aos-duration="1000"
-            data-aos-delay="500"
+          <h3 className="text-4xl md:text-6xl font-black text-slate-900 dark:text-white tracking-tighter leading-tight mt-6">
+            Dedicated to delivering <br />
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-500 to-indigo-400">
+              exceptional service.
+            </span>
+          </h3>
+        </motion.div>
+
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+          
+          {/* Left: Creative Image Composition */}
+          <motion.div 
+            initial={{ opacity: 0, x: -50 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.8 }}
+            className="relative"
           >
-            <div className="line-clamp-5">
-              Welcome to <strong className="text-green-500">Predien</strong>, where <strong className="text-green-500">software development</strong> combines innovation and precision. We are a dedicated team of
-               <strong className="text-green-500"> engineers</strong>, <strong className="text-green-500">designers</strong>, and strategists dedicated to developing
-              cutting-edge software solutions that help organisations prosper in
-              the digital age.
+            {/* Background Decorative Element */}
+            <div className="absolute -top-10 -left-10 w-64 h-64 bg-blue-100 dark:bg-blue-900/20 rounded-3xl -z-10 animate-pulse" />
+            
+            <div className="relative rounded-3xl overflow-hidden shadow-2xl">
+              <Image
+                src={img}
+                alt="Predien Team"
+                className="w-full h-[500px] object-cover transition-transform duration-700 hover:scale-105"
+              />
+              {/* Overlay Gradient */}
+              <div className="absolute inset-0 bg-gradient-to-t from-slate-950/40 to-transparent" />
             </div>
-            <br />
-            <div>
-              We provide the following services:
-              <ul className="flex flex-col gap-4 text-">
-                { aboutUsItems && aboutUsItems.map((item, index) => (
-                  <li className="flex gap-4 mt-6" key={index}>
-                    <div
-                      className={`bg-${item.color}-100 w-[50px] min-w-[50px] h-[50px] flex items-center justify-center rounded-md`}
-                    >
-                      <FaSquareCheck
-                        className={`text-${item.color}-500 w-[25px] h-[25px]`}
-                      />
+
+            {/* Experience Badge */}
+            <div className="absolute -bottom-6 -right-6 bg-white dark:bg-slate-900 p-8 rounded-2xl shadow-xl border border-slate-100 dark:border-slate-800">
+                <p className="text-blue-500 text-4xl font-black tracking-tighter">10+</p>
+                <p className="text-slate-500 dark:text-slate-400 text-xs font-bold uppercase tracking-widest">Years Experience</p>
+            </div>
+          </motion.div>
+
+          {/* Right: Content Section */}
+          <motion.div 
+            initial={{ opacity: 0, x: 50 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.8 }}
+            className="space-y-8"
+          >
+            <div className="text-slate-500 dark:text-slate-400 text-lg leading-relaxed">
+              Welcome to <strong className="text-slate-900 dark:text-white">Predien</strong>, where 
+              software development combines innovation and precision. We are a dedicated team of
+              <span className="text-blue-500 font-semibold"> engineers, designers, and strategists </span> 
+              developing cutting-edge solutions that help organizations prosper in the digital age.
+            </div>
+
+            <div className="space-y-6">
+              <h4 className="text-slate-900 dark:text-white font-bold text-xl">Core Expertise:</h4>
+              <ul className="grid grid-cols-1 md:grid-cols-2 gap-6 list-none p-0">
+                {aboutUsItems && aboutUsItems.map((item, index) => (
+                  <li key={index} className="flex gap-4 group">
+                    <div className="flex-shrink-0 w-10 h-10 rounded-xl bg-blue-50 dark:bg-blue-900/30 flex items-center justify-center text-blue-500 transition-colors group-hover:bg-blue-500 group-hover:text-white">
+                      <HiOutlineCheckBadge className="w-6 h-6" />
                     </div>
                     <div>
-                      <div className="text-slate-800 dark:text-slate-100 font-semibold">
+                      <div className="text-slate-800 dark:text-slate-100 font-bold text-sm">
                         {item.name}
                       </div>
-                      <div className="text-slate-500 dark:text-slate-200 text-sm mt-1 line-clamp-2">
+                      <p className="text-slate-500 dark:text-slate-400 text-xs mt-1 leading-snug">
                         {item.description}
-                      </div>
+                      </p>
                     </div>
                   </li>
                 ))}
               </ul>
             </div>
-            <br />
-            <div className="text-gray-800 dark:text-slate-100 font-semibold">
-              What differentiates us is our dedication to teamwork and customer
-              satisfaction.
-            </div>
-            <div className="mt-10">
-              <Link
-                href="/contact#contact"
-                className="border border-green-500 rounded-md px-8 py-2 text-green-500 hover:bg-green-50 dark:hover:bg-green-950 duration-200"
-              >
-                Contact
-              </Link>
+
+            <p className="text-slate-900 dark:text-slate-100 font-bold italic border-l-4 border-blue-500 pl-4">
+              "What differentiates us is our dedication to teamwork and absolute customer satisfaction."
+            </p>
+
+            <div className="flex flex-wrap gap-4 pt-4">
               <Link
                 href="#"
-                className="ml-4 bg-green-500 px-8 py-2 text-white rounded-md hover:bg-green-700 duration-200"
+                className="bg-blue-500 px-10 py-4 text-white font-bold rounded-full hover:bg-blue-700 hover:shadow-xl hover:shadow-blue-500/20 transition-all duration-300"
               >
-                Learn more
+                Learn More
+              </Link>
+              <Link
+                href="/contact#contact"
+                className="border border-slate-200 dark:border-slate-700 px-10 py-4 text-slate-900 dark:text-white font-bold rounded-full hover:bg-slate-50 dark:hover:bg-slate-800 transition-all duration-300"
+              >
+                Contact Us
               </Link>
             </div>
-          </div>
+          </motion.div>
         </div>
       </div>
-    </div>
+    </section>
   );
 }
 
