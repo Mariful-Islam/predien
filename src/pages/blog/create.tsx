@@ -17,7 +17,6 @@ function BlogCreate() {
     axios
       .get(`${API_URL}/api/blogs/`)
       .then((response) => {
-        console.log(response.data);
         setBlogs(response.data)
       })
       .catch(() => toast.error("Error fetch blogs !!"));

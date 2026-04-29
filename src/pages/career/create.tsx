@@ -36,7 +36,6 @@ function JobCreate() {
     axios
       .get(`${API_URL}/api/jobs/`)
       .then((response) => {
-        console.log(response.data);
         setJobs(response.data)
       })
       .catch(() => toast.error("Error fetch blogs !!"));
@@ -78,7 +77,6 @@ function JobCreate() {
     }).catch(()=>toast.error('Error blog deleting !'))
   }
 
-  console.log(formData)
   return (
     <div className="bg-gradient-to-l from-yellow-400 via-violet-400 to-red-400">
       <Header />

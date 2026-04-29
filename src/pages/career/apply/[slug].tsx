@@ -23,7 +23,6 @@ function Apply({slug}:{slug: string}) {
       [name]: value,
     }));
   };
-  console.log(slug)
 
   const handleApply = (e: React.FormEvent) => {
     e.preventDefault();

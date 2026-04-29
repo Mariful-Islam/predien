@@ -1,10 +1,14 @@
 import React from 'react'
 import AdminHeader from './AdminHeader'
 import AdminSidebar from './AdminSidebar'
-
+import { useRouter } from 'next/router';
 
 
 export default function AdminLayout({children}: {children: any}) {
+
+
+  const router = useRouter();
+
 
 
   return (

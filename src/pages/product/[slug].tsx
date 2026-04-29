@@ -8,6 +8,7 @@ import React from "react";
 import { GoArrowLeft } from "react-icons/go";
 import { SlCalender } from "react-icons/sl";
 import { API_URL } from "../blog";
+import Head from "next/head";
 
 
 
@@ -15,6 +16,13 @@ function Product({ data }: { data: any }) {
   const router = useRouter()
   return (
     <>
+    <Head>
+      <title>{`Predien | ${data?.name}`}</title>
+      <link rel="icon" href="/predien.png" />
+      <meta name="description" content={data?.seoDescription} />
+      <meta name="viewport" content="width=device-width, initial-scale=1" />
+      <link rel="canonical" href={`${API_URL}/product/${data?.slug}`} />
+    </Head>
       <div className="bg-white dark:bg-black scroll-mt-12">
         <div className="bg-gradient-to-l from-green-600 dark:from-green-800 via-violet-500 dark:via-violet-700 to-blue-400 dark:to-blue-700">
           <Header />

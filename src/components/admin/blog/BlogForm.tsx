@@ -34,7 +34,6 @@ export default function BlogForm({
     }).then((res)=>{
       onClose()
       refresh()
-      console.log(res)
     }).catch((e)=>console.log(e))
 
   };

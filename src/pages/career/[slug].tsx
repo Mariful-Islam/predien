@@ -2,6 +2,7 @@ import { jobs } from "@/components/Career/JobList";
 import Footer from "@/components/Footer";
 import Header from "@/components/Header";
 import { SlateRenderer } from "@/components/Renderer";
+import Head from "next/head";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import React from "react";
@@ -15,9 +16,16 @@ const API_URL =
 function CareerView({ data }: { data: any }) {
   const router = useRouter();
 
-  console.log(data, "-------")
 
   return (
+    <>
+    <Head>
+      <title>{`Predien | ${data?.job_title}`}</title>
+      <link rel="icon" href="/predien.png" />
+      <meta name="description" content={data?.seoDescription} />
+      <meta name="viewport" content="width=device-width, initial-scale=1" />
+      <link rel="canonical" href={`${API_URL}/career/${data?.slug}`} />
+    </Head>
     <div className="bg-white dark:bg-black">
       <div className="bg-gradient-to-l from-yellow-400 via-violet-400 to-red-400">
         <Header />
@@ -75,6 +83,7 @@ function CareerView({ data }: { data: any }) {
       </div>
       <Footer />
     </div>
+    </>
   );
 }
 

@@ -59,7 +59,7 @@ const Introduction = () => {
               </span>
             </h1>
             
-            <p className='text-lg md:text-xl text-slate-400 max-w-lg mx-auto lg:mx-0 font-medium leading-relaxed'>
+            <p className='text-lg md:text-xl text-slate-400 max-w-lg mx-auto lg:mx-0 font-light leading-relaxed'>
               We architect high-performance digital infrastructure designed for the next generation of business.
             </p>
           </motion.div>

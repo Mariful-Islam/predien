@@ -49,7 +49,6 @@ function Quote() {
 
   const wordCount = formData?.text?.trim()?.split(/\s+/).length
 
-  console.log(formData);
   return (
     <div className="flex overflow-hidden">
       <div 

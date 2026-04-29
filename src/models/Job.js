@@ -15,6 +15,7 @@ const JobSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
+  
   salary_range: {
     type: String,
     required: true,
@@ -37,6 +38,16 @@ const JobSchema = new mongoose.Schema({
   post_date: {
     type: Date,
     default: Date.now,
+  },
+
+  // SEO fields
+  seoTitle: {
+    type: String,
+    required: false,
+  },
+  seoDescription: {
+    type: String,
+    required: false,
   },
 });
 

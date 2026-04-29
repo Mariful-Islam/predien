@@ -30,7 +30,6 @@ export default function ContentView({
     axios
       .get(`${API_URL}/api/${name}/${id}`)
       .then((response) => {
-        console.log(response.data);
         setItem(response.data);
         setLoading(false);
       })

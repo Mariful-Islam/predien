@@ -1,128 +1,188 @@
-import Footer from '@/components/Footer'
-import Header from '@/components/Header'
-import Image from 'next/image'
-import Link from 'next/link'
-import React from 'react'
-import { HiArrowTurnRightDown } from 'react-icons/hi2'
-import blog from '@/assets/blog.jpg'
-import { blogItems } from '@/components/Blog/blogSample'
-import moment from 'moment'
-import { SlCalender } from 'react-icons/sl'
-import Head from 'next/head'
+import React from 'react';
+import { motion } from 'framer-motion';
+import Image from 'next/image';
+import Link from 'next/link';
+import { HiArrowLongDown } from 'react-icons/hi2';
+import { SlCalender } from 'react-icons/sl';
+import moment from 'moment';
+import Head from 'next/head';
 
+// Components
+import Header from '@/components/Header';
+import Footer from '@/components/Footer';
 
-export const API_URL = process.env.NODE_ENV==="production" ? "https://predien.vercel.app" : "http://localhost:3000"
+// Asset (Ensure this path is correct in your project)
+import blogHero from '@/assets/blog.jpg';
 
-function Blog({data}:{data:any}) {
+export const API_URL = process.env.NODE_ENV === "production" 
+  ? "https://predien.vercel.app" 
+  : "http://localhost:3000";
 
+interface BlogProps {
+  data: any[];
+}
+
+const Blog: React.FC<BlogProps> = ({ data }) => {
   return (
-    <div className=''>
+    <div className=" selection:bg-blue-500 selection:text-white">
       <Head>
-        <title>Predien | Blog</title>
-        <link rel='canonical' href='https://predien.vercel.app/blog'/>
+        <title>Predien | Engineering Journal</title>
+        <link rel="canonical" href="https://predien.vercel.app/blog" />
       </Head>
-      <div className="text-black relative overflow-hidden h-screen bg-gradient-to-l from-green-600 dark:from-green-800 via-violet-500 dark:via-violet-700 to-blue-400 dark:to-blue-700 ">
-        <Header />
-        <div className="z-10 relative h-screen flex items-start ml:items-center">
-          <div className="max-w-[1200px] mx-auto  px-4 sm:px-20 flex flex-col ml:flex-row gap-10 ml:gap-8 relative">
-            
 
-            <div className="w-full ml:w-1/2">
-              <div className="group relative h-[400px]">
-                <Image
-                  src={blog}
-                  alt="career"
-                  className="h-[400px] object-cover rounded-3xl"
-                />
+      <Header />
 
-                <div className="h-0 overflow-hidden absolute bottom-0 right-0 duration-200 backdrop-blur-md opacity-50 bg-gray-600 w-full group-hover:h-[400px] rounded-3xl "></div>
-
-                <div className="h-0 overflow-hidden absolute bottom-0 right-0 duration-200 w-full group-hover:h-[400px] flex justify-center items-center">
-                  <Link
-                    href={`#blog-list`}
-                    className="group relative bg-blue-600 text-white px-12 py-2 rounded-full hover:bg-blue-700 duration-200 font-bold flex gap-2 items-center"
-                  >
-                    Explore
-                    
-                    <HiArrowTurnRightDown className="duration-200 stroke-1"/>
-                  </Link>
-                </div>
-              </div>
-            </div>
-
-            <div
-              className="w-full ml:w-1/2 h-full"
-              data-aos="fade-left"
-              data-aos-duration="1000"
-              data-aos-delay="500"
-            >
-              <h1 className="text-3xl text-center ml:text-start ml:text-6xl text-white mt-16 ml:mt-[100px]">
-                <div className="text-lg font-bold text-white mb-4">Blog</div>
-                
-                Deep dive into technology
-                <span className="font-bold text-red-400">_</span>
-              </h1>
-
-              <div className="text-white mt-6 text-center ml:text-start">Know more about the product. Provide solution of any issue of the product. </div>
-
-            </div>
-
-
-          </div>
+      {/* --- HERO SECTION --- */}
+      <section className="relative min-h-screen flex items-center bg-white dark:bg-[#020617] transition-colors duration-700 overflow-hidden pt-20">
+        
+        {/* Cinematic Ambient Glow (Visible in Dark Mode) */}
+        <div className="absolute inset-0 opacity-0 dark:opacity-20 pointer-events-none">
+          <div className="absolute top-[-10%] right-[-10%] w-[700px] h-[700px] bg-blue-600/30 blur-[150px] rounded-full" />
         </div>
 
-       
-        
-      </div>
-      <div className='bg-white dark:bg-black'>
-      
-        <div
-          className="max-w-[1200px] mx-auto px-4 sm:px-20 scroll-mt-[65px] pb-12"
-          id="blog-list"
-        >
-          <div className='dark:text-white text-black font-bold text-2xl pt-8 '>
-            Blog 
-          </div>
-          <div className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 mt-6'>
-            {data?.map((item:any, index:number)=>(
-              <div key={index} className='h-[300px] relative group'>
-                <div className=' absolute top-0 w-full group-hover:translate-y-0 duration-200 dark:text-white text-gray-800 bg-slate-200 dark:bg-slate-800 p-4 rounded-t-3xl font-bold group-hover:hidden'>
-                  {item.title}
-                </div>
+        <div className="max-w-[1400px] mx-auto px-8 w-full relative z-10">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 items-center">
+            
+            {/* Left Content */}
+            <motion.div 
+              initial={{ opacity: 0, x: -40 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+              className="lg:col-span-7 space-y-10"
+            >
+              <div className="flex items-center gap-4">
+                <span className="w-16 h-[2px] bg-blue-600 dark:bg-blue-500" />
+                <span className="text-blue-600 dark:text-blue-500 font-black tracking-[0.4em] uppercase text-[14px]">
+                  The Engineering Journal
+                </span>
+              </div>
+              
+              <h1 className="text-7xl md:text-[120px] font-black text-slate-950 dark:text-white tracking-tighter leading-[0.8] mb-6">
+                Digital <br />
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-indigo-500 dark:from-blue-400 dark:to-indigo-400">
+                  Dialogue.
+                </span>
+              </h1>
 
-                <Image src={blog} alt='' className='h-[300px] rounded-3xl object-cover z-10'/>
+              <p className="text-slate-600 dark:text-slate-400 text-2xl md:text-3xl leading-snug max-w-2xl font-medium tracking-tight">
+                Deep dives into <span className="text-slate-950 dark:text-white font-bold">software architecture</span>, minimalist design, and scalable automation.
+              </p>
 
-                <div className=' z-20 absolute bottom-0 backdrop-blur-3xl bg-black opacity-70 h-0 group-hover:h-full w-full duration-200 rounded-3xl'>
-                  
-                </div>
-
-                <Link href={`/blog/${item.slug}`} className='z-30 absolute bottom-0 p-6 h-0 w-0 overflow-hidden group-hover:h-full group-hover:w-full duration-200 rounded-3xl'>
-                  <div className='text-white font-bold text-xl'>{item.title}</div>
-                  <br /> <br />
-                  <div className='flex gap-2 items-center mt-6 text-white'><SlCalender /><span className='text-white'>{moment(item.datetime).format('DD-MMMM-YYYY')}</span></div>
-
-                 
+              <div className="pt-6">
+                <Link href="#articles" className="group flex items-center gap-6">
+                  <div className="w-16 h-16 rounded-full border-2 border-slate-200 dark:border-slate-800 flex items-center justify-center group-hover:bg-blue-600 dark:group-hover:bg-blue-500 group-hover:border-transparent transition-all duration-500">
+                    <HiArrowLongDown className="text-2xl text-slate-900 dark:text-white group-hover:text-white group-hover:translate-y-2 transition-all" />
+                  </div>
+                  <div className="flex flex-col">
+                    <span className="text-slate-400 text-[10px] font-black uppercase tracking-widest">Explore</span>
+                    <span className="text-slate-950 dark:text-white font-black uppercase tracking-[0.1em] text-sm">Latest Articles</span>
+                  </div>
                 </Link>
               </div>
+            </motion.div>
+
+            {/* Right Visual (The Frame) */}
+            <motion.div 
+              initial={{ opacity: 0, scale: 0.95 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 1, delay: 0.2 }}
+              className="lg:col-span-5 relative hidden lg:block"
+            >
+              <div className="aspect-[4/5] rounded-[60px] overflow-hidden border border-slate-100 dark:border-white/10 shadow-[0_50px_100px_-20px_rgba(0,0,0,0.15)] relative z-10 bg-slate-100">
+                <Image 
+                  src={blogHero} 
+                  alt="Predien Journal" 
+                  priority
+                  className="w-full h-full object-cover grayscale transition-all duration-1000 group-hover:grayscale-0"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-slate-950/40 to-transparent opacity-60" />
+              </div>
+              {/* Decorative Geometric Outline */}
+              <div className="absolute -top-8 -right-8 w-full h-full border-[1px] border-slate-200 dark:border-blue-500/20 rounded-[60px] pointer-events-none" />
+            </motion.div>
+          </div>
+        </div>
+      </section>
+
+      {/* --- ARTICLE GRID --- */}
+      <main id="articles" className="bg-gray-50 dark:bg-[#01040f] py-40 transition-colors duration-700">
+        <div className="max-w-[1400px] mx-auto px-8">
+          
+          <div className="flex items-end justify-between mb-24 border-b border-slate-200 dark:border-slate-800 pb-12">
+            <h2 className="text-5xl font-black text-slate-950 dark:text-white tracking-tighter">
+              Featured Insights<span className="text-blue-600 dark:text-blue-500">_</span>
+            </h2>
+            <p className="hidden md:block text-slate-400 font-bold uppercase tracking-[0.3em] text-[10px]">
+              {data?.length || 0} Total Publications
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-12 gap-y-28">
+            {data?.map((item: any, i: number) => (
+              <motion.article 
+                key={i}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: i * 0.1 }}
+                className="group"
+              >
+                <Link href={`/blog/${item.slug}`} className="space-y-8 block">
+                  {/* Image Container with Custom Hover Logic */}
+                  <div className="relative aspect-[16/10] rounded-[40px] overflow-hidden bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800">
+                    <Image 
+                      src={blogHero} // Use item.image if available dynamically
+                      alt={item.title} 
+                      className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110 grayscale group-hover:grayscale-0"
+                    />
+                    <div className="absolute top-6 left-6 px-4 py-1 bg-white/10 backdrop-blur-lg rounded-full border border-white/20">
+                      <span className="text-[9px] font-black text-white uppercase tracking-widest">Tech Insight</span>
+                    </div>
+                  </div>
+
+                  <div className="space-y-5 px-2">
+                    <div className="flex items-center gap-4 text-[11px] font-black uppercase tracking-[0.3em] text-slate-400">
+                      <SlCalender className="text-blue-600 dark:text-blue-500" />
+                      <span>{moment(item.datetime).format('MMM DD, YYYY')}</span>
+                    </div>
+
+                    <h3 className="text-3xl font-bold text-slate-950 dark:text-white tracking-tight leading-tight group-hover:text-blue-600 dark:group-hover:text-blue-500 transition-colors duration-300">
+                      {item.title}
+                    </h3>
+
+                    {/* Animated Flowing Underline */}
+                    <div className="relative h-[2px] w-12 bg-slate-200 dark:bg-slate-800 overflow-hidden">
+                      <motion.div 
+                        // className="absolute inset-y-0 left-0 bg-blue-600 dark:bg-blue-500"
+                        initial={{ width: 0 }}
+                        whileHover={{ width: "100%" }}
+                        className="h-full w-0 group-hover:w-full bg-blue-600 dark:bg-blue-500 transition-all duration-700 ease-in-out"
+                      />
+                    </div>
+
+                    <p className="text-slate-500 dark:text-slate-400 font-medium leading-relaxed line-clamp-2">
+                      Exploring the technical hurdles and breakthroughs encountered during our latest software engineering sprint at Predien.
+                    </p>
+                  </div>
+                </Link>
+              </motion.article>
             ))}
           </div>
         </div>
-      </div>
+      </main>
 
       <Footer />
     </div>
-  )
-}
+  );
+};
 
-export default Blog
-
+export default Blog;
 
 export async function getServerSideProps() {
   try {
     const res = await fetch(`${API_URL}/api/blogs/`);  
     const data = await res.json();
 
-    // If the request fails, return empty data or handle the error
     if (!res.ok) {
       return { props: { data: [] } };
     }

@@ -33,7 +33,6 @@ export default function JobForm({
     }).then((res)=>{
       onClose()
       refresh()
-      console.log(res)
     }).catch((e)=>console.log(e))
 
   };
@@ -42,6 +41,8 @@ export default function JobForm({
     "job_title",
     "slug",
     "description",
+    "seoDescription",
+
     "salary_range",
     "vacancy",
     "duration",

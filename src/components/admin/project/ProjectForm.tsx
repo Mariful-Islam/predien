@@ -33,7 +33,6 @@ export default function ProjectForm({
     }).then((res)=>{
       onClose()
       refresh()
-      console.log(res)
     }).catch((e)=>console.log(e))
 
   };

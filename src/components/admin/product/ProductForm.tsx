@@ -33,7 +33,6 @@ export default function ProductForm({
     }).then((res)=>{
       onClose()
       refresh()
-      console.log(res)
     }).catch((e)=>console.log(e))
 
   };
@@ -42,6 +41,7 @@ export default function ProductForm({
     "name",
     "slug",
     "description",
+    "seoDescription"
   ];
   return (
     <Modal isOpen={isOpen} onClose={onClose} title={`${title}`}>

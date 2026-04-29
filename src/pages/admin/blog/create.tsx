@@ -22,7 +22,6 @@ function Create() {
       cache: "no-cache",
     })
       .then((res) => {
-        console.log(res);
         if (res.ok) {
           router.push("/admin/blog");
         }
@@ -105,6 +104,69 @@ function Create() {
             />
           </div>
         </div>
+
+
+
+
+        <div className="bg-white dark:bg-gray-700 shadow-lg border border-gray-200 mt-4 p-4 rounded-md">
+          {/* Seo title */}
+          <div className="flex flex-col gap-2 mt-4">
+            <label
+              htmlFor={`seoTitle`}
+              className="text-sm font-medium text-slate-500 dark:text-slate-300"
+            >
+              SEO Title
+            </label>
+            <input
+              id={`seoTitle`}
+              type="text"
+              name="seoTitle"
+              placeholder={`Type seoTitle`}
+              value={
+                formData?.seoTitle || ""
+              }
+              onChange={(e) =>
+                setFormData((prev: any) => ({
+                  ...prev,
+                  seoTitle:
+                    e.target.value || "",
+                }))
+              }
+              className="bg-white dark:bg-gray-700 block w-full rounded-md  px-3 py-1.5 text-base text-slate-900 dark:text-slate-50 outline-1 -outline-offset-1 outline-blue-500 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-blue-500 sm:text-sm/6"
+            />
+          </div>
+
+          {/* SEO Description */}
+          <div className="flex flex-col gap-2 mt-4">
+            <label
+              htmlFor={`seoDescription`}
+              className="text-sm font-medium text-slate-500 dark:text-slate-300"
+            >
+              SEO Description
+            </label>
+            <input
+              id={`seoDescription`}
+              type="text"
+              name="seoDescription"
+              placeholder={`Type SEO Description`}
+              value={
+                formData?.seoDescription ||
+                ""
+              }
+              onChange={(e) =>
+                setFormData((prev: any) => ({
+                  ...prev,
+                  seoDescription:
+                    e.target.value || "",
+                }))
+              }
+              className="bg-white dark:bg-gray-700 block w-full rounded-md  px-3 py-1.5 text-base text-slate-900 dark:text-slate-50 outline-1 -outline-offset-1 outline-blue-500 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-blue-500 sm:text-sm/6"
+            />
+          </div>
+        </div>
+
+
+
 
         <div className="mt-4 mb-[1000px] flex gap-4 justify-end ">
           <button
