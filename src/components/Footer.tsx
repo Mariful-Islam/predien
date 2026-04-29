@@ -88,8 +88,8 @@ function Footer() {
             <div className="space-y-10">
               <h4 className="text-blue-500 font-black tracking-[0.3em] uppercase text-[11px]">Solutions</h4>
               <ul className="space-y-5 list-none p-0 m-0">
-                {services.map((item) => (
-                  <li key={item.name}>
+                {services.map((item, i) => (
+                  <li key={i}>
                     <Link 
                       href={`/services/${item.href}`} 
                       className="relative text-slate-400 hover:text-white transition-colors duration-300 group inline-block py-1 text-lg font-medium"
@@ -105,8 +105,8 @@ function Footer() {
             <div className="space-y-10">
               <h4 className="text-blue-500 font-black tracking-[0.3em] uppercase text-[11px]">Company</h4>
               <ul className="space-y-5 list-none p-0 m-0">
-                {companyLinks.map((item) => (
-                  <li key={item.name}>
+                {companyLinks.map((item, i) => (
+                  <li key={i}>
                     <Link 
                       href={`/${item.href}`} 
                       className="relative text-slate-400 hover:text-white transition-colors duration-300 group inline-block py-1 text-lg font-medium"

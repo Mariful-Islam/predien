@@ -12,7 +12,7 @@ export const TeamMembers = [
         }
     },
         {
-        id: 1, 
+        id: 2, 
         name: "Md Mariful Islam",
         image: Mariful,
         role: 'Founder and CEO',
@@ -22,7 +22,7 @@ export const TeamMembers = [
         }
     },
         {
-        id: 1, 
+        id: 3, 
         name: "Md Mariful Islam",
         image: Mariful,
         role: 'Founder and CEO',

@@ -39,9 +39,9 @@ const FallingCodeAnimation = () => {
             <stop offset="100%" stopColor="#60a5fa" stopOpacity="0" />
           </linearGradient>
         </defs>
-        {lines.map((line) => (
+        {lines.map((line, i) => (
           <text
-            key={line.id}
+            key={i}
             x={`${line.x}%`}
             y="-10%" // start above view
             fill="url(#codeGradient)"

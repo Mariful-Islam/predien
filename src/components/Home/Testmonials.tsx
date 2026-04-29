@@ -144,8 +144,8 @@ const Testimonials = () => {
           viewport={{ once: true }}
           className="mt-12 pt-12 border-t border-slate-100 dark:border-slate-900 flex flex-wrap justify-center md:justify-between items-center gap-12 opacity-40 grayscale transition-all duration-700 hover:opacity-100 hover:grayscale-0"
         >
-          {['TECHFLOW', 'NEXUS', 'VANGUARD', 'HORIZON', 'CORE'].map((logo) => (
-            <span key={logo} className="text-slate-900 dark:text-white font-black tracking-[0.3em] text-sm">
+          {['TECHFLOW', 'NEXUS', 'VANGUARD', 'HORIZON', 'CORE'].map((logo, i) => (
+            <span key={i} className="text-slate-900 dark:text-white font-black tracking-[0.3em] text-sm">
               {logo}
             </span>
           ))}
