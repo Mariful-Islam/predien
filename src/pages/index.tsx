@@ -10,8 +10,7 @@ import Document from "@/components/Home/Document";
 import Clients from "@/components/Home/Clients";
 import CTA from "@/components/Home/CTA";
 import Testimonials from "@/components/Home/Testmonials";
-
-
+import Head from "next/head";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -23,26 +22,35 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
+
+  const BASE_URL = "https://predien.vercel.app";
+
+  const structuredData = {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    name: "Predien",
+    url: "https://predien.vercel.app/",
+    mainEntityOfPage: "https://predien.vercel.app/",
+  };
+
+
 export default function Home() {
   return (
-    <div
-      className={`${geistSans.variable} ${geistMono.variable}  `}
-    >
-      <div className=" w-full h-screen">
-        <Header/>
-        <Introduction/>
-      </div>
-      <Document/>
-      <Team/>
-      <AboutUs/>
-      <Testimonials/>
-      <CTA/>
+    <div className={`${geistSans.variable} ${geistMono.variable}  `}>
 
-      
-      <FAQ/>
-      
-      
-      <Footer/>
+      <div className=" w-full h-screen">
+        <Header />
+        <Introduction />
+      </div>
+      <Document />
+      <Team />
+      <AboutUs />
+      <Testimonials />
+      <CTA />
+
+      <FAQ />
+
+      <Footer />
     </div>
   );
 }

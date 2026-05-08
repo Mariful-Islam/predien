@@ -4,7 +4,8 @@ import React from 'react'
 import { FaProductHunt } from 'react-icons/fa6';
 import { GoProject, GoTasklist } from 'react-icons/go';
 import { GrBlog } from 'react-icons/gr';
-import { MdOutlineRateReview } from 'react-icons/md';
+import { MdOutlineRateReview, MdOutlineTopic } from 'react-icons/md';
+import { VscSymbolKeyword } from "react-icons/vsc";
 
 interface menuItemsType {
     label: string;
@@ -27,6 +28,12 @@ const menuItems: menuItemsType[] = [
     },
     {
         label: 'Client', url: '/admin/client', icon: <MdOutlineRateReview />
+    },
+    {
+        label: 'Topic', url: '/admin/topic', icon: <MdOutlineTopic />
+    },
+    {
+        label: 'Keyword', url: '/admin/keyword', icon: <VscSymbolKeyword />
     }
 ]
 
@@ -34,7 +41,8 @@ const menuItems: menuItemsType[] = [
 export default function AdminSidebar() {
     const router = useRouter()
     const isActive = (url: string) => {
-        return router.pathname === url ? 'bg-blue-500 text-white' : ''
+
+        return router.pathname?.split('/').slice(0, 3).join('/') === url ? 'bg-blue-500 text-white' : ''
     }
   return (
     <div className='w-[200px] min-w-[200px] max-w-[200px] p-6 border-r border-white h-screen sticky left-0 top-0'>

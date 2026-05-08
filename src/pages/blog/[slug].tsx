@@ -30,7 +30,9 @@ function Blog({ data }: { data: any }) {
   const headings = useMemo(() => {
     try {
       const nodes = JSON.parse(data?.description || "[]");
-      return nodes.filter((n: any) => n.type === "heading-one" || n.type === "heading-two");
+      return nodes.filter(
+        (n: any) => n.type === "heading-one" || n.type === "heading-two",
+      );
     } catch (e) {
       return [];
     }
@@ -51,11 +53,10 @@ function Blog({ data }: { data: any }) {
         <Header />
       </div>
 
-      <main className="bg-white dark:bg-[#020617] transition-colors duration-500 min-h-screen">
+      <main className="bg-white dark:bg-[#020617] transition-colors duration-500 ">
         <div className="max-w-[1400px] mx-auto px-8 md:px-12 py-20">
-          
           {/* Navigation & Metadata */}
-          <div className="mb-16 flex flex-col md:flex-row md:items-center justify-between gap-8">
+          <div className="mb-8 mt-8 flex flex-col md:flex-row md:items-center justify-between gap-8">
             <button
               onClick={() => router.push("/blog")}
               className="group flex gap-4 items-center text-slate-400 hover:text-blue-500 font-black uppercase tracking-[0.2em] text-[10px] transition-all"
@@ -65,34 +66,40 @@ function Blog({ data }: { data: any }) {
               </div>
               Back to Journal
             </button>
-
-            <div className="flex gap-6 items-center text-slate-400 font-bold uppercase tracking-[0.3em] text-[10px]">
-              <div className="flex items-center gap-2">
-                <SlCalender className="text-blue-500" />
-                {moment(data?.datetime).format("DD MMMM YYYY")}
-              </div>
-              <span className="w-1 h-1 bg-slate-300 rounded-full" />
-              <span className="text-blue-500">Engineering</span>
-            </div>
           </div>
 
           <div className="flex flex-col lg:flex-row gap-20">
             {/* --- MAIN CONTENT AREA (8/12 Columns) --- */}
             <article className="w-full lg:w-3/4">
-              <h1 className="text-5xl md:text-7xl font-black text-slate-950 dark:text-white tracking-tighter leading-[0.9] mb-12">
+              <h1 className="text-5xl md:text-5xl font-black text-slate-950 dark:text-white tracking-tighter leading-[0.9] mb-12">
                 {data?.title}
               </h1>
-              
+
+              <div className="flex gap-6 items-center text-slate-500 font-bold uppercase tracking-[0.3em] text-[12px]">
+                <div className="flex items-center  gap-3">
+                  <SlCalender className="text-blue-500 " size={20}/>
+                  <span>
+                    {moment(data?.datetime).format("DD MMMM YYYY")}
+                  </span>
+                </div>
+                <span className="w-1 h-1 bg-slate-300 rounded-full" />
+                <span className="text-blue-500">Engineering</span>
+              </div>
+
               {/* Featured Image placeholder if data?.image exists */}
               {data?.image && (
-                <div className="mb-16 rounded-[40px] overflow-hidden border border-slate-100 dark:border-slate-900 shadow-2xl">
-                   <img src={data.image} alt="" className="w-full h-auto object-cover grayscale hover:grayscale-0 transition-all duration-1000" />
+                <div className="mb-16 mt-12 rounded-[40px] overflow-hidden border border-slate-100 dark:border-slate-900 shadow-2xl">
+                  <img
+                    src={data.image}
+                    alt=""
+                    className="w-full h-auto object-cover grayscale hover:grayscale-0 transition-all duration-1000"
+                  />
                 </div>
               )}
 
               {/* Prose Styling for Slate Content */}
               <div
-                className="prose prose-lg md:prose-xl dark:prose-invert prose-slate max-w-none 
+                className="mt-10 prose prose-lg md:prose-xl dark:prose-invert prose-slate max-w-none 
                 prose-headings:tracking-tighter prose-headings:font-black prose-headings:text-slate-950 dark:prose-headings:text-white
                 prose-p:text-slate-600 dark:prose-p:text-slate-400 prose-p:leading-relaxed prose-p:font-medium
                 prose-strong:text-blue-600 dark:prose-strong:text-blue-500
@@ -105,8 +112,10 @@ function Blog({ data }: { data: any }) {
             <aside className="w-full lg:w-1/4">
               <div className="sticky top-32 space-y-10">
                 <div className="space-y-4">
-                   <h4 className="text-blue-500 font-black tracking-[0.4em] uppercase text-[10px]">On this page</h4>
-                   <div className="h-[1px] w-full bg-slate-100 dark:bg-slate-900" />
+                  <h4 className="text-blue-500 font-black tracking-[0.4em] uppercase text-[10px]">
+                    On this page
+                  </h4>
+                  <div className="h-[1px] w-full bg-slate-100 dark:bg-slate-900" />
                 </div>
 
                 <nav className="flex flex-col gap-6">
@@ -120,12 +129,22 @@ function Blog({ data }: { data: any }) {
                         key={index}
                         href={`#${id}`}
                         className={`group relative text-sm font-bold tracking-tight transition-all duration-300 ${
-                          isActive ? "text-blue-500 pl-4" : "text-slate-400 dark:text-slate-500 hover:text-slate-900 dark:hover:text-white"
+                          isActive
+                            ? "text-blue-500 pl-4"
+                            : "text-slate-400 dark:text-slate-500 hover:text-slate-900 dark:hover:text-white"
                         }`}
                       >
                         {/* Flowing Line for active/hover state */}
-                        <div className={`absolute left-0 top-1/2 -translate-y-1/2 w-[2px] bg-blue-500 transition-all duration-500 ${isActive ? 'h-full' : 'h-0 group-hover:h-full'}`} />
-                        <span className={isActive ? 'translate-x-2 inline-block transition-transform' : ''}>
+                        <div
+                          className={`absolute left-0 top-1/2 -translate-y-1/2 w-[2px] bg-blue-500 transition-all duration-500 ${isActive ? "h-full" : "h-0 group-hover:h-full"}`}
+                        />
+                        <span
+                          className={
+                            isActive
+                              ? "translate-x-2 inline-block transition-transform"
+                              : ""
+                          }
+                        >
                           {text}
                         </span>
                       </Link>
@@ -135,11 +154,15 @@ function Blog({ data }: { data: any }) {
 
                 {/* Newsletter / CTA Box */}
                 <div className="mt-20 p-8 rounded-[32px] bg-slate-50 dark:bg-slate-900/50 border border-slate-100 dark:border-slate-800">
-                   <p className="text-[10px] font-black text-blue-500 uppercase tracking-widest mb-4">Newsletter</p>
-                   <p className="text-slate-900 dark:text-white font-bold mb-6">Get technical insights delivered weekly.</p>
-                   <div className="relative h-[2px] w-full bg-slate-200 dark:bg-slate-800">
-                      <div className="absolute inset-0 w-0 bg-blue-500 group-hover:w-full transition-all" />
-                   </div>
+                  <p className="text-[10px] font-black text-blue-500 uppercase tracking-widest mb-4">
+                    Newsletter
+                  </p>
+                  <p className="text-slate-900 dark:text-white font-bold mb-6">
+                    Get technical insights delivered weekly.
+                  </p>
+                  <div className="relative h-[2px] w-full bg-slate-200 dark:bg-slate-800">
+                    <div className="absolute inset-0 w-0 bg-blue-500 group-hover:w-full transition-all" />
+                  </div>
                 </div>
               </div>
             </aside>

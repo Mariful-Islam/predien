@@ -41,6 +41,7 @@
   "devDependencies": {
     "@types/aos": "^3.0.7",
     "@types/node": "^20.17.12",
+    "@types/prismjs": "^1.26.6",
     "@types/react": "^19.0.3",
     "@types/react-dom": "^19",
     "daisyui": "^4.12.23",

@@ -52,6 +52,29 @@ function Form({
     }
   };
 
+
+  // Assuming your field definition is something like "slug@title"
+  const slugConfig = fields.find(f => f.startsWith("slug@"));
+  const sourceFieldName = slugConfig?.split("@")[1];
+
+  useEffect(() => {
+    if (sourceFieldName && formData[sourceFieldName]) {
+      const newSlug = formData[sourceFieldName]
+        .toLowerCase()
+        .trim()
+        .split(" ")
+        .join("_");
+
+      // Only update if the slug has actually changed to avoid unnecessary renders
+      if (formData.slug !== newSlug) {
+        setFormData((prev:any) => ({
+          ...prev,
+          slug: newSlug
+        }));
+      }
+    }
+  }, [formData[sourceFieldName]]);
+
   return (
     <form className="flex flex-col gap-4" onSubmit={handleOnSubmit}>
       {fields?.map((field, index) => {
@@ -77,6 +100,32 @@ function Form({
               />
             </div>
           );
+        } else if(field?.split("@")[0]==="slug"){
+          
+
+          return (
+            <div key={index} className="flex flex-col gap-2">
+              <label
+                htmlFor={field?.split("@")[0]}
+                className="text-sm font-medium text-slate-500 dark:text-slate-300"
+              >
+                {field?.split("@")[0].toUpperCase()}
+              </label>
+              <input
+                id={field?.split("@")[0]}
+                type="text"
+                name={field?.split("@")[0]}
+                placeholder={`Type ${field?.split("@")[0]}`}
+              
+                value={(formData?.[field?.split("@")[1]])?.toLowerCase()?.split(" ")?.join("_") || ""}
+                disabled
+           
+                className="bg-white dark:bg-gray-700 block w-full rounded-md  px-3 py-1.5 text-base text-slate-900 dark:text-slate-50 outline-1 -outline-offset-1 outline-blue-500 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-blue-500 sm:text-sm/6"
+
+              />
+            </div>
+          );  
+
         } else if (field?.split("*")[1]?.split(">")[0] === "select") {
           return (
             <div key={index} className="flex flex-col gap-2">

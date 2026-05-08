@@ -19,43 +19,25 @@ export default function Document() {
         <link rel="icon" href="/predien.png" />
         <link rel="apple-touch-icon" href="/predien.png" />
         
-        {/* Verification & Adsense Config */}
-        <meta name="google-site-verification" content="0eB9dS8KcnJhSKZfdIbPDKlV9Mu2paLVQPPqiAind" />
-        <meta name="google-adsense-account" content="ca-pub-9169170789711891" />
-
-        {/* Global Meta Tags (Static) */}
-        <meta name="robots" content="index, follow" />
-        <meta name="author" content="Md Marful Islam" />
-        <meta property="og:site_name" content="Predien" />
-        <meta property="al:ios:app_name" content="Predien" />
-        <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:site" content="@predien" />
-
-        {/* Fonts / Icons */}
+                {/* Fonts / Icons */}
         <link
           rel="stylesheet"
           href="https://fonts.googleapis.com/icon?family=Material+Icons"
         />
 
-        {/* Structured Data */}
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{
-            __html: JSON.stringify(structuredData),
-          }}
-        />
 
-        {/* Use a standard script tag for AdSense to avoid the data-nscript error */}
-        <script
-          async
-          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9169170789711891"
-          crossOrigin="anonymous"
-        ></script>
       </Head>
       
       <body className="antialiased dark:bg-black bg-white dark:text-white text-black">
         <Main />
         <NextScript />
+
+
+        <script
+          async
+          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9169170789711891"
+          crossOrigin="anonymous"
+        ></script>
 
         {/* Analytics & Ads - Loading after hydration for performance */}
         <Script
@@ -71,6 +53,26 @@ export default function Document() {
           `}
         </Script>
         
+        <Script>
+          {`
+            window.copyToClipboard = function(elementId, btn) {
+              const code = document.getElementById(elementId).innerText;
+              navigator.clipboard.writeText(code).then(() => {
+                const originalText = btn.innerText;
+                btn.innerText = 'Copied!';
+                btn.style.color = '#4ade80'; // text-green-400
+                
+                setTimeout(() => {
+                  btn.innerText = originalText;
+                  btn.style.color = '';
+                }, 2000);
+              }).catch(err => {
+                console.error('Copy failed', err);
+              });
+            }
+          `}
+        </Script>
+
 
       </body>
     </Html>

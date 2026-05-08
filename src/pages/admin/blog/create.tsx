@@ -30,6 +30,8 @@ function Create() {
   };
 
   const fields = ["title", "slug", "description"];
+
+  
   return (
     <AdminLayout>
       <button
@@ -163,6 +165,39 @@ function Create() {
               className="bg-white dark:bg-gray-700 block w-full rounded-md  px-3 py-1.5 text-base text-slate-900 dark:text-slate-50 outline-1 -outline-offset-1 outline-blue-500 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-blue-500 sm:text-sm/6"
             />
           </div>
+
+
+          // create a topic selection dropdown
+          <div className="flex flex-col gap-2 mt-4">
+            <label
+              htmlFor={`topic`}
+              className="text-sm font-medium text-slate-500 dark:text-slate-300"
+            >
+              Topic
+            </label>
+            <select
+              id={`topic`}
+              name="topic"
+              value={formData?.topic || ""}
+              onChange={(e) =>
+                setFormData((prev: any) => ({
+                  ...prev,
+                  topic: e.target.value,
+                }))
+              }
+              className="bg-white dark:bg-gray-700 block w-full rounded-md  px-3 py-1.5 text-base text-slate-900 dark:text-slate-50 outline-1 -outline-offset-1 outline-blue-500 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-blue-500 sm:text-sm/6"
+            >
+              <option value="">Select a topic</option>
+              <option value="technology">Technology</option>
+              <option value="health">Health</option>
+              <option value="lifestyle">Lifestyle</option>
+              <option value="education">Education</option>
+              <option value="entertainment">Entertainment</option>
+            </select>
+          </div>
+
+          
+
         </div>
 
 

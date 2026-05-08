@@ -29,7 +29,7 @@
     "**/*.tsx",
     "src/components/Render1.js",
     ".d.ts"
-  ],
+, "src/utils/normalize-tokens.js", "src/components/CodeViewer.jsx"  ],
   "exclude": [
     "node_modules"
   ]
