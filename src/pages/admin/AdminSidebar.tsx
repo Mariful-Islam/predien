@@ -15,25 +15,25 @@ interface menuItemsType {
 
 const menuItems: menuItemsType[] = [
     {
-        label: 'Project', url: '/admin/project', icon: <GoProject />
+        label: 'Project', url: '/admin/projects', icon: <GoProject />
     },
     {
-        label: 'Product', url: '/admin/product', icon: <FaProductHunt />
+        label: 'Product', url: '/admin/products', icon: <FaProductHunt />
     },
     {
-        label: 'Blog', url: '/admin/blog', icon: <GrBlog />
+        label: 'Blog', url: '/admin/blogs', icon: <GrBlog />
     },
     {
-        label: 'Career', url: '/admin/career', icon: <GoTasklist />
+        label: 'Career', url: '/admin/careers', icon: <GoTasklist />
     },
     {
-        label: 'Client', url: '/admin/client', icon: <MdOutlineRateReview />
+        label: 'Client', url: '/admin/clients', icon: <MdOutlineRateReview />
     },
     {
-        label: 'Topic', url: '/admin/topic', icon: <MdOutlineTopic />
+        label: 'Topic', url: '/admin/topics', icon: <MdOutlineTopic />
     },
     {
-        label: 'Keyword', url: '/admin/keyword', icon: <VscSymbolKeyword />
+        label: 'Keyword', url: '/admin/keywords', icon: <VscSymbolKeyword />
     }
 ]
 

@@ -5,7 +5,7 @@ export default function Admin() {
   const router = useRouter()
 
   useEffect(() => {
-    router.replace('/admin/project')
+    router.replace('/admin/projects')
   }, [router])
 
   return null // Or a loading spinner if you want

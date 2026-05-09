@@ -23,7 +23,7 @@ function Create() {
     })
       .then((res) => {
         if (res.ok) {
-          router.push("/admin/blog");
+          router.push("/admin/blogs");
         }
       })
       .catch((e) => console.log(e));
@@ -35,7 +35,7 @@ function Create() {
   return (
     <AdminLayout>
       <button
-        onClick={() => router.push("/admin/blog")}
+        onClick={() => router.back()}
         className="text-blue-500 ring-blue-500 hover:ring-b flex items-center gap-2 mb-4"
       >
         <FaChevronLeft /> Back
@@ -167,7 +167,7 @@ function Create() {
           </div>
 
 
-          // create a topic selection dropdown
+          
           <div className="flex flex-col gap-2 mt-4">
             <label
               htmlFor={`topic`}

@@ -10,17 +10,20 @@ import { MdDelete } from "react-icons/md";
 import DeleteConsent from "@/components/admin/deleteConsent";
 import Button from "@/components/Button";
 import ProjectForm from "@/components/admin/project/ProjectForm";
+import { useRouter } from "next/navigation";
+
 
 
 
 export default function Project() {
+  const router = useRouter();
   const [projects, setProjects] = useState<any>();
   const [View, setView] = useState<any>(null);
   const [dlt, setDlt] = useState<any>(null)
   const [isOpenProjectCreateForm, setIsOpenProjectCreateForm] = useState<boolean>(false)
 
   const handleProjectCreateForm = () => {
-    setIsOpenProjectCreateForm(!isOpenProjectCreateForm)
+    router.push("/admin/projects/create")
   }
 
   const columns: ColumnsProps[] = [

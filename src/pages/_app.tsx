@@ -10,6 +10,7 @@ import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { Roboto } from "next/font/google";
 import Script from "next/script";
+import { SessionProvider } from "next-auth/react";
 
 const roboto = Roboto({
   subsets: ["latin"],
@@ -17,7 +18,7 @@ const roboto = Roboto({
   variable: "--font-roboto",
 });
 
-export default function App({ Component, pageProps }: AppProps) {
+export default function App({ Component, pageProps: { session, ...pageProps } }: AppProps) {
   useEffect(() => {
     AOS.init({
       duration: 1000,
@@ -71,11 +72,13 @@ export default function App({ Component, pageProps }: AppProps) {
  
       </Head>
       <ThemeProvider>
-        <div className={roboto.className}>
-          <Component {...pageProps} />
-          <ScrollToTop />
-          <ToastContainer position="bottom-right" />
-        </div>
+        <SessionProvider session={session}>
+          <div className={roboto.className}>
+            <Component {...pageProps} />
+            <ScrollToTop />
+            <ToastContainer position="bottom-right" />
+          </div>
+        </SessionProvider>
       </ThemeProvider>
     </main>
   );

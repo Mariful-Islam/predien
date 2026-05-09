@@ -21,7 +21,7 @@ export default function Blog() {
     useState<boolean>(false);
 
   const handleBlogCreateForm = () => {
-    router.push('/admin/blog/create')
+    router.push('/admin/blogs/create')
   };
 
   const columns: ColumnsProps[] = [

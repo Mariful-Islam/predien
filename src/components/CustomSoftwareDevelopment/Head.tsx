@@ -9,9 +9,9 @@ import theme from "@/assets/gis.png";
 function Head() {
   return (
     <div className="relative ">
-      <div className="z-20 relative">
+      <div className="z-0 relative">
         <Header />
-        <div className="max-w-[1200px] mx-auto w-full px-4 sm:px-20 flex flex-col justify-center h-[320px]">
+        <div className="max-w-[1200px] mt-100 mx-auto w-full px-4 sm:px-20 flex flex-col justify-center h-[320px]">
           <h1
             className={`text-green-500 text-xl font-bold text-center`}
             data-aos="fade-up"

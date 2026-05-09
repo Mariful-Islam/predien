@@ -34,10 +34,10 @@ function Header() {
 
   return (
     <header 
-      className={`fixed top-0 left-0 right-0 z-[100] transition-all duration-500 ease-in-out ${
+      className={`fixed top-0 left-0 right-0 z-[100] bg-white dark:bg-slate-950 transition-all duration-500 ease-in-out ${
         isScrolled || isOpenMobileMenu 
           ? 'py-3 bg-white dark:bg-slate-950 shadow-md border-b border-slate-200/50 dark:border-slate-800/50' 
-          : 'py-6 bg-transparent'
+          : 'py-4 bg-transparent'
       }`}
     >
       <div className="max-w-7xl mx-auto px-6 sm:px-12 flex justify-between items-center">

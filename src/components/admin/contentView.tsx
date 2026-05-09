@@ -1,10 +1,11 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useMemo, useState } from "react";
 import Drawer from "../Drawer";
 import axios from "axios";
 import { toast } from "react-toastify";
 import Contentdit from "./contentdit";
 import { SlateRenderer } from "../Renderer";
 import { API_URL } from "@/pages/blog";
+import { slateToHtml } from "../slatetoHtml";
 
 interface ContentViewProps {
   isOpen: boolean;
@@ -43,6 +44,15 @@ export default function ContentView({
     getItem();
   }, []);
 
+
+    const serializeToHtml = useMemo(() => {
+      try {
+        return slateToHtml(JSON.parse(item?.description || "[]"));
+      } catch (e) {
+        return "";
+      }
+    }, [item?.description]);
+
   return (
     <Drawer isOpen={isOpen} onClose={onClose} title="item Detail">
       <div className="bg-white dark:bg-gray-800 text-slate-800 dark:text-slate-200">
@@ -64,14 +74,17 @@ export default function ContentView({
               {keys?.map((key, index) => {
                 if (key === "description") {
                   return (
-                    <div className="flex flex-col gap-2" key={index}>
-                      <div className="text-gray-600 font-bold">
-                        {key?.split("_")?.join(" ")?.toUpperCase()}:{" "}
-                      </div>
-                      <SlateRenderer
-                        data={item?.[key as any]}
+                    <>
+                      {/* Prose Styling for Slate Content */}
+                      <div
+                        className="mt-10 prose prose-lg md:prose-xl dark:prose-invert prose-slate max-w-none 
+                        prose-headings:tracking-tighter prose-headings:font-black prose-headings:text-slate-950 dark:prose-headings:text-white
+                        prose-p:text-slate-600 dark:prose-p:text-slate-400 prose-p:leading-relaxed prose-p:font-medium
+                        prose-strong:text-blue-600 dark:prose-strong:text-blue-500
+                        prose-a:text-blue-500 prose-a:no-underline hover:prose-a:underline"
+                        dangerouslySetInnerHTML={{ __html: serializeToHtml }}
                       />
-                    </div>
+                    </>
                   );
                 }
                 return (

@@ -88,16 +88,17 @@ function Form({
                 {field.split("_").join(" ").toUpperCase()}
               </label>
               
-              <SlateEditor
-            
-                onChange={(value:any)=>{
-                  setFormData((prev:any)=>({
-                    ...prev,
-                    'description': JSON.stringify(value)
-                  }))
-                }}
+              <div className="bg-white dark:bg-black rounded-md">
+                <SlateEditor
               
-              />
+                  onChange={(value:any)=>{
+                    setFormData((prev:any)=>({
+                      ...prev,
+                      'description': JSON.stringify(value)
+                    }))
+                  }}
+                />
+              </div>
             </div>
           );
         } else if(field?.split("@")[0]==="slug"){
@@ -128,7 +129,7 @@ function Form({
 
         } else if (field?.split("*")[1]?.split(">")[0] === "select") {
           return (
-            <div key={index} className="flex flex-col gap-2">
+            <div key={index} className="flex flex-col gap-2 bg-white dark:bg-gray-700 rounded-md p-2">
               <label
                 htmlFor={field}
                 className="text-sm font-medium text-slate-500 dark:text-slate-300"
