@@ -13,6 +13,11 @@ import Footer from '@/components/Footer';
 
 // Asset (Ensure this path is correct in your project)
 import blogHero from '@/assets/blog.jpg';
+import AnchorHeadingPage from '@/components/global/AnchorHeadingPage';
+import HeadingPage from '@/components/global/HeadingPage';
+import SubHeadingPage from '@/components/global/SubHeadingPage';
+
+
 
 export const API_URL = process.env.NODE_ENV === "production" 
   ? "https://predien.vercel.app" 
@@ -50,23 +55,24 @@ const Blog: React.FC<BlogProps> = ({ data }) => {
               transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
               className="lg:col-span-7 space-y-10"
             >
-              <div className="flex items-center gap-4">
+              {/* <div className="flex items-center gap-4">
                 <span className="w-16 h-[2px] bg-blue-600 dark:bg-blue-500" />
                 <span className="text-blue-600 dark:text-blue-500 font-black tracking-[0.4em] uppercase text-[14px]">
                   The Engineering Journal
                 </span>
-              </div>
+              </div> */}
+              <AnchorHeadingPage text="The Engineering Journal" />
               
-              <h1 className="text-7xl md:text-[120px] font-black text-slate-950 dark:text-white tracking-tighter leading-[0.8] mb-6">
+              {/* <h1 className="text-7xl md:text-[120px] font-black text-slate-950 dark:text-white tracking-tighter leading-[0.8] mb-6">
                 Digital <br />
                 <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-indigo-500 dark:from-blue-400 dark:to-indigo-400">
                   Dialogue.
                 </span>
-              </h1>
+              </h1> */}
 
-              <p className="text-slate-600 dark:text-slate-400 text-2xl md:text-3xl leading-snug max-w-2xl font-medium tracking-tight">
-                Deep dives into <span className="text-slate-950 dark:text-white font-bold">software architecture</span>, minimalist design, and scalable automation.
-              </p>
+              <HeadingPage firstText="Digital" secondText="Dialogue." />
+
+              <SubHeadingPage text="Deep dives into software architecture, minimalist design, and scalable automation." />
 
               <div className="pt-6">
                 <Link href="#articles" className="group flex items-center gap-6">

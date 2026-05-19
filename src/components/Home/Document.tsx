@@ -3,6 +3,9 @@ import React, { useState } from "react";
 import Modal from "../common/Modal"; // Ensure your Modal supports Framer Motion or accepts custom classNames
 import { motion, AnimatePresence } from "framer-motion";
 import { HiCheckCircle, HiMiniArrowDownTray, HiOutlineXMark } from "react-icons/hi2"; // Cleaner modern icons
+import AnchorHeadingSection from "../global/AnchorHeadingSection";
+import SubHeadingSection from "../global/SubHeadingSection";
+import HeadingSection from "../global/HeadingSection";
 
 function Document() {
   const [isOpen, setIsOpen] = useState<boolean>(false);
@@ -42,20 +45,18 @@ function Document() {
         
         {/* Left Side: Content */}
         <div className="space-y-6">
-          <motion.div variants={textVariants} className="flex items-center gap-3">
-            <span className="w-12 h-[1px] bg-blue-500" />
-            <span className="text-blue-400 font-bold text-sm uppercase tracking-widest">
-              Pitch Deck
-            </span>
+          <motion.div variants={textVariants} >
+            <AnchorHeadingSection text="Pitch Deck"/>
           </motion.div>
           
-          <motion.h3 variants={textVariants} className="text-black dark:text-white text-5xl md:text-6xl font-extrabold leading-[1.1] tracking-tighter max-w-2xl">
-            A quick overview of our <span className="text-blue-500">predien.</span> agency
-          </motion.h3>
+          <motion.div variants={textVariants} className="text-black dark:text-white text-5xl md:text-6xl font-extrabold leading-[1.1] tracking-tighter max-w-2xl">
+        
+            <HeadingSection text={`A quick overview of our <span class="text-blue-600">predien.</span> agency`} />
+          </motion.div>
           
-          <motion.p variants={textVariants} className="text-slate-600 dark:text-slate-200 text-lg max-w-xl leading-relaxed">
-            Download our official presentation to explore our capabilities, process, and success stories.
-          </motion.p>
+          <motion.div variants={textVariants} >
+            <SubHeadingSection text="Download our official presentation to explore our capabilities, process, and success stories." />
+          </motion.div>
         </div>
 
         {/* Right Side: The Modern Button */}

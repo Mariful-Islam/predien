@@ -1,49 +1,77 @@
-
-import Link from "next/link";
 import React from "react";
-import { MdOutlineKeyboardArrowRight } from "react-icons/md";
+import Link from "next/link";
+import { motion } from "framer-motion";
+import { FiArrowUpRight, FiLayers } from "react-icons/fi";
 
-function ProductGrid({ data }: { data: any }) {
+interface ProductItem {
+  name: string;
+  slug: string;
+  type?: string;
+  description?: string;
+}
+
+interface ProductGridProps {
+  data: ProductItem[];
+}
+
+const ProductGrid: React.FC<ProductGridProps> = ({ data }) => {
   return (
-    <>
-    <div className="pt-8 pb-16">
-      <h1
-        className={`text-green-500 font-bold text-2xl`}
-        data-aos="fade-up"
-        data-aos-duration="600"
-        data-aos-delay="100"
-      >
-        Products
-      </h1>
-      <div
-        className="grid grid-cols-1 xs:grid-cols-2 ml:grid-cols-3 gap-4 mt-4"
-        data-aos="fade-up"
-        data-aos-duration="600"
-        data-aos-delay="150"
-      >
-        {data?.map((item: any, index: number) => (
-          <Link href={`/product/${item?.slug}/`} key={index}>
-            <div className={`border border-green-500 p-5 group relative h-[300px] rounded-xl overflow-hidden shadow-md hover:shadow-2xl`}>
-              {/* <div className={`uppercase text-green-500 text-sm font-semibold relative z-10`}>
-                {item?.type}
-              </div> */}
-              <div className={`text-slate-800 dark:text-slate-200 text-xl font-semibold group-hover:text-green-500 duration-200 relative z-10`}>
-                {item.name}
-              </div>
-              {/* <div className={`mt-10 text-black dark:text-slate-200 text-sm translate-x-[400px] group-hover:translate-x-0 duration-500`}>
-                {item?.description}
-              </div> */}
+    <div className="py-12">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        {data?.map((item, index) => (
+          <motion.div
+            key={index}
+            initial={{ opacity: 0, y: 25 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5, delay: index * 0.05 }}
+          >
+            <Link href={`/product/${item?.slug}/`} className="group block h-full">
+              <div className="relative h-[280px] bg-white dark:bg-[#090d16] border border-slate-200/60 dark:border-white/5 rounded-3xl p-8 flex flex-col justify-between overflow-hidden shadow-[0_4px_30px_rgba(0,0,0,0.01)] hover:shadow-[0_30px_60px_rgba(0,0,0,0.04)] dark:hover:shadow-[0_30px_60px_rgba(0,0,0,0.25)] border-b-2 hover:border-b-blue-600 dark:hover:border-b-blue-500 transition-all duration-500">
+                
+                {/* Background Ambient Flare on Hover */}
+                <div className="absolute top-0 right-0 w-32 h-32 bg-blue-500/10 rounded-full blur-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none" />
 
-              <div className={`absolute bottom-5 right-7 z-10 group-hover:translate-x-2 border border-green-500 group-hover:bg-green-500 duration-200 rounded-full p-4 h-8 w-8 grid justify-center content-center`}>
-                <MdOutlineKeyboardArrowRight className={`text-green-500 h-6 w-6 group-hover:text-white duration-200`}/>
+                <div className="space-y-4">
+                  {/* Product Type Metadata Tag */}
+                  {item?.type && (
+                    <div className="inline-flex items-center gap-1.5 text-[10px] font-black uppercase tracking-widest text-slate-400 dark:text-slate-500">
+                      <FiLayers className="text-blue-500" />
+                      <span>{item.type}</span>
+                    </div>
+                  )}
+
+                  {/* Product Title */}
+                  <h3 className="text-2xl font-bold text-slate-950 dark:text-white tracking-tight group-hover:text-blue-600 dark:group-hover:text-blue-500 transition-colors duration-300">
+                    {item.name}
+                  </h3>
+
+                  {/* Product Description */}
+                  {item?.description && (
+                    <p className="text-slate-500 dark:text-slate-400 text-sm leading-relaxed font-medium line-clamp-3 group-hover:text-slate-700 dark:group-hover:text-slate-300 transition-colors duration-300">
+                      {item.description}
+                    </p>
+                  )}
+                </div>
+
+                {/* Modern Directional Arrow Hub */}
+                <div className="self-end flex items-center justify-center w-12 h-12 rounded-2xl bg-slate-50 dark:bg-slate-900 border border-slate-200/60 dark:border-slate-800/80 group-hover:bg-blue-600 dark:group-hover:bg-blue-500 group-hover:border-transparent text-slate-400 dark:text-slate-500 group-hover:text-white transition-all duration-500 shadow-sm">
+                  <FiArrowUpRight className="text-xl transition-transform duration-500 group-hover:rotate-45" />
+                </div>
+
               </div>
-            </div>
-          </Link>
+            </Link>
+          </motion.div>
         ))}
       </div>
+
+      {(!data || data.length === 0) && (
+        <div className="text-center py-20 bg-white dark:bg-[#090d16] border border-dashed border-slate-200 dark:border-slate-800 rounded-3xl">
+          <p className="text-slate-400 font-medium">No products deployed to production environment yet.</p>
+        </div>
+      )}
     </div>
-    </>
   );
-}
+};
 
 export default ProductGrid;

@@ -130,18 +130,18 @@ function Blog({ data }: { data: any }) {
                         href={`#${id}`}
                         className={`group relative text-sm font-bold tracking-tight transition-all duration-300 ${
                           isActive
-                            ? "text-blue-500 pl-4"
+                            ? "text-blue-500 pl-2"
                             : "text-slate-400 dark:text-slate-500 hover:text-slate-900 dark:hover:text-white"
                         }`}
                       >
                         {/* Flowing Line for active/hover state */}
                         <div
-                          className={`absolute left-0 top-1/2 -translate-y-1/2 w-[2px] bg-blue-500 transition-all duration-500 ${isActive ? "h-full" : "h-0 group-hover:h-full"}`}
+                          className={`absolute left-0 top-1/2 -translate-y-1/2 w-[2px] -translate-x-1 bg-blue-500 transition-all duration-500 ${isActive ? "h-full" : "h-0 group-hover:h-full"}`}
                         />
                         <span
                           className={
                             isActive
-                              ? "translate-x-2 inline-block transition-transform"
+                              ? "translate-x-1 inline-block transition-transform"
                               : ""
                           }
                         >

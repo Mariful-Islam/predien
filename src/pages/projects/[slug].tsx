@@ -1,55 +1,149 @@
-import Footer from "@/components/Footer";
-import Header from "@/components/Header";
-import { SlateRenderer } from "@/components/Renderer";
-import moment from "moment";
-import Link from "next/link";
+import React, { useMemo } from "react";
 import { useRouter } from "next/router";
-import React from "react";
-import { GoArrowLeft } from "react-icons/go";
-import { SlCalender } from "react-icons/sl";
+import Head from "next/head";
+import { motion } from "framer-motion";
+import { HiOutlineArrowLeft } from "react-icons/hi";
+
+// Components
+import Header from "@/components/Header";
+import Footer from "@/components/Footer";
+import { slateToHtml } from "@/components/slatetoHtml";
 
 const API_URL =
   process.env.NODE_ENV === "production"
     ? "https://predien.vercel.app"
     : "http://localhost:3000";
 
-function Project({ data }: { data: any }) {
-  const router = useRouter()
-  return (
-    <>
-      <div className="bg-white dark:bg-black scroll-mt-12">
-        <div className="bg-gradient-to-l from-green-600 dark:from-green-800 via-violet-500 dark:via-violet-700 to-blue-400 dark:to-blue-700">
-          <Header />
-        </div>
-        <div className="max-w-[1200px] mx-auto px-4 sm:px-20 py-12 dark:text-white text-black">
-          <button
-            onClick={()=>router.back()}
-            className=" group flex gap-2 items-center justify-center  mb-4 text-blue-500 focus:ring-1 w-[80px]"
-          >
-            <GoArrowLeft className="text-blue-500 group-hover:-translate-x-2 duration-200" />{" "}
-            Back
-          </button>
-          <div className="flex flex-col-reverse md:flex-row gap-12">
-            <div className="w-full md:w-3/4">
-              <h1 className="text-5xl font-bold ">{data?.title}</h1>
-
-              <h1 className="text-3xl">{data.project_name}</h1>
-              <div className="mt-4">{data?.brief}</div>
-
-              <SlateRenderer
-                data={data?.description}
-
-              />
-            </div>
-          </div>
-        </div>
-      </div>
-      <Footer />
-    </>
-  );
+interface ProjectDetailsProps {
+  data: {
+    title?: string;
+    project_name?: string;
+    brief?: string;
+    description?: any;
+    category?: string;
+    client_region?: string;
+  };
 }
 
-export default Project;
+const ProjectDetails: React.FC<ProjectDetailsProps> = ({ data }) => {
+  const router = useRouter();
+
+  const serializeToHtml = useMemo(() => {
+    if (!data?.description) return "";
+    try {
+      const parsedData = typeof data.description === "string" 
+        ? JSON.parse(data.description) 
+        : data.description;
+      return slateToHtml(parsedData);
+    } catch (e) {
+      return "";
+    }
+  }, [data?.description]);
+
+  return (
+    <div className="selection:bg-slate-200 dark:selection:bg-slate-800 bg-white dark:bg-[#02040a] text-slate-900 dark:text-slate-100 transition-colors duration-500 min-h-screen flex flex-col font-sans antialiased">
+      <Head>
+        <title>{`Predien — ${data?.project_name || "Case Study"}`}</title>
+      </Head>
+
+      <Header />
+
+      {/* --- MAIN EDITORIAL FRAME --- */}
+      <main className="flex-grow max-w-[1300px] mx-auto px-8 sm:px-12 pt-40 pb-32 w-full">
+        
+        {/* Back navigation element styled like a footnotes link */}
+        <div className="mb-16">
+          <button
+            onClick={() => router.back()}
+            className="group inline-flex items-center gap-2 text-xs uppercase tracking-[0.2em] text-slate-400 hover:text-slate-950 dark:hover:text-white transition-colors duration-300"
+          >
+            <HiOutlineArrowLeft className="text-sm transition-transform duration-300 group-hover:-translate-x-1" />
+            <span>back</span>
+          </button>
+        </div>
+
+        {/* Dynamic Split Editorial Layout */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 lg:gap-24">
+          
+          {/* LEFT SIDEBAR: Static Primary Spec Blocks */}
+          <div className="lg:col-span-5 space-y-12">
+            
+            {/* Project Name Tracker */}
+            <div className="space-y-2">
+              <span className="text-[10px] uppercase font-bold tracking-[0.3em] text-slate-400 block">Project Title</span>
+              <p className="text-xl font-medium tracking-tight text-slate-600 dark:text-slate-300">
+                {data?.project_name || "System Project"}
+              </p>
+            </div>
+
+            {/* Quick Metadata Metadata Parameters */}
+            <div className="grid grid-cols-2 gap-8 border-t border-slate-100 dark:border-slate-900 pt-8 text-xs">
+              <div className="space-y-1">
+                <span className="uppercase font-bold tracking-widest text-slate-400 text-[9px]">Classification</span>
+                <p className="font-medium text-slate-700 dark:text-slate-300">{data?.category || "Custom Build"}</p>
+              </div>
+              <div className="space-y-1">
+                <span className="uppercase font-bold tracking-widest text-slate-400 text-[9px]">Scope Region</span>
+                <p className="font-medium text-slate-700 dark:text-slate-300">{data?.client_region || "International"}</p>
+              </div>
+            </div>
+
+            {/* Dynamic Project Abstract Summary */}
+            {data?.brief && (
+              <div className="border-t border-slate-100 dark:border-slate-900 pt-8">
+                <p className="text-base sm:text-lg leading-relaxed font-normal text-slate-500 dark:text-slate-400 italic">
+                  “ {data.brief} ”
+                </p>
+              </div>
+            )}
+          </div>
+
+          {/* RIGHT VIEWPORT: Smooth Rich Narrative Streaming Window */}
+          <div className="lg:col-span-7 space-y-16">
+            
+            {/* Clean Massive Context Heading */}
+            <motion.h1 
+              initial={{ opacity: 0, y: 15 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6 }}
+              className="text-4xl sm:text-5xl md:text-6xl font-light tracking-tight leading-[1.1] text-slate-950 dark:text-white"
+            >
+              {data?.title}
+            </motion.h1>
+
+            {/* Injected Content Payload Pipeline */}
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 0.5, delay: 0.2 }}
+              className="border-t border-slate-100 dark:border-slate-900 pt-12"
+            >
+              {serializeToHtml ? (
+                <div
+                  className="prose prose-slate dark:prose-invert max-w-none
+                  prose-p:text-slate-600 dark:prose-p:text-slate-400 prose-p:text-base prose-p:leading-7 prose-p:mb-6
+                  prose-headings:text-slate-950 dark:prose-headings:text-white prose-headings:font-bold prose-headings:tracking-tight
+                  prose-h2:text-2xl prose-h2:mt-12 prose-h2:mb-4
+                  prose-strong:text-slate-950 dark:prose-strong:text-white prose-strong:font-semibold
+                  prose-a:text-slate-950 dark:prose-a:text-white prose-a:underline hover:opacity-70
+                  prose-li:text-slate-600 dark:prose-li:text-slate-400"
+                  dangerouslySetInnerHTML={{ __html: serializeToHtml }}
+                />
+              ) : (
+                <p className="text-xs font-mono text-slate-400 tracking-wide">[Void Log Data]</p>
+              )}
+            </motion.div>
+          </div>
+
+        </div>
+      </main>
+
+      <Footer />
+    </div>
+  );
+};
+
+export default ProjectDetails;
 
 export async function getServerSideProps(context: any) {
   const { slug } = context.params;

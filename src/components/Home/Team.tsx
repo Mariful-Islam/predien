@@ -5,6 +5,8 @@ import Image from "next/image";
 import { FaLinkedinIn } from "react-icons/fa";
 import { HiOutlineMail } from "react-icons/hi";
 import { motion } from "framer-motion";
+import AnchorHeadingSection from "../global/AnchorHeadingSection";
+import HeadingSection from "../global/HeadingSection";
 
 function Team() {
   // Staggered Entrance Animation Variants
@@ -95,11 +97,8 @@ function Team() {
 
       {/* Main Content (Remains z-10 for interactivity) */}
       <div className="max-w-7xl mx-auto px-6 md:px-12 relative z-10">
-        <motion.div variants={textVariants as any} className="flex items-center gap-3">
-          <span className="w-12 h-[1px] bg-blue-500" />
-          <span className="text-blue-400 font-bold text-sm uppercase tracking-widest">
-            Visionaries
-          </span>
+        <motion.div variants={textVariants as any} >
+          <AnchorHeadingSection text="Visionaries"/>
         </motion.div>
 
         {/* Header Block with 'read.' emphasis */}
@@ -110,9 +109,10 @@ function Team() {
           className="mb-16 space-y-4 mt-6"
         >
 
-          <h3 className="text-4xl md:text-6xl font-black text-slate-900 dark:text-white tracking-tighter max-w-2xl leading-tight">
+          {/* <h3 className="text-4xl md:text-6xl font-black text-slate-900 dark:text-white tracking-tighter max-w-2xl leading-tight">
             The minds driving our <span className="text-blue-500">excellence.</span>
-          </h3>
+          </h3> */}
+          <HeadingSection text={`The minds driving our <span class="text-blue-500">excellence.</span>`}/>
         </motion.div>
 
         {/* Team Grid */}
