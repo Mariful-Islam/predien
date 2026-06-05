@@ -10,6 +10,7 @@ import BlogForm from "@/components/admin/blog/BlogForm";
 import moment from "moment";
 import { MdDelete } from "react-icons/md";
 import Router, { useRouter } from "next/router";
+import { CiEdit } from "react-icons/ci";
 
 export default function Blog() {
   const router = useRouter();
@@ -18,8 +19,8 @@ export default function Blog() {
   const [dlt, setDlt] = useState<any>(null)
   
 
-  const handleBlogCreateForm = () => {
-    router.push('/admin/topic/create')
+  const handleCreate = () => {
+    router.push('/admin/topics/create')
   };
 
   const columns: ColumnsProps[] = [
@@ -70,12 +71,12 @@ export default function Blog() {
           >
             <IoEyeOutline />
           </button>
-          {/* <button
+          <button
               className=" hover:text-blue-500"
-              // onClick={() => setEdit("ygyug")}
+              onClick={() => router.push(`/admin/topics/${item.slug}/edit`)}
             >
               <CiEdit />
-            </button> */}
+            </button>
           <button
             className=" hover:text-blue-500"
             onClick={() => setDlt(item)}
@@ -107,7 +108,7 @@ export default function Blog() {
         <h2>
           Topic
         </h2>
-        <Button type="Normal" onClick={handleBlogCreateForm}>
+        <Button type="Normal" onClick={handleCreate}>
           Create
         </Button>
       </div>
@@ -118,8 +119,7 @@ export default function Blog() {
           isOpen={View ? true : false}
           onClose={() => setView(null)}
           id={View}
-          name="blogs"
-          keys={["title", "description", "slug"]}
+          name="topics"
         />
       )}
 

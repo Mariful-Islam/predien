@@ -51,6 +51,14 @@ export default function Project() {
           >
             <IoEyeOutline />
           </button>
+
+          <button
+              className=" hover:text-blue-500"
+              onClick={() => router.push(`/admin/projects/${item.slug}/edit`)}
+            >
+            <CiEdit />
+          </button>
+
           <button
             className=" hover:text-blue-500"
             onClick={() => setDlt(item)}
@@ -93,7 +101,6 @@ export default function Project() {
           onClose={() => setView(null)}
           id={View}
           name="projects"
-          keys={['project_name', 'slug', 'brief', 'description', 'type', 'post_date']}
         />
       )}
 

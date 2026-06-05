@@ -10,8 +10,11 @@ import BlogForm from "@/components/admin/blog/BlogForm";
 import moment from "moment";
 import { MdDelete } from "react-icons/md";
 import ProductForm from "@/components/admin/product/ProductForm";
+import { useRouter } from "next/navigation";
+import { CiEdit } from "react-icons/ci";
 
 export default function Product() {
+  const route = useRouter();
   const [blogs, setblogs] = useState<any>();
   const [View, setView] = useState<any>(null);
   const [dlt, setDlt] = useState<any>(null)
@@ -20,7 +23,7 @@ export default function Product() {
     useState<boolean>(false);
 
   const handleCreateForm = () => {
-    setIsOpenForm(!isOpenForm);
+    route.push("/admin/products/create")
   };
 
   const columns: ColumnsProps[] = [
@@ -58,12 +61,14 @@ export default function Product() {
           >
             <IoEyeOutline />
           </button>
-          {/* <button
+
+          <button
               className=" hover:text-blue-500"
-              // onClick={() => setEdit("ygyug")}
+              onClick={() => route.push(`/admin/products/${item.slug}/edit`)}
             >
-              <CiEdit />
-            </button> */}
+            <CiEdit />
+          </button>
+
           <button
             className=" hover:text-blue-500"
             onClick={() => setDlt(item)}
@@ -96,6 +101,7 @@ export default function Product() {
           Add Product
         </Button>
       </div>
+
       <Table columns={columns} data={blogs} />
 
       {View && (
@@ -104,7 +110,6 @@ export default function Product() {
           onClose={() => setView(null)}
           id={View}
           name="products"
-          keys={["name", "description", "slug"]}
         />
       )}
 

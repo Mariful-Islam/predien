@@ -41,14 +41,11 @@ const JobSchema = new mongoose.Schema({
   },
 
   // SEO fields
-  seoTitle: {
-    type: String,
-    required: false,
-  },
-  seoDescription: {
-    type: String,
-    required: false,
-  },
+  meta: {
+    title: String,
+    description: String,
+    keywords: String,
+  }
 });
 
 // Create the model

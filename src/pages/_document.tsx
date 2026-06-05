@@ -2,14 +2,14 @@ import { Html, Head, Main, NextScript } from "next/document";
 import Script from "next/script";
 
 export default function Document() {
-  const BASE_URL = 'https://predien.vercel.app';
+  const BASE_URL = "https://predien.vercel.app";
 
   const structuredData = {
     "@context": "https://schema.org",
     "@type": "WebSite",
-    "name": "Predien",
-    "url": "https://predien.vercel.app/",
-    "mainEntityOfPage": "https://predien.vercel.app/",
+    name: "Predien",
+    url: "https://predien.vercel.app/",
+    mainEntityOfPage: "https://predien.vercel.app/",
   };
 
   return (
@@ -18,20 +18,17 @@ export default function Document() {
         {/* Favicons & Icons */}
         <link rel="icon" href="/predien.png" />
         <link rel="apple-touch-icon" href="/predien.png" />
-        
-                {/* Fonts / Icons */}
+
+        {/* Fonts / Icons */}
         <link
           rel="stylesheet"
           href="https://fonts.googleapis.com/icon?family=Material+Icons"
         />
-
-
       </Head>
-      
+
       <body className="antialiased dark:bg-black bg-white dark:text-white text-black">
         <Main />
         <NextScript />
-
 
         <script
           async
@@ -52,28 +49,8 @@ export default function Document() {
             gtag('config', 'G-4EW3H102VV');
           `}
         </Script>
+
         
-        <Script>
-          {`
-            window.copyToClipboard = function(elementId, btn) {
-              const code = document.getElementById(elementId).innerText;
-              navigator.clipboard.writeText(code).then(() => {
-                const originalText = btn.innerText;
-                btn.innerText = 'Copied!';
-                btn.style.color = '#4ade80'; // text-green-400
-                
-                setTimeout(() => {
-                  btn.innerText = originalText;
-                  btn.style.color = '';
-                }, 2000);
-              }).catch(err => {
-                console.error('Copy failed', err);
-              });
-            }
-          `}
-        </Script>
-
-
       </body>
     </Html>
   );

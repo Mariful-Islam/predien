@@ -1,12 +1,12 @@
-import React, { useEffect, useState } from 'react';
-import { NavItems } from './NavItems';
+import React, { useEffect, useState } from "react";
+import { NavItems } from "./NavItems";
 import { HiChevronDown, HiOutlineArrowRight } from "react-icons/hi2";
-import ThemeToggle from './ThemeToggle';
-import Link from 'next/link';
-import { HiMenuAlt3 } from 'react-icons/hi';
-import { RxCross1 } from 'react-icons/rx';
-import { usePathname } from 'next/navigation';
-import { motion, AnimatePresence } from 'framer-motion';
+import ThemeToggle from "./ThemeToggle";
+import Link from "next/link";
+import { HiMenuAlt3 } from "react-icons/hi";
+import { RxCross1 } from "react-icons/rx";
+import { usePathname } from "next/navigation";
+import { motion, AnimatePresence } from "framer-motion";
 
 function Header() {
   const [activeIndex, setActiveIndex] = useState<number | null>(null);
@@ -16,32 +16,40 @@ function Header() {
 
   useEffect(() => {
     const handleScroll = () => {
-      const threshold = pathname === '/' ? window.innerHeight - 80 : 50;
+      const threshold = pathname === "/" ? window.innerHeight - 80 : 50;
       setIsScrolled(window.scrollY > threshold);
     };
 
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
   }, [pathname]);
+
+  const [activeSubmenu, setActiveSubmenu] = useState<number | null>(null);
 
   useEffect(() => {
     if (isOpenMobileMenu) {
-      document.body.style.overflow = 'hidden';
+      document.body.style.overflow = "hidden";
     } else {
-      document.body.style.overflow = 'unset';
+      document.body.style.overflow = "unset";
+    }
+
+    if (!isOpenMobileMenu) {
+      setActiveSubmenu(null);
     }
   }, [isOpenMobileMenu]);
 
+
+  // 2. Add this state to track which submenu is currently expanded (by its index)
+
   return (
-    <header 
+    <header
       className={`fixed top-0 left-0 right-0 z-[100] bg-white dark:bg-slate-950 transition-all duration-500 ease-in-out ${
-        isScrolled || isOpenMobileMenu 
-          ? 'py-3 bg-white dark:bg-slate-950 shadow-md border-b border-slate-200/50 dark:border-slate-800/50' 
-          : 'py-4 bg-transparent'
+        isScrolled || isOpenMobileMenu
+          ? "py-3 bg-white dark:bg-slate-950 shadow-md border-b border-slate-200/50 dark:border-slate-800/50"
+          : "py-4 bg-transparent"
       }`}
     >
       <div className="max-w-7xl mx-auto px-6 sm:px-12 flex justify-between items-center">
-        
         {/* Logo */}
         <Link href="/" className="relative z-[210]">
           <h1 className="text-2xl font-black tracking-tighter text-slate-950 dark:text-white">
@@ -54,10 +62,10 @@ function Header() {
           <ul className="flex items-center gap-1 list-none">
             {NavItems.map((item, index) => {
               const isActive = pathname === item.link;
-              
+
               return (
-                <li 
-                  key={index} 
+                <li
+                  key={index}
                   className="relative"
                   onMouseEnter={() => setActiveIndex(index)}
                   onMouseLeave={() => setActiveIndex(null)}
@@ -65,14 +73,16 @@ function Header() {
                   <Link
                     href={item.link}
                     className={`relative px-4 py-2 flex gap-1.5 items-center text-sm font-bold transition-colors duration-300 group ${
-                      isScrolled 
-                        ? 'text-slate-600 dark:text-slate-300 hover:text-slate-950 dark:hover:text-white' 
-                        : 'text-slate-900 dark:text-white'
+                      isScrolled
+                        ? "text-slate-600 dark:text-slate-300 hover:text-slate-950 dark:hover:text-white"
+                        : "text-slate-900 dark:text-white"
                     }`}
                   >
                     {item.name}
                     {item.subItems.length > 0 && (
-                      <HiChevronDown className={`w-4 h-4 transition-transform duration-300 ${activeIndex === index ? 'rotate-180' : ''}`} />
+                      <HiChevronDown
+                        className={`w-4 h-4 transition-transform duration-300 ${activeIndex === index ? "rotate-180" : ""}`}
+                      />
                     )}
 
                     {/* Hover Underline (Left to Right) */}
@@ -83,7 +93,11 @@ function Header() {
                       <motion.div
                         layoutId="activeTabUnderline"
                         className="absolute bottom-0 left-4 right-4 h-[2px] bg-slate-950 dark:bg-white z-10"
-                        transition={{ type: "spring", stiffness: 380, damping: 30 }}
+                        transition={{
+                          type: "spring",
+                          stiffness: 380,
+                          damping: 30,
+                        }}
                       />
                     )}
                   </Link>
@@ -105,7 +119,9 @@ function Header() {
                               className="group p-4 rounded-xl hover:bg-slate-50 dark:hover:bg-slate-800/50 transition-all border border-transparent hover:border-slate-100 dark:hover:border-slate-700"
                             >
                               <div className="flex items-center justify-between mb-1">
-                                <span className="font-bold text-slate-900 dark:text-slate-100">{subItem.name}</span>
+                                <span className="font-bold text-slate-900 dark:text-slate-100">
+                                  {subItem.name}
+                                </span>
                                 <HiOutlineArrowRight className="w-4 h-4 opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all text-blue-500" />
                               </div>
                               <p className="text-xs text-slate-500 dark:text-slate-400 line-clamp-2">
@@ -128,13 +144,13 @@ function Header() {
           <div className="hidden sm:block">
             <ThemeToggle isVisible={isScrolled || isOpenMobileMenu} />
           </div>
-          
+
           <Link
             href="/contact#contact"
             className={`group hidden lg:flex items-center gap-2 px-6 py-2.5 rounded-full font-bold text-sm transition-all duration-300 ${
-              isScrolled 
-                ? 'bg-blue-600 text-white hover:bg-blue-700 shadow-lg shadow-blue-500/20' 
-                : 'bg-white text-slate-950 hover:bg-slate-100 shadow-xl'
+              isScrolled
+                ? "bg-blue-600 text-white hover:bg-blue-700 shadow-lg shadow-blue-500/20"
+                : "bg-white text-slate-950 hover:bg-slate-100 shadow-xl"
             }`}
           >
             Get Started
@@ -142,8 +158,8 @@ function Header() {
           </Link>
 
           {/* Mobile Toggle */}
-          <button 
-            className="lg:hidden p-2 rounded-xl transition-colors hover:bg-slate-100 dark:hover:bg-slate-800 z-[210]" 
+          <button
+            className="lg:hidden p-2 rounded-xl transition-colors hover:bg-slate-100 dark:hover:bg-slate-800 z-[210]"
             onClick={() => setIsOpenMobileMenu(!isOpenMobileMenu)}
           >
             {isOpenMobileMenu ? (
@@ -156,33 +172,111 @@ function Header() {
       </div>
 
       {/* Mobile Menu Overlay */}
+      {/* Mobile Menu Overlay */}
       <AnimatePresence>
         {isOpenMobileMenu && (
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -20 }}
-            className="fixed inset-0 z-[200] bg-white dark:bg-slate-950 p-8 pt-24 flex flex-col"
+            className="fixed inset-0 z-[200] bg-white dark:bg-slate-950 p-8 pt-24 flex flex-col overflow-y-auto"
           >
-            <nav className="flex flex-col gap-6">
-              {NavItems.map((item, index) => (
-                <div key={index} className="flex flex-col gap-4 border-b border-slate-100 dark:border-slate-800 pb-4">
-                  <Link 
-                    href={item.link}
-                    onClick={() => setIsOpenMobileMenu(false)}
-                    className={`text-3xl font-bold transition-colors ${
-                      pathname === item.link ? 'text-blue-600' : 'text-slate-900 dark:text-white'
-                    }`}
+            <nav className="flex flex-col gap-4">
+              {NavItems.map((item, index) => {
+                const hasSubmenu = item.subItems && item.subItems.length > 0;
+                const isExpanded = activeSubmenu === index;
+
+                return (
+                  <div
+                    key={index}
+                    className="flex flex-col border-b border-slate-100 dark:border-slate-800 pb-4"
                   >
-                    {item.name}
-                  </Link>
-                </div>
-              ))}
+                    {hasSubmenu ? (
+                      // Accordion Trigger for Submenu
+                      <button
+                        onClick={() =>
+                          setActiveSubmenu(isExpanded ? null : index)
+                        }
+                        className="flex justify-between items-center w-full text-left text-3xl font-bold text-slate-900 dark:text-white transition-colors py-2"
+                      >
+                        <span>{item.name}</span>
+                        {/* Chevron Icon with Rotation Animation */}
+                        <svg
+                          className={`w-6 h-6 transform transition-transform duration-200 ${isExpanded ? "rotate-180" : ""}`}
+                          fill="none"
+                          viewBox="0 0 24 24"
+                          stroke="currentColor"
+                        >
+                          <path
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            strokeWidth={2}
+                            d="M19 9l-7 7-7-7"
+                          />
+                        </svg>
+                      </button>
+                    ) : (
+                      // Standard Top-Level Link
+                      <Link
+                        href={item.link}
+                        onClick={() => setIsOpenMobileMenu(false)}
+                        className={`text-3xl font-bold transition-colors py-2 ${
+                          pathname === item.link
+                            ? "text-blue-600"
+                            : "text-slate-900 dark:text-white"
+                        }`}
+                      >
+                        {item.name}
+                      </Link>
+                    )}
+
+                    {/* Collapsible Submenu Panel */}
+                    {hasSubmenu && (
+                      <motion.div
+                        initial={false}
+                        animate={{
+                          height: isExpanded ? "auto" : 0,
+                          opacity: isExpanded ? 1 : 0,
+                        }}
+                        transition={{ duration: 0.25, ease: "easeInOut" }}
+                        className="overflow-hidden flex flex-col gap-3 pl-4"
+                      >
+                        {/* Optional: Include a "View All [Category]" link if the parent item itself has a main page */}
+                        <Link
+                          href={item.link}
+                          onClick={() => setIsOpenMobileMenu(false)}
+                          className="text-xl text-slate-400 dark:text-slate-500 font-medium mt-2"
+                        >
+                          Overview
+                        </Link>
+
+                        {item.subItems.map((subItem, subIndex) => (
+                          <Link
+                            key={subIndex}
+                            href={subItem.link}
+                            onClick={() => setIsOpenMobileMenu(false)}
+                            className={`text-xl font-semibold transition-colors ${
+                              pathname === subItem.link
+                                ? "text-blue-600"
+                                : "text-slate-600 dark:text-slate-400"
+                            }`}
+                          >
+                            {subItem.name}
+                          </Link>
+                        ))}
+                      </motion.div>
+                    )}
+                  </div>
+                );
+              })}
             </nav>
 
+            {/* Footer Controls */}
             <div className="mt-auto pt-8 flex flex-col gap-4">
               <div className="flex justify-between items-center bg-slate-50 dark:bg-slate-900 p-4 rounded-2xl">
-                <span className="font-semibold dark:text-white">Switch Theme</span>
+                <span className="font-semibold dark:text-white">
+                  Switch Theme
+                </span>
                 <ThemeToggle isVisible={true} />
               </div>
               <Link

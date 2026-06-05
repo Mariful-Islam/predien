@@ -11,6 +11,7 @@ import "react-toastify/dist/ReactToastify.css";
 import { Roboto } from "next/font/google";
 import Script from "next/script";
 import { SessionProvider } from "next-auth/react";
+import { TopicProvider } from "@/context/TopicContext";
 
 const roboto = Roboto({
   subsets: ["latin"],
@@ -73,11 +74,13 @@ export default function App({ Component, pageProps: { session, ...pageProps } }:
       </Head>
       <ThemeProvider>
         <SessionProvider session={session}>
-          <div className={roboto.className}>
-            <Component {...pageProps} />
-            <ScrollToTop />
-            <ToastContainer position="bottom-right" />
-          </div>
+          <TopicProvider>
+            <div className={roboto.className}>
+              <Component {...pageProps} />
+              <ScrollToTop />
+              <ToastContainer position="bottom-right" />
+            </div>
+          </TopicProvider>
         </SessionProvider>
       </ThemeProvider>
     </main>

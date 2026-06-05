@@ -24,6 +24,7 @@ function Form({
   const [loading, setLoading] = useState<boolean>(false);
   const router = useRouter()
 
+
   const onChange = (e: any) => {
     const { name, value } = e.target;
 
@@ -90,13 +91,14 @@ function Form({
               
               <div className="bg-white dark:bg-black rounded-md">
                 <SlateEditor
-              
+                  value={formData.description ? JSON.parse(formData.description) : ""}  
                   onChange={(value:any)=>{
                     setFormData((prev:any)=>({
                       ...prev,
                       'description': JSON.stringify(value)
                     }))
                   }}
+                  
                 />
               </div>
             </div>
@@ -144,16 +146,18 @@ function Form({
                 onChange={onChange}
                 className="block rounded-md  px-3 py-1.5 text-base text-slate-900 dark:text-slate-50 outline-1 -outline-offset-1 outline-slate-400 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-blue-500 sm:text-sm/6"
               >
-                <option>Select a option</option>
+                <option value="" disabled>Select a option</option>
 
                 {field
                   ?.split(">")[1]
                   ?.split(",")
-                  ?.map((option: any, index: number) => (
-                    <option key={index} value={option}>
-                      {option}
+                  ?.map((option: any, index: number) => {
+                    const [value, label] = option.split(":");
+                    return(
+                    <option key={index} value={value}>
+                      {label}
                     </option>
-                  ))}
+                  )})}
               </select>
             </div>
           );
@@ -203,7 +207,52 @@ function Form({
               />
             </div>
           );
-        }  else {
+        } else if(field.includes("{") && field.includes("}")){
+
+
+          const onChangeSubField = (e:any) => {
+            const { name, value } = e.target;
+            const mainField = field.split("{")[0];
+            const subField = name;
+
+            setFormData((prev:any) => ({
+              ...prev,
+              [mainField]: {
+                ...prev[mainField],
+                [subField]: value
+              }
+            }))
+          }
+          
+          return (
+            <div key={index} className="flex flex-col gap-2">
+              <label
+                htmlFor={field}
+                className="text-sm font-medium text-slate-500 dark:text-slate-300"
+              >
+                {field?.split("{")[0]?.split("_")?.join(" ")?.toUpperCase()}
+              </label>
+
+              {field
+                  ?.split("{")[1]
+                  ?.split("}")[0]
+                  ?.split(",")
+                  ?.map((subField: any, index: number) => {
+                    return(
+                    <input 
+                      key={index}
+                      type="text"
+                      name={subField}
+                      placeholder={`Type ${subField.split("_").join(" ")}`}
+                      value={formData?.[field.split("{")[0]]?.[subField] || ""}
+                      onChange={onChangeSubField}
+                      className="bg-white block rounded-md  px-3 py-1.5 text-base text-slate-900 dark:text-slate-50 outline-1 -outline-offset-1 outline-slate-400 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-blue-500 sm:text-sm/6"
+                    />
+                  )})}
+            </div>
+          );
+
+        } else {
           return (
             <div key={index} className="flex flex-col gap-2">
               <label

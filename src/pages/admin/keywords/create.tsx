@@ -22,18 +22,18 @@ function Create() {
     })
       .then((res) => {
         if (res.ok) {
-          router.push("/admin/keyword");
+          router.push("/admin/keywords");
         }
       })
       .catch((e) => console.log(e));
   };
 
-  const fields = ["name", "slug@name"];
+  const fields = ["name", "slug@name", "meta{title,description,keywords}"];
 
   return (
     <AdminLayout>
       <button
-        onClick={() => router.push("/admin/keyword")}
+        onClick={() => router.push("/admin/keywords")}
         className="text-blue-500 ring-blue-500 hover:ring-b flex items-center gap-2 mb-4"
       >
         <FaChevronLeft /> Back

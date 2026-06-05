@@ -4,7 +4,7 @@ import Form from "@/components/Form";
 import { API_URL } from "@/pages/blog";
 import { useRouter } from "next/router";
 import { FaArrowLeft, FaChevronLeft } from "react-icons/fa";
-import AdminLayout from "../../_layout";
+import AdminLayout from "../_layout";
 
 
 function Create() {
@@ -38,7 +38,8 @@ function Create() {
      "slug@project_name",
      "brief",
      "description",
-     "type*select>web,gis,desktop,mobile,data,wordpress,uiux",
+     "type*select>web:Web,gis:GIS,desktop:Desktop,mobile:Mobile,data:Data,wordpress:Wordpress,uiux:UIUX,other:Other",
+     "meta{title,description,keywords}",
    ];
 
   

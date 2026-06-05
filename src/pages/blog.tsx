@@ -55,20 +55,10 @@ const Blog: React.FC<BlogProps> = ({ data }) => {
               transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
               className="lg:col-span-7 space-y-10"
             >
-              {/* <div className="flex items-center gap-4">
-                <span className="w-16 h-[2px] bg-blue-600 dark:bg-blue-500" />
-                <span className="text-blue-600 dark:text-blue-500 font-black tracking-[0.4em] uppercase text-[14px]">
-                  The Engineering Journal
-                </span>
-              </div> */}
+
               <AnchorHeadingPage text="The Engineering Journal" />
               
-              {/* <h1 className="text-7xl md:text-[120px] font-black text-slate-950 dark:text-white tracking-tighter leading-[0.8] mb-6">
-                Digital <br />
-                <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-indigo-500 dark:from-blue-400 dark:to-indigo-400">
-                  Dialogue.
-                </span>
-              </h1> */}
+
 
               <HeadingPage firstText="Digital" secondText="Dialogue." />
 
@@ -100,6 +90,7 @@ const Blog: React.FC<BlogProps> = ({ data }) => {
                   alt="Predien Journal" 
                   priority
                   className="w-full h-full object-cover grayscale transition-all duration-1000 group-hover:grayscale-0"
+                  loading="eager"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-slate-950/40 to-transparent opacity-60" />
               </div>
@@ -111,10 +102,10 @@ const Blog: React.FC<BlogProps> = ({ data }) => {
       </section>
 
       {/* --- ARTICLE GRID --- */}
-      <main id="articles" className="bg-gray-50 dark:bg-[#01040f] py-40 transition-colors duration-700">
+      <main id="articles" className="bg-gray-50 dark:bg-[#01040f] py-12 transition-colors duration-700">
         <div className="max-w-[1400px] mx-auto px-8">
           
-          <div className="flex items-end justify-between mb-24 border-b border-slate-200 dark:border-slate-800 pb-12">
+          <div className="flex items-end justify-between mb-12 b2">
             <h2 className="text-5xl font-black text-slate-950 dark:text-white tracking-tighter">
               Featured Insights<span className="text-blue-600 dark:text-blue-500">_</span>
             </h2>
@@ -123,7 +114,7 @@ const Blog: React.FC<BlogProps> = ({ data }) => {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-12 gap-y-28">
+          <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-4">
             {data?.map((item: any, i: number) => (
               <motion.article 
                 key={i}
@@ -152,7 +143,7 @@ const Blog: React.FC<BlogProps> = ({ data }) => {
                       <span>{moment(item.datetime).format('MMM DD, YYYY')}</span>
                     </div>
 
-                    <h3 className="text-3xl font-bold text-slate-950 dark:text-white tracking-tight leading-tight group-hover:text-blue-600 dark:group-hover:text-blue-500 transition-colors duration-300">
+                    <h3 className="text-xl font-bold text-slate-950 dark:text-white tracking-tight leading-tight group-hover:text-blue-600 dark:group-hover:text-blue-500 transition-colors duration-300">
                       {item.title}
                     </h3>
 
@@ -166,15 +157,16 @@ const Blog: React.FC<BlogProps> = ({ data }) => {
                       />
                     </div>
 
-                    <p className="text-slate-500 dark:text-slate-400 font-medium leading-relaxed line-clamp-2">
-                      Exploring the technical hurdles and breakthroughs encountered during our latest software engineering sprint at Predien.
-                    </p>
+          
                   </div>
                 </Link>
               </motion.article>
             ))}
           </div>
         </div>
+
+
+
       </main>
 
       <Footer />

@@ -4,11 +4,15 @@ import Product from '../../../models/Product'
 export default async function handler(req, res) {
     const {slug} = req.query
     if (req.method === 'GET') {
+      console.log(slug)
       try {
         await connectToDatabase();
-        const products = await Product.findOne({slug: slug});
+        console.log('Connected to database');
+        const product = await Product.findOne({slug: slug});
+        console.log('Fetched product:', product);
 
-        return res.status(200).json(products);
+        return res.status(200).json(product);
+        
       } catch (error) {
         return res.status(500).json({ message: 'Failed to fetch projects', error: error.message });
       }

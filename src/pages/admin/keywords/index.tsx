@@ -9,7 +9,8 @@ import BlogForm from "@/components/admin/blog/BlogForm";
 import moment from "moment";
 import { MdDelete } from "react-icons/md";
 import Router, { useRouter } from "next/router";
-import View from "../components/view";
+import { CiEdit } from "react-icons/ci";
+import ContentView from "@/components/admin/contentView";
 
 export default function Keword() {
   const router = useRouter();
@@ -20,8 +21,8 @@ export default function Keword() {
   const [isOpenBlogCreateForm, setIsOpenBlogCreateForm] =
     useState<boolean>(false);
 
-  const handleBlogCreateForm = () => {
-    router.push('/admin/keyword/create')
+  const handleCreate = () => {
+    router.push('/admin/keywords/create')
   };
 
   const columns: ColumnsProps[] = [
@@ -31,8 +32,8 @@ export default function Keword() {
     //   render: (item) => <div>{item._id}</div>,
     // },
     {
-      label: "Title",
-      accessor: "title",
+      label: "Name",
+      accessor: "name",
       render: (e) => (
         <div>
           {e.name}
@@ -68,16 +69,16 @@ export default function Keword() {
         <div className="flex justify-center items-center gap-2">
           <button
             className=" hover:text-blue-500"
-            onClick={() => setView(item)}
+            onClick={() => setView(item.slug)}
           >
             <IoEyeOutline />
           </button>
-          {/* <button
+          <button
               className=" hover:text-blue-500"
-              // onClick={() => setEdit("ygyug")}
+              onClick={() => router.push(`/admin/keywords/${item.slug}/edit`)}
             >
               <CiEdit />
-            </button> */}
+            </button>
           <button
             className=" hover:text-blue-500"
             onClick={() => setDlt(item)}
@@ -114,19 +115,18 @@ export default function Keword() {
         <h2>
           Keyword
         </h2>
-        <Button type="Normal" onClick={handleBlogCreateForm}>
+        <Button type="Normal" onClick={handleCreate}>
           Add 
         </Button>
       </div>
       <Table columns={columns} data={keywords} />
 
       {view && (
-        <View
+        <ContentView
           isOpen={view ? true : false}
           onClose={() => setView(null)}
-          item={view}
+          id={view}
           name="keywords"
-          keys={["name", "slug", "updatedAt"]}
         />
       )}
 
@@ -145,8 +145,8 @@ export default function Keword() {
       {isOpenBlogCreateForm && (
         <BlogForm
           isOpen={isOpenBlogCreateForm}
-          onClose={handleBlogCreateForm}
-          title="Create Blog"
+          onClose={handleCreate}
+          title="Create Keyword"
           refresh={fetchKeywords}
         />
       )}

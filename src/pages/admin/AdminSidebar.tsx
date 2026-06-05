@@ -24,10 +24,10 @@ const menuItems: menuItemsType[] = [
         label: 'Blog', url: '/admin/blogs', icon: <GrBlog />
     },
     {
-        label: 'Career', url: '/admin/careers', icon: <GoTasklist />
+        label: 'Job', url: '/admin/jobs', icon: <GoTasklist />
     },
     {
-        label: 'Client', url: '/admin/clients', icon: <MdOutlineRateReview />
+        label: 'Review', url: '/admin/reviews', icon: <MdOutlineRateReview />
     },
     {
         label: 'Topic', url: '/admin/topics', icon: <MdOutlineTopic />

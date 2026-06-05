@@ -2,6 +2,7 @@ import React from 'react';
 import Link from 'next/link';
 import { motion } from 'framer-motion';
 import { HiOutlineArrowRight, HiOutlineLightningBolt } from 'react-icons/hi';
+import AnchorHeadingSection from '../global/AnchorHeadingSection';
 
 function CTA() {
   const containerVariants:any = {
@@ -66,12 +67,14 @@ function CTA() {
             
             {/* Text Content */}
             <div className="text-left space-y-8">
-              <div className="flex items-center gap-3">
+              {/* <div className="flex items-center gap-3">
                 <span className="w-12 h-[1px] bg-blue-500" />
                 <span className="text-blue-400 dark:text-blue-400 font-black tracking-widest uppercase text-[14px]">
                   Scaling Next-Gen Tech
                 </span>
-              </div>
+              </div> */}
+              <AnchorHeadingSection text='Scaling Next-Gen Tech'/>
+
 
               <h3 className="text-5xl md:text-7xl font-black text-slate-950 dark:text-white tracking-tighter leading-[0.95]">
                 Big ideas need <br />
@@ -87,10 +90,10 @@ function CTA() {
             <div className="flex flex-col gap-6">
               <Link
                 href="/contact"
-                className="group flex items-center justify-between bg-slate-950 dark:bg-white text-white dark:text-slate-950 px-8 py-8 rounded-3xl transition-all duration-500 hover:bg-blue-500 dark:hover:bg-blue-500 hover:text-white hover:-translate-y-2 shadow-xl"
+                className="group flex items-center justify-between bg-slate-950 dark:bg-white text-white dark:text-slate-950 p-4 md:p-8 rounded-3xl transition-all duration-500 hover:bg-blue-500 dark:hover:bg-blue-500 hover:text-white hover:-translate-y-2 shadow-xl"
               >
                 <div className="text-left">
-                  <span className="block text-2xl font-black tracking-tight">Book a Strategy Call</span>
+                  <span className="block text-lg md:text-2xl font-black tracking-tight">Book a Strategy Call</span>
                   <span className="text-sm opacity-60 font-medium italic">Response within 24 hours</span>
                 </div>
                 <div className="w-12 h-12 rounded-full border border-current flex items-center justify-center group-hover:rotate-[-45deg] transition-transform">

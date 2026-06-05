@@ -15,17 +15,22 @@ const BlogSchema = new mongoose.Schema({
     required: [true, 'Description is required'],
   },
 
-  seoTitle: {
-    type: String,
-    required: [true, 'Description is required'],
+  meta: {
+    title: String,
+    description: String,
+    keywords: String,
   },
-  seoDescription: {
-    type: String,
-    required: [true, 'Description is required'],
-  },
+
+
   date: {
     type: Date,
     default: Date.now,
+  },
+
+  category: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: 'Category',
+    required: [false, 'Category is required'],
   },
 
   // topic

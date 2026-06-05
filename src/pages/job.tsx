@@ -94,10 +94,10 @@ const Career: React.FC<CareerProps> = ({ data }) => {
       </section>
 
       {/* --- OPEN JOBS LIST SECTION --- */}
-      <main id="job-list" className="bg-gray-50 dark:bg-[#01040f] py-40 transition-colors duration-700 scroll-mt-[65px]">
+      <main id="job-list" className="bg-gray-50 dark:bg-[#01040f] py-12 transition-colors duration-700 scroll-mt-[65px]">
         <div className="max-w-[1200px] mx-auto px-8">
           
-          <div className="flex items-end justify-between mb-24 border-b border-slate-200 dark:border-slate-800 pb-12">
+          <div className="flex items-end justify-between border-b border-slate-200 dark:border-slate-800 pb-12">
             <h2 className="text-5xl font-black text-slate-950 dark:text-white tracking-tighter">
               Available Positions<span className="text-blue-600 dark:text-blue-500">_</span>
             </h2>
@@ -135,7 +135,7 @@ const Career: React.FC<CareerProps> = ({ data }) => {
 
                 <div className="w-full sm:w-auto self-stretch sm:self-auto flex items-center">
                   <Link
-                    href={`/career/${item.slug}`}
+                    href={`/job/${item.slug}`}
                     className="w-full sm:w-auto text-center inline-flex items-center justify-center gap-2 px-8 py-4 bg-slate-950 dark:bg-white text-white dark:text-slate-950 font-bold tracking-wide rounded-2xl hover:bg-blue-600 dark:hover:bg-blue-500 hover:text-white dark:hover:text-white transition-all duration-300 group-hover:scale-[1.02] sm:group-hover:scale-100"
                   >
                     <span>Apply Position</span>

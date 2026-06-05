@@ -3,11 +3,11 @@ import mongoose from "mongoose";
 // Define the schema for the review
 const reviewSchema = new mongoose.Schema(
   {
-    clientName: {
+    name: {
       type: String,
       required: true,
     },
-    clientImage: {
+    position: {
       type: String, // This will store the URL or file path to the image
       required: true,
     },
@@ -21,26 +21,19 @@ const reviewSchema = new mongoose.Schema(
       min: 1, // Minimum rating of 1
       max: 5, // Maximum rating of 5
     },
-    imageUrl: {
-      type: String, // URL for the uploaded image
-      required: true,
-    },
-    filename: {
+
+    location: {
       type: String,
       required: true,
     },
-    mimetype: {
-      type: String,
-      required: true,
-    },
-    size: {
-      type: Number,
-      required: true,
-    },
-    createdAt: {
-      type: Date,
-      default: Date.now,
-    },
+
+    // SEO fields
+    meta: {
+      title: String,
+      description: String,
+      keywords: String,
+    }
+
   },
   {
     timestamps: true, // Automatically add `createdAt` and `updatedAt`

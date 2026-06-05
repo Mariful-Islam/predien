@@ -10,6 +10,7 @@ import BlogForm from "@/components/admin/blog/BlogForm";
 import moment from "moment";
 import { MdDelete } from "react-icons/md";
 import Router, { useRouter } from "next/router";
+import { CiEdit } from "react-icons/ci";
 
 export default function Blog() {
   const router = useRouter();
@@ -20,9 +21,15 @@ export default function Blog() {
   const [isOpenBlogCreateForm, setIsOpenBlogCreateForm] =
     useState<boolean>(false);
 
-  const handleBlogCreateForm = () => {
+  const handleCreate = () => {
     router.push('/admin/blogs/create')
   };
+
+
+  const handleEdit = (slug: string) => {
+    router.push(`/admin/blogs/${slug}/edit`)
+  }
+
 
   const columns: ColumnsProps[] = [
     // {
@@ -63,12 +70,12 @@ export default function Blog() {
           >
             <IoEyeOutline />
           </button>
-          {/* <button
+          <button
               className=" hover:text-blue-500"
-              // onClick={() => setEdit("ygyug")}
+              onClick={() => handleEdit(item?.slug)}
             >
               <CiEdit />
-            </button> */}
+            </button>
           <button
             className=" hover:text-blue-500"
             onClick={() => setDlt(item)}
@@ -100,7 +107,7 @@ export default function Blog() {
         <h2>
           Blog
         </h2>
-        <Button type="Normal" onClick={handleBlogCreateForm}>
+        <Button type="Normal" onClick={handleCreate}>
           Write Blog
         </Button>
       </div>
@@ -112,7 +119,6 @@ export default function Blog() {
           onClose={() => setView(null)}
           id={View}
           name="blogs"
-          keys={["title", "description", "slug"]}
         />
       )}
 
@@ -131,7 +137,7 @@ export default function Blog() {
       {isOpenBlogCreateForm && (
         <BlogForm
           isOpen={isOpenBlogCreateForm}
-          onClose={handleBlogCreateForm}
+          onClose={handleCreate}
           title="Create Blog"
           refresh={fetchblogs}
         />

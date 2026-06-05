@@ -76,8 +76,8 @@ export const NavItems = [
     },
     {
         id: 3,
-        name: 'Career',
-        link: '/career',
+        name: 'Job',
+        link: '/job',
         subItems: []
     },
     {

@@ -6,13 +6,15 @@ interface OutlineButtonProps {
   submit?: boolean;
   onClick?: (e:any) => void;
   className?: string;
+  disabled?: boolean;
 }
 
-function Button({ children, type, submit, onClick, className }: OutlineButtonProps) {
+function Button({ children, type, submit, onClick, className, disabled }: OutlineButtonProps) {
   return (
     <button
       type={submit ? 'submit' : 'button'}
       onClick={onClick}
+      disabled={disabled}
       className={`
           ${
             type === "Outline" &&

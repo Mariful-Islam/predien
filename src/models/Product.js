@@ -6,15 +6,11 @@ const productSchema = new mongoose.Schema({
   description: String,
 
   // SEO fields
-  seoTitle: {
-    type: String,
-    required: false,
-  },
-
-  seoDescription: {
-    type: String,
-    required: false,
-  },
+  meta: {
+    title: String,
+    description: String,
+    keywords: String,
+  }
 });
 
 const Project =

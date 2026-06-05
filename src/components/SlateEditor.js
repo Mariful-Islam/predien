@@ -40,12 +40,12 @@ const TEXT_ALIGN_TYPES = ['left', 'center', 'right', 'justify']
 
 
 
-const SlateEditor = ({onChange}) => {
+const SlateEditor = ({onChange, value}) => {
   const ParagraphType = 'paragraph'
   const CodeBlockType = 'code-block'
   const CodeLineType = 'code-line'
 
-  const [data, setData] = useState([
+  const [data, setData] = useState(value ? value : [
     {
       type: 'paragraph',
       children: [
@@ -56,9 +56,11 @@ const SlateEditor = ({onChange}) => {
   ])
 
   // const renderElement = useCallback(props => <Element {...props} />, [])
+  // Change your ElementWrapper component to look like this:
   const ElementWrapper = props => {
     const { attributes, children, element } = props
     const editor = useSlateStatic()
+    
     if (element.type === CodeBlockType) {
       const setLanguage = language => {
         const path = ReactEditor.findPath(editor, element)
@@ -86,6 +88,7 @@ const SlateEditor = ({onChange}) => {
         </div>
       )
     }
+    
     if (element.type === CodeLineType) {
       return (
         <div {...attributes} style={{ position: 'relative' }}>
@@ -93,12 +96,10 @@ const SlateEditor = ({onChange}) => {
         </div>
       )
     }
-    const Tag = editor.isInline(element) ? 'span' : 'div'
-    return (
-      <Tag {...attributes} style={{ position: 'relative' }}>
-        {children}
-      </Tag>
-    )
+
+    // FIX: Instead of rendering generic tags, pass through to your Element component 
+    // so image, block-quotes, headings, list-items, etc., actually render properly!
+    return <Element {...props} />
   }
 
   // const renderLeaf = useCallback(props => <Leaf {...props} />, [])
@@ -219,12 +220,43 @@ const SlateEditor = ({onChange}) => {
     )
   }
 
+  const insertImage = (editor, url) => {
+    const text = { text: '' } // Void nodes still require an empty text child node
+    const image = { type: 'image', url, children: [text] }
+    
+    Transforms.insertNodes(editor, image)
+    // Insert an empty paragraph below the image so the user can keep typing easily
+    Transforms.insertNodes(editor, { type: 'paragraph', children: [{ text: '' }] })
+  }
+
+
+  const ImageButton = () => {
+    const editor = useSlateStatic()
+    
+    const handleInsert = (event) => {
+      event.preventDefault()
+      const url = window.prompt('Enter the URL of the image:')
+      if (!url) return
+      insertImage(editor, url)
+    }
+
+    return (
+      <Button
+        data-test-id="image-button"
+        onMouseDown={handleInsert}
+      >
+        <Icon>image</Icon> 
+      </Button>
+    )
+  }
+
 
   return (
     <div className=' border px-4 py-2 focus:ring-1 ring-blue-500 rounded-md'>
     <Slate 
       editor={editor} 
       initialValue={data}
+      
       
       onChange={(value)=>{
         setData(value)
@@ -241,6 +273,7 @@ const SlateEditor = ({onChange}) => {
         <BlockButton format="heading-one" icon="looks_one" />
         <BlockButton format="heading-two" icon="looks_two" />
         <BlockButton format="block-quote" icon="format_quote" />
+
         <BlockButton format="numbered-list" icon="format_list_numbered" />
         <BlockButton format="bulleted-list" icon="format_list_bulleted" />
         <BlockButton format="left" icon="format_align_left" />
@@ -248,6 +281,8 @@ const SlateEditor = ({onChange}) => {
         <BlockButton format="right" icon="format_align_right" />
         <BlockButton format="justify" icon="format_align_justify" />
         <CodeBlockButton />
+        <ImageButton /> {/* <-- Add your new button here */}
+
       </Toolbar>
       <Editable
         decorate={decorateCode}
@@ -370,6 +405,26 @@ export const Element = ({ attributes, children, element }) => {
           {children}
         </ol>
       )
+
+    case 'image':
+      return (
+        <div {...attributes} style={{ display: 'inline-block', margin: '10px 0' }}>
+          <div contentEditable={false} style={{ position: 'relative' }}>
+            <img
+              src={element.url}
+              alt={element.alt || 'Editor image'}
+              className={css`
+                display: block;
+                max-width: 100%;
+                max-height: 20em;
+                border-radius: 4px;
+                box-shadow: ${useSlateStatic().selection && '0 0 0 3px #3b82f6'}; // Highlights image when selected
+              `}
+            />
+          </div>
+          {children}
+        </div>
+      ) 
     default:
       return (
         <div style={style} {...attributes}>

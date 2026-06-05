@@ -38,12 +38,15 @@ function Blog({ data }: { data: any }) {
     }
   }, [data?.description]);
 
+
+  console.log("Blog data:", data);
+
   return (
     <div className="font-jost selection:bg-blue-500 selection:text-white">
       <Head>
-        <title>{`Predien | ${data?.title}`}</title>
+        <title>{`Predien | ${data?.meta?.title}`}</title>
         <link rel="icon" href="/predien.png" />
-        <meta name="description" content={data?.seoDescription} />
+        <meta name="description" content={data?.meta?.description} />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="canonical" href={`${API_URL}/blog/${data?.slug}`} />
       </Head>
@@ -83,7 +86,7 @@ function Blog({ data }: { data: any }) {
                   </span>
                 </div>
                 <span className="w-1 h-1 bg-slate-300 rounded-full" />
-                <span className="text-blue-500">Engineering</span>
+                <span className="text-blue-500">{data?.topic?.name || "No Topic"}</span>
               </div>
 
               {/* Featured Image placeholder if data?.image exists */}

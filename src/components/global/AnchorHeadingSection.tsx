@@ -3,9 +3,9 @@ import { motion, AnimatePresence } from "framer-motion";
 
 function AnchorHeadingSection({ text }: { text: string }) {
   return (
-    <div className="flex items-center gap-3">
-      <span className="w-12 h-[1px] bg-blue-500" />
-      <span className="text-blue-500 font-medium text-[13px] uppercase tracking-[3px]">
+    <div className="flex items-center gap-3 mb-8">
+      <span className="w-10 h-[1px] bg-blue-400" />
+      <span className="text-blue-400 font-black text-[14px] uppercase tracking-[0.2em]">
         {text}
       </span>
     </div>

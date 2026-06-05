@@ -1,4 +1,4 @@
-import { createContext, useContext, useState, ReactNode } from 'react';
+import { createContext, useContext, useState, ReactNode, useEffect } from 'react';
 
 
 type TopicContextType = {
@@ -6,6 +6,7 @@ type TopicContextType = {
   topics: any[];
   setSelectedTopic: React.Dispatch<React.SetStateAction<any | null>>;
   setTopics: React.Dispatch<React.SetStateAction<any[]>>;
+  fetchTopics: () => Promise<void>;
 };
 
 const TopicContext = createContext<TopicContextType | undefined>(undefined);
@@ -28,13 +29,19 @@ export const TopicProvider = ({ children }: TopicProviderProps) => {
     }
   };
 
+
+  useEffect(() => {
+    fetchTopics();
+  }, []); 
+
+
   
 
 
 
   return (
     <TopicContext.Provider
-      value={{ selectedTopic, topics, setSelectedTopic, setTopics }}
+      value={{ selectedTopic, topics, setSelectedTopic, setTopics, fetchTopics }}
     >
       {children}
     </TopicContext.Provider>

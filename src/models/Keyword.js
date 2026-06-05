@@ -13,6 +13,13 @@ const keywordSchema = new mongoose.Schema(
       required: true,
       unique: true,     
     },
+    
+    // SEO fields
+    meta: {
+      title: String,
+      description: String,
+      keywords: String,
+    }
   },
   {
     timestamps: true, // Automatically add `createdAt` and `updatedAt`

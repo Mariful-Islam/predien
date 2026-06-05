@@ -38,7 +38,7 @@ export default function Home() {
   return (
     <div className={`${geistSans.variable} ${geistMono.variable}  `}>
 
-      <div className=" w-full h-screen">
+      <div className="w-full h-screen">
         <Header />
         <Introduction />
       </div>

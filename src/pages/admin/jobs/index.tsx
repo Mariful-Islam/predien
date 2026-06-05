@@ -7,16 +7,21 @@ import { BASE_URL } from "@/pages/services/custom-software-development";
 import ContentView from "@/components/admin/contentView";
 import Button from "@/components/Button";
 import JobForm from "@/components/admin/career/JobForm";
+import { useRouter } from "next/navigation";
+import { MdDelete } from "react-icons/md";
+import DeleteConsent from "@/components/admin/deleteConsent";
 
 export default function Career() {
+  const router = useRouter();
   const [careers, setCareers] = useState<any>();
   const [view, setView] = useState<any>(null);
   const [edit, setEdit] = useState<any>(null);
+  const [dlt, setDlt] = useState<any>(null)
   const [isOpenJobCreateForm, setIsOpenJobCreateForm] =
     useState<boolean>(false);
 
   const handleJobCreateForm = () => {
-    setIsOpenJobCreateForm(!isOpenJobCreateForm);
+    router.push("/admin/jobs/create")
   };
 
   const columns: ColumnsProps[] = [
@@ -52,26 +57,32 @@ export default function Career() {
           >
             <IoEyeOutline />
           </button>
+
+          <button
+              className=" hover:text-blue-500"
+              onClick={() => router.push(`/admin/jobs/${item.slug}/edit`)}
+            >
+            <CiEdit />
+          </button>
+
           <button
             className=" hover:text-blue-500"
-            onClick={() => setEdit("ygyug")}
+            onClick={() => setDlt(item)}
           >
-            <CiEdit />
+            <MdDelete className="text-red-500"/>
           </button>
         </div>
       ),
     },
   ];
 
-  const keys = columns.map((col) => col.accessor);
-  keys.pop();
-  keys.push("description");
+
 
   useEffect(() => {
-    fetchCareers();
+    fetchJobs();
   }, []);
 
-  const fetchCareers = async () => {
+  const fetchJobs = async () => {
     try {
       const res = await fetch(`${BASE_URL}/api/jobs`);
       const data = await res.json();
@@ -97,7 +108,6 @@ export default function Career() {
           onClose={() => setView(null)}
           id={view}
           name="jobs"
-          keys={keys}
         />
       )}
 
@@ -107,7 +117,18 @@ export default function Career() {
           isOpen={isOpenJobCreateForm}
           onClose={handleJobCreateForm}
           title="Create Job"
-          refresh={fetchCareers}
+          refresh={fetchJobs}
+        />
+      )}
+
+
+      {dlt && (
+        <DeleteConsent
+          isOpen={dlt ? true : false}
+          onClose={()=>setDlt(null)}
+          item={dlt}
+          name="job"
+          refresh={fetchJobs}
         />
       )}
     </AdminLayout>

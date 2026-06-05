@@ -28,6 +28,13 @@ const ProjectSchema = new mongoose.Schema({
     type: Date,
     default: Date.now,
   },
+
+    // SEO fields 
+  meta: {
+    title: String,
+    description: String,
+    keywords: String,
+  }
 });
 
 // Create the model

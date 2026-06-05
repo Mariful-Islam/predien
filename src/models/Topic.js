@@ -18,6 +18,12 @@ const topicSchema = new mongoose.Schema(
       ref: 'Topic',
       default: null, // Top-level topics have no parent
     },
+
+    meta: {
+      title: String,
+      description: String,
+      keywords: String,
+    }
   },
   {
     timestamps: true,

@@ -3,6 +3,7 @@ import { motion } from 'framer-motion';
 import { HiStar, HiArrowLongLeft, HiArrowLongRight } from 'react-icons/hi2';
 import Image from 'next/image';
 import useEmblaCarousel from 'embla-carousel-react';
+import AnchorHeadingSection from '../global/AnchorHeadingSection';
 
 const testimonials = [
   {
@@ -57,12 +58,9 @@ const Testimonials = () => {
             viewport={{ once: true }}
             className="max-w-2xl"
           >
-            <div className="flex items-center gap-3 mb-4">
-              <span className="w-10 h-[1px] bg-blue-400" />
-              <span className="text-blue-400 font-black tracking-[0.2em] uppercase text-[14px]">
-                Global Trust
-              </span>
-            </div>
+
+            <AnchorHeadingSection text='Global Trust'/>
+
             <h3 className="text-5xl md:text-7xl font-black text-slate-950 dark:text-white tracking-tighter leading-tight">
               Stories of <span className="text-blue-500">Innovation.</span>
             </h3>

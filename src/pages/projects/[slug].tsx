@@ -8,6 +8,7 @@ import { HiOutlineArrowLeft } from "react-icons/hi";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { slateToHtml } from "@/components/slatetoHtml";
+import { GoArrowLeft } from "react-icons/go";
 
 const API_URL =
   process.env.NODE_ENV === "production"
@@ -25,7 +26,7 @@ interface ProjectDetailsProps {
   };
 }
 
-const ProjectDetails: React.FC<ProjectDetailsProps> = ({ data }) => {
+const ProjectDetails: React.FC<ProjectDetailsProps> = ({ data }:any) => {
   const router = useRouter();
 
   const serializeToHtml = useMemo(() => {
@@ -43,27 +44,33 @@ const ProjectDetails: React.FC<ProjectDetailsProps> = ({ data }) => {
   return (
     <div className="selection:bg-slate-200 dark:selection:bg-slate-800 bg-white dark:bg-[#02040a] text-slate-900 dark:text-slate-100 transition-colors duration-500 min-h-screen flex flex-col font-sans antialiased">
       <Head>
-        <title>{`Predien — ${data?.project_name || "Case Study"}`}</title>
+        <title>{`Predien — ${data?.meta?.title || "Case Study"}`}</title>
+        <meta name="description" content={data?.meta?.description || "In-depth project case study."} />
+        <link rel="icon" href="/predien.png" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <link rel="canonical" href={`${API_URL}/projects/${data?.slug}`} />
       </Head>
 
       <Header />
 
       {/* --- MAIN EDITORIAL FRAME --- */}
-      <main className="flex-grow max-w-[1300px] mx-auto px-8 sm:px-12 pt-40 pb-32 w-full">
+      <main className="flex-grow max-w-[1300px] mx-auto px-8 sm:px-12 pt-12 pb-32 w-full">
         
         {/* Back navigation element styled like a footnotes link */}
-        <div className="mb-16">
+        <div className="mb-8 mt-8 flex flex-col md:flex-row md:items-center justify-between gap-8">
           <button
-            onClick={() => router.back()}
-            className="group inline-flex items-center gap-2 text-xs uppercase tracking-[0.2em] text-slate-400 hover:text-slate-950 dark:hover:text-white transition-colors duration-300"
+            onClick={() => router.push("/project")}
+            className="group flex gap-4 items-center text-slate-400 hover:text-blue-500 font-black uppercase tracking-[0.2em] text-[10px] transition-all"
           >
-            <HiOutlineArrowLeft className="text-sm transition-transform duration-300 group-hover:-translate-x-1" />
-            <span>back</span>
+            <div className="w-10 h-10 rounded-full border border-slate-200 dark:border-slate-800 flex items-center justify-center group-hover:bg-blue-500 group-hover:border-blue-500 transition-all">
+              <GoArrowLeft className="text-lg group-hover:text-white transition-colors" />
+            </div>
+            Back
           </button>
         </div>
 
         {/* Dynamic Split Editorial Layout */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 lg:gap-24">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-4 lg:gap-8">
           
           {/* LEFT SIDEBAR: Static Primary Spec Blocks */}
           <div className="lg:col-span-5 space-y-12">
@@ -77,7 +84,7 @@ const ProjectDetails: React.FC<ProjectDetailsProps> = ({ data }) => {
             </div>
 
             {/* Quick Metadata Metadata Parameters */}
-            <div className="grid grid-cols-2 gap-8 border-t border-slate-100 dark:border-slate-900 pt-8 text-xs">
+            <div className="grid grid-cols-2 gap-8 border-t border-slate-100 dark:border-slate-900 text-xs">
               <div className="space-y-1">
                 <span className="uppercase font-bold tracking-widest text-slate-400 text-[9px]">Classification</span>
                 <p className="font-medium text-slate-700 dark:text-slate-300">{data?.category || "Custom Build"}</p>
@@ -90,7 +97,7 @@ const ProjectDetails: React.FC<ProjectDetailsProps> = ({ data }) => {
 
             {/* Dynamic Project Abstract Summary */}
             {data?.brief && (
-              <div className="border-t border-slate-100 dark:border-slate-900 pt-8">
+              <div className="border-t border-slate-100 dark:border-slate-900 ">
                 <p className="text-base sm:text-lg leading-relaxed font-normal text-slate-500 dark:text-slate-400 italic">
                   “ {data.brief} ”
                 </p>
@@ -99,7 +106,7 @@ const ProjectDetails: React.FC<ProjectDetailsProps> = ({ data }) => {
           </div>
 
           {/* RIGHT VIEWPORT: Smooth Rich Narrative Streaming Window */}
-          <div className="lg:col-span-7 space-y-16">
+          <div className="lg:col-span-7 space-y-4">
             
             {/* Clean Massive Context Heading */}
             <motion.h1 
@@ -108,7 +115,7 @@ const ProjectDetails: React.FC<ProjectDetailsProps> = ({ data }) => {
               transition={{ duration: 0.6 }}
               className="text-4xl sm:text-5xl md:text-6xl font-light tracking-tight leading-[1.1] text-slate-950 dark:text-white"
             >
-              {data?.title}
+              {"Project Overview"}
             </motion.h1>
 
             {/* Injected Content Payload Pipeline */}
@@ -116,7 +123,7 @@ const ProjectDetails: React.FC<ProjectDetailsProps> = ({ data }) => {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ duration: 0.5, delay: 0.2 }}
-              className="border-t border-slate-100 dark:border-slate-900 pt-12"
+              className="border-t border-slate-100 dark:border-slate-900"
             >
               {serializeToHtml ? (
                 <div
