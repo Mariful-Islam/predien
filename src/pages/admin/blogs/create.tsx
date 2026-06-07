@@ -31,17 +31,16 @@ function Create() {
   };
 
   const { topics } = useTopicContext();
+  console.log(topics)
 
   const fields = [
     "title", 
     "slug@title", 
     "description", 
+    `topic*select>${topics.map((t: any) => `${t._id}:${t.name}`).join(",")}`,
     "meta{title,description,keywords}",
-    
-    // Select field structure : 
-    // field name*select>optionValue1:Option Label 1,optionValue2:Option Label 2
-    // Example : "category*select>tech:Tech,health:Health,lifestyle:Lifestyle"
-    `topic*select>${topics.map((t: any) => `${t._id}:${t.name}`).join(",")}`
+
+
   ];
 
   

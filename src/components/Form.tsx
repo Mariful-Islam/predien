@@ -64,7 +64,7 @@ function Form({
         .toLowerCase()
         .trim()
         .split(" ")
-        .join("_");
+        .join("-");
 
       // Only update if the slug has actually changed to avoid unnecessary renders
       if (formData.slug !== newSlug) {
@@ -120,7 +120,7 @@ function Form({
                 name={field?.split("@")[0]}
                 placeholder={`Type ${field?.split("@")[0]}`}
               
-                value={(formData?.[field?.split("@")[1]])?.toLowerCase()?.split(" ")?.join("_") || ""}
+                value={(formData?.[field?.split("@")[1]])?.toLowerCase()?.split(" ")?.join("-") || ""}
                 disabled
            
                 className="bg-white dark:bg-gray-700 block w-full rounded-md  px-3 py-1.5 text-base text-slate-900 dark:text-slate-50 outline-1 -outline-offset-1 outline-blue-500 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-blue-500 sm:text-sm/6"

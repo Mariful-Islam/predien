@@ -7,6 +7,7 @@ import Form from "@/components/Form";
 import Button from "@/components/Button";
 import { BsChevronBarLeft } from "react-icons/bs";
 import { FaChevronLeft } from "react-icons/fa";
+import { useTopicContext } from "@/context/TopicContext";
 
 function Edit() {
   // 2. Initialize the Pages Router
@@ -52,6 +53,12 @@ function Edit() {
       .catch((e) => console.log(e));
   };
 
+
+  const {topics} = useTopicContext()
+
+
+  console.log(formData, "eeeeeeeeeeee")
+
   return (
     <AdminLayout>
       <button
@@ -69,6 +76,7 @@ function Edit() {
               "slug@title",
               "description",
               "meta{title,description,keywords}",
+              `topic*select>${topics.map((t: any) => `${t._id}:${t.name}`).join(",")}`,
             ]}
             edit={formData}
             onChangeFields={(data) =>

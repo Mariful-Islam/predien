@@ -32,10 +32,6 @@ const pages: PageInfo[] = [
 ];
 
 
-const blogs: PageInfo[] = blogItems.map((item, index)=>({url: `/blog/${item.slug}`, changefreq: "daily", priority: 1.0}))
-
-const jobList: PageInfo[] = jobs.map((job, index)=>({url: `/career/${job.slug}`, changefreq: "daily", priority: 1.0}))
-
 
 export const getServerSideProps: GetServerSideProps = async ({ res }) => {
   try {
@@ -62,6 +58,20 @@ export const getServerSideProps: GetServerSideProps = async ({ res }) => {
       priority: 1.0,
     }));
 
+    const productResponse = await axios.get(`${API_URL}/api/products`);
+    const productList = productResponse.data.map((job: { slug: string }) => ({
+      url: `/products/${job.slug}`,
+      changefreq: "daily",
+      priority: 1.0,
+    }));
+
+    const reviewResponse = await axios.get(`${API_URL}/api/reviews`);
+    const reviewList = reviewResponse.data.map((job: { slug: string }) => ({
+      url: `/reviews/${job.slug}`,
+      changefreq: "daily",
+      priority: 1.0,
+    }));
+
     const BASE_URL = 'https://predien.vercel.app'
     
     const sitemap = new SitemapStream({ hostname: BASE_URL });
@@ -71,6 +81,8 @@ export const getServerSideProps: GetServerSideProps = async ({ res }) => {
     blogs.forEach((blog:any) => sitemap.write(blog))
     jobList.forEach((job:any) => sitemap.write(job))
     projectsList.forEach((project:any) => sitemap.write(project))
+    productList.forEach((product:any) => sitemap.write(product))
+    reviewList.forEach((review:any) => sitemap.write(review))
 
 
     sitemap.end();
