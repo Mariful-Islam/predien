@@ -82,7 +82,7 @@ function Blog({ data }: { data: any }) {
                 <div className="flex items-center  gap-3">
                   <SlCalender className="text-blue-500 " size={20}/>
                   <span>
-                    {moment(data?.datetime).format("DD MMMM YYYY")}
+                    {moment(data?.date).format("DD MMMM YYYY")}
                   </span>
                 </div>
                 <span className="w-1 h-1 bg-slate-300 rounded-full" />
@@ -128,7 +128,7 @@ function Blog({ data }: { data: any }) {
                     const isActive = router.asPath.includes(`#${id}`);
 
                     return (
-                      <Link
+                      <a
                         key={index}
                         href={`#${id}`}
                         className={`group relative text-sm font-bold tracking-tight transition-all duration-300 ${
@@ -141,7 +141,7 @@ function Blog({ data }: { data: any }) {
                         <div
                           className={`absolute left-0 top-1/2 -translate-y-1/2 w-[2px] -translate-x-1 bg-blue-500 transition-all duration-500 ${isActive ? "h-full" : "h-0 group-hover:h-full"}`}
                         />
-                        <span
+                        <div
                           className={
                             isActive
                               ? "translate-x-1 inline-block transition-transform"
@@ -149,8 +149,8 @@ function Blog({ data }: { data: any }) {
                           }
                         >
                           {text}
-                        </span>
-                      </Link>
+                        </div>
+                      </a>
                     );
                   })}
                 </nav>
@@ -182,12 +182,83 @@ export default Blog;
 
 export async function getServerSideProps(context: any) {
   const { slug } = context.params;
+  const { req, res } = context;
+
+  const host =
+    req.headers["x-forwarded-host"] ||
+    req.headers.host;
+
+  const protocol =
+    req.headers["x-forwarded-proto"] ||
+    (process.env.NODE_ENV === "production" ? "https" : "http");
+
+  const requestBaseUrl = `${protocol}://${host}`;
+
+  // Use env in production if needed
+  const API_BASE_URL =
+    process.env.API_BASE_URL || requestBaseUrl;
+
+  const SITE_URL =
+    process.env.NEXT_PUBLIC_SITE_URL || requestBaseUrl;
+
+  const canonicalUrl = `${SITE_URL.replace(/\/$/, "")}/blog/${slug}`;
+
   try {
-    const res = await fetch(`${API_URL}/api/blogs/${slug}/`);
-    const data = await res.json();
-    if (!res.ok) return { props: { data: {} } };
-    return { props: { data } };
+    const apiRes = await fetch(
+      `${API_BASE_URL.replace(/\/$/, "")}/api/blogs/${slug}/`,
+      {
+        headers: {
+          Accept: "application/json",
+        },
+      }
+    );
+
+    // Real missing blog = 404
+    if (apiRes.status === 404) {
+      return {
+        notFound: true,
+      };
+    }
+
+    // API/server error = 503, not blank 200
+    if (!apiRes.ok) {
+      res.statusCode = 503;
+
+      return {
+        props: {
+          data: null,
+          canonicalUrl,
+          unavailable: true,
+        },
+      };
+    }
+
+    const data = await apiRes.json();
+
+    // Invalid or empty blog data should not be indexed as blank page
+    if (!data || !data.title || !data.slug) {
+      return {
+        notFound: true,
+      };
+    }
+
+    return {
+      props: {
+        data,
+        canonicalUrl,
+        unavailable: false,
+      },
+    };
   } catch (error) {
-    return { props: { data: {} } };
+    // Temporary API/network error
+    res.statusCode = 503;
+
+    return {
+      props: {
+        data: null,
+        canonicalUrl,
+        unavailable: true,
+      },
+    };
   }
 }
