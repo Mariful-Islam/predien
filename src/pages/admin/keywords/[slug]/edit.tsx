@@ -2,11 +2,14 @@ import React from "react";
 // 1. Changed import from 'next/navigation' to 'next/router'
 import { useRouter } from "next/router";
 import AdminLayout from "../../_layout";
-import { API_URL } from "@/pages/blog";
 import Form from "@/components/Form";
 import Button from "@/components/Button";
 import { BsChevronBarLeft } from "react-icons/bs";
 import { FaChevronLeft } from "react-icons/fa";
+
+
+const API_URL = process.env.NODE_ENV === "production" ? "https://predien.vercel.app" : "http://localhost:3000"
+
 
 function Edit() {
   // 2. Initialize the Pages Router

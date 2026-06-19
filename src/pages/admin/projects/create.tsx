@@ -1,10 +1,12 @@
 import React, { use, useState } from "react";
 
 import Form from "@/components/Form";
-import { API_URL } from "@/pages/blog";
 import { useRouter } from "next/router";
 import { FaArrowLeft, FaChevronLeft } from "react-icons/fa";
 import AdminLayout from "../_layout";
+
+
+const API_URL = process.env.NODE_ENV === "production" ? "https://predien.vercel.app" : "http://localhost:3000"
 
 
 function Create() {
