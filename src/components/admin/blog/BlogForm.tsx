@@ -1,8 +1,12 @@
 import React, { useState } from "react";
 import Form from "../../Form";
 import Modal from "../../Modal";
-import { API_URL } from "@/pages/blog";
 import AdminLayout from "@/pages/admin/_layout";
+
+
+const API_URL = process.env.NODE_ENV === "production" ? "https://predien.vercel.app" : "http://localhost:3000"
+
+
 
 interface BlogForm {
   isOpen: boolean;

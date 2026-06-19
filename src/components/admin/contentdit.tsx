@@ -3,7 +3,9 @@ import Form from '../Form'
 import Modal from '../Modal'
 import axios from 'axios';
 import { toast } from 'react-toastify';
-import { API_URL } from '@/pages/blog';
+
+
+const API_URL = process.env.NODE_ENV === "production" ? "https://predien.vercel.app" : "http://localhost:3000"
 
 
 

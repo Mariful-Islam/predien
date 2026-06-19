@@ -5,7 +5,10 @@ import { motion, AnimatePresence } from "framer-motion";
 import { toast } from "react-toastify";
 import Button from "../Button";
 import { FiTrash2, FiAlertTriangle } from "react-icons/fi"; // Cleaner, modern icons
-import { API_URL } from "@/pages/blog";
+
+
+const API_URL = process.env.NODE_ENV === "production" ? "https://predien.vercel.app" : "http://localhost:3000"
+
 
 interface DeleteConsentProps {
   isOpen: boolean;

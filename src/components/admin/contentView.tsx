@@ -3,7 +3,6 @@ import Drawer from "../Drawer";
 import axios from "axios";
 import { toast } from "react-toastify";
 import Contentdit from "./contentdit";
-import { API_URL } from "@/pages/blog";
 import { slateToHtml } from "../slatetoHtml";
 import { useRouter } from "next/navigation";
 
@@ -13,6 +12,8 @@ interface ContentViewProps {
   id: number;
   name: string;
 }
+
+const API_URL = process.env.NODE_ENV === "production" ? "https://predien.vercel.app" : "http://localhost:3000"
 
 export default function ContentView({
   isOpen,
