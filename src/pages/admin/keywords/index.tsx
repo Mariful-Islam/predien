@@ -1,152 +1,182 @@
-import React, { useEffect, useState } from "react";
+import React, { useCallback, useEffect, useState } from "react";
+import { useRouter } from "next/router";
+import moment from "moment";
+import { IoEyeOutline } from "react-icons/io5";
+import { MdDelete } from "react-icons/md";
+import { CiEdit } from "react-icons/ci";
+
 import AdminLayout from "../_layout";
 import Table, { ColumnsProps } from "@/components/Table";
-import { BASE_URL } from "@/pages/services/custom-software-development";
-import { IoEyeOutline } from "react-icons/io5";
 import Button from "@/components/Button";
 import DeleteConsent from "@/components/admin/deleteConsent";
-import BlogForm from "@/components/admin/blog/BlogForm";
-import moment from "moment";
-import { MdDelete } from "react-icons/md";
-import Router, { useRouter } from "next/router";
-import { CiEdit } from "react-icons/ci";
 import ContentView from "@/components/admin/contentView";
+import PaginatorNext from "@/components/PaginatorNext";
 
-export default function Keword() {
+// Better: use environment variable instead of importing BASE_URL from another page
+const BASE_URL = process.env.API_BASE_URL || "";
+
+export default function Keyword() {
   const router = useRouter();
-  const [keywords, setKeywords] = useState<any>();
-  const [view, setView] = useState<any>(null);
-  const [dlt, setDlt] = useState<any>(null)
-  
-  const [isOpenBlogCreateForm, setIsOpenBlogCreateForm] =
-    useState<boolean>(false);
 
-  const handleCreate = () => {
-    router.push('/admin/keywords/create')
+  const [keywords, setKeywords] = useState<any>(null);
+  const [view, setView] = useState<string | null>(null);
+  const [dlt, setDlt] = useState<any>(null);
+  const [loading, setLoading] = useState(false);
+  const [search, setSearch] = useState<any>(null);
+  const {page} = router.query
+
+
+
+  const fetchKeywords = async (queryObj?: Record<string, any>) => {
+    // 1. Properly serialize the object into a query string
+    const queryString = new URLSearchParams(queryObj).toString();
+    console.log(queryString, "queryString")
+
+    try {
+      const res = await fetch(`${BASE_URL}/api/keywords?${queryString}`);
+      const data = await res.json();
+
+      if (!data) {
+        return { notFound: true };
+      }
+      setKeywords(data);
+    } catch (error) {
+      console.log("Error fetching keywords:", error);
+    }
   };
 
+  useEffect(() => {
+    // 2. Create a fresh copy of the router query inside the effect
+    const combinedQuery = { ...router.query };
+
+    // 3. Merge the local search state into the query object
+    if (search) {
+      combinedQuery.search = search;
+    } else {
+      delete combinedQuery.search;
+    }
+
+    // 4. Pass the updated query object directly to the fetch function
+    fetchKeywords(combinedQuery);
+
+    // 5. Added 'search' to dependencies so it refetches when the search input changes
+  }, [search, router.isReady, page]);
+
+
+
+  const handleCreate = () => {
+    router.push("/admin/keywords/create");
+  };
+
+
   const columns: ColumnsProps[] = [
-    // {
-    //   label: "ID",
-    //   accessor: "_id",
-    //   render: (item) => <div>{item._id}</div>,
-    // },
     {
       label: "Name",
       accessor: "name",
-      render: (e) => (
-        <div>
-          {e.name}
-        </div>
-      )
+      render: (item: any) => <div>{item.name || "-"}</div>,
     },
     {
       label: "Slug",
       accessor: "slug",
-      render: (e) => (
-        <div>
-          {e.slug}
-        </div>
-      )
+      render: (item: any) => <div>{item.slug || "-"}</div>,
     },
-    // {
-    //   label: "slug",
-    //   accessor: "slug",
-    // },
     {
-      label: "date",
+      label: "Date",
       accessor: "date",
-      render: (e) => (
+      render: (item: any) => (
         <div>
-          {moment(e.date).format('HH MM A, DD MMM YYYY')}
+          {item.date ? moment(item.date).format("hh:mm A, DD MMM YYYY") : "-"}
         </div>
-      )
+      ),
     },
     {
-      label: "",
-      accessor: "",
+      label: "Action",
+      accessor: "action",
       render: (item: any) => (
-        <div className="flex justify-center items-center gap-2">
+        <div className="flex items-center justify-center gap-3">
           <button
-            className=" hover:text-blue-500"
+            type="button"
+            title="View"
+            className="transition hover:text-blue-500"
             onClick={() => setView(item.slug)}
           >
-            <IoEyeOutline />
+            <IoEyeOutline size={18} />
           </button>
+
           <button
-              className=" hover:text-blue-500"
-              onClick={() => router.push(`/admin/keywords/${item.slug}/edit`)}
-            >
-              <CiEdit />
-            </button>
+            type="button"
+            title="Edit"
+            className="transition hover:text-blue-500"
+            onClick={() => router.push(`/admin/keywords/${item.slug}/edit`)}
+          >
+            <CiEdit size={20} />
+          </button>
+
           <button
-            className=" hover:text-blue-500"
+            type="button"
+            title="Delete"
+            className="transition hover:text-red-500"
             onClick={() => setDlt(item)}
           >
-            <MdDelete className="text-red-500"/>
+            <MdDelete size={18} className="text-red-500" />
           </button>
         </div>
       ),
     },
   ];
 
-  useEffect(() => {
-    fetchKeywords();
-  }, []);
-
-  const fetchKeywords = async () => {
-    try {
-      const res = await fetch(`${BASE_URL}/api/keywords`);
-      const data = await res.json();
-      if (!data) {
-        return {
-          notFound: true,
-        }
-      }
-      setKeywords(data);
-    } catch {
-      console.log("Error fetch blogs!");
-    }
-  };
-
   return (
     <AdminLayout>
-      <div className="flex justify-between mb-6">
-        <h2>
-          Keyword
-        </h2>
+      <div className="mb-6 flex items-center justify-between">
+        <h2 className="text-xl font-semibold">Keywords</h2>
+
         <Button type="Normal" onClick={handleCreate}>
-          Add 
+          Add Keyword
         </Button>
       </div>
-      <Table columns={columns} data={keywords} />
+
+      {loading ? (
+        <div className="py-10 text-center text-sm text-slate-500">
+          Loading keywords...
+        </div>
+      ) : (
+        <>
+          <Table
+            columns={columns}
+            data={keywords?.data || []}
+            searchable
+            onSearchChange={(value) => setSearch(value)}
+          />
+
+          <PaginatorNext
+            pagination={
+              keywords?.pagination || {
+                totalItems: 0,
+                currentPage: 1,
+                totalPages: 1,
+                hasNextPage: false,
+                hasPreviousPage: false,
+              }
+            }
+          />
+        </>
+      )}
 
       {view && (
         <ContentView
-          isOpen={view ? true : false}
+          isOpen={Boolean(view)}
           onClose={() => setView(null)}
-          id={view}
+          id={view as any}
           name="keywords"
         />
       )}
 
       {dlt && (
         <DeleteConsent
-          isOpen={dlt ? true : false}
-          onClose={()=>setDlt(null)}
+          isOpen={Boolean(dlt)}
+          onClose={() => setDlt(null)}
           item={dlt}
           name="keyword"
-          refresh={fetchKeywords}
-        />
-      )}
-
-
-
-      {isOpenBlogCreateForm && (
-        <BlogForm
-          isOpen={isOpenBlogCreateForm}
-          onClose={handleCreate}
-          title="Create Keyword"
           refresh={fetchKeywords}
         />
       )}

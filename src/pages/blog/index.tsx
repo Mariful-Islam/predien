@@ -17,6 +17,7 @@ import AnchorHeadingPage from "@/components/global/AnchorHeadingPage";
 import HeadingPage from "@/components/global/HeadingPage";
 import SubHeadingPage from "@/components/global/SubHeadingPage";
 import { useTopicContext } from "@/context/TopicContext";
+import { Button } from "@headlessui/react";
 
 type BlogItem = {
   _id?: string;
@@ -439,6 +440,11 @@ export default function Blog({
                 <span className="text-blue-600 dark:text-blue-500">.</span>
               </h2>
             </div>
+
+
+            <Link href={`/blog/category`} className={`text-blue-600 dark:text-blue-500 underline hover:no-underline`}>
+              View all
+            </Link>
           </div>
 
           {topics.length > 0 ? (

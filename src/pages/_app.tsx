@@ -12,6 +12,7 @@ import { Roboto } from "next/font/google";
 import Script from "next/script";
 import { SessionProvider } from "next-auth/react";
 import { TopicProvider } from "@/context/TopicContext";
+import { KeywordProvider } from "@/context/KeywordContext";
 
 const roboto = Roboto({
   subsets: ["latin"],
@@ -19,7 +20,10 @@ const roboto = Roboto({
   variable: "--font-roboto",
 });
 
-export default function App({ Component, pageProps: { session, ...pageProps } }: AppProps) {
+export default function App({
+  Component,
+  pageProps: { session, ...pageProps },
+}: AppProps) {
   useEffect(() => {
     AOS.init({
       duration: 1000,
@@ -42,7 +46,7 @@ export default function App({ Component, pageProps: { session, ...pageProps } }:
 
   return (
     // Apply the variable and the className to the wrapper
-    <main className={`${roboto.variable} font-sans`}>
+    <main className={`${roboto.variable} font-sans`} >
       <Head>
         <title>Predien | Software development agency</title>
         <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -59,8 +63,6 @@ export default function App({ Component, pageProps: { session, ...pageProps } }:
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:site" content="@predien" />
 
-
-
         {/* Structured Data */}
         <script
           type="application/ld+json"
@@ -70,16 +72,17 @@ export default function App({ Component, pageProps: { session, ...pageProps } }:
         />
 
         {/* Use a standard script tag for AdSense to avoid the data-nscript error */}
- 
       </Head>
       <ThemeProvider>
         <SessionProvider session={session}>
           <TopicProvider>
-            <div className={roboto.className}>
-              <Component {...pageProps} />
-              <ScrollToTop />
-              <ToastContainer position="bottom-right" />
-            </div>
+            <KeywordProvider>
+              <div className={roboto.className}>
+                <Component {...pageProps} />
+                <ScrollToTop />
+                <ToastContainer position="bottom-right" />
+              </div>
+            </KeywordProvider>
           </TopicProvider>
         </SessionProvider>
       </ThemeProvider>

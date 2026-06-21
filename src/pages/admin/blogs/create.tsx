@@ -5,6 +5,7 @@ import { useRouter } from "next/router";
 import { FaChevronLeft } from "react-icons/fa";
 import SlateEditor from "@/components/SlateEditor";
 import { useTopicContext } from "@/context/TopicContext";
+import { useKeywordContext } from "@/context/KeywordContext";
 
 const API_URL = process.env.NODE_ENV === "production" ? "https://predien.vercel.app" : "http://localhost:3000"
 
@@ -33,13 +34,14 @@ function Create() {
   };
 
   const { topics } = useTopicContext();
-  console.log(topics)
+  const { keywords } = useKeywordContext()
 
   const fields = [
     "title", 
     "slug@title", 
     "description", 
     `topic*select>${topics.map((t: any) => `${t._id}:${t.name}`).join(",")}`,
+    "keywords*multiselect",
     "meta{title,description,keywords}",
 
 

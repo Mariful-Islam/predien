@@ -161,6 +161,12 @@ function Form({
               </select>
             </div>
           );
+        } else if(field.split("*")[1] === "multiselect") {
+          return(
+            <div>
+              dsfcsd
+            </div>
+          )
         } else if (field.split("*")[1] === "number") {
           return (
             <div key={index} className="flex flex-col gap-2">

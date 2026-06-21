@@ -69,6 +69,7 @@ function Edit() {
             fields={[
               "name",
               "slug@name",
+              "short_description",
               "meta{title,description,keywords}",
             ]}
             edit={formData}

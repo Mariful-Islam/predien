@@ -32,7 +32,7 @@ function Create() {
       .catch((e) => console.log(e));
   };
 
-  const fields = ["name", "slug@name", "meta{title,description,keywords}" ];
+  const fields = ["name", "slug@name", "short_description", "meta{title,description,keywords}" ];
 
   
   return (

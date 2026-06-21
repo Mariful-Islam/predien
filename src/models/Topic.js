@@ -12,6 +12,10 @@ const topicSchema = new mongoose.Schema(
       required: true,
       unique: true,
     },
+    short_description: {
+      type: String,
+      required: false,
+    },
     // Self-reference to create a hierarchy
     parent: {
       type: mongoose.Schema.Types.ObjectId,
