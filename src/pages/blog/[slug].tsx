@@ -27,7 +27,7 @@ type BlogData = {
   createdAt?: string;
   updatedAt?: string;
   topic?: Topic;
-  keywords?: string[],
+  keywords?: string[];
   meta?: {
     title?: string;
     description?: string;
@@ -133,17 +133,7 @@ function formatDate(date?: string) {
 }
 
 function getApiBaseUrl() {
-  /**
-   * IMPORTANT:
-   * Use an internal/backend URL here in production.
-   *
-   * Example for same Next.js server:
-   * API_BASE_URL=http://127.0.0.1:3000
-   *
-   * Example for separate API server:
-   * API_BASE_URL=https://api.predien.com
-   */
-  const apiBaseUrl = process.env.API_BASE_URL;
+  const apiBaseUrl = process.env.API_BASE_URL?.trim();
 
   if (!apiBaseUrl) {
     throw new Error("Missing API_BASE_URL environment variable.");
@@ -152,45 +142,111 @@ function getApiBaseUrl() {
   return apiBaseUrl.replace(/\/$/, "");
 }
 
+function normalizeBlogPayload(payload: any): BlogData | null {
+  const blog =
+    payload?.data?.blog ||
+    payload?.data ||
+    payload?.blog ||
+    payload?.result ||
+    payload;
+
+  if (!blog || typeof blog !== "object") {
+    return null;
+  }
+
+  if (!blog.title || !blog.slug) {
+    return null;
+  }
+
+  return blog as BlogData;
+}
+
+function sleep(milliseconds: number) {
+  return new Promise((resolve) => setTimeout(resolve, milliseconds));
+}
+
+function shouldRetryStatus(status: number) {
+  return (
+    status === 408 ||
+    status === 425 ||
+    status === 429 ||
+    status === 500 ||
+    status === 502 ||
+    status === 503 ||
+    status === 504
+  );
+}
+
 async function fetchBlogFromApi(slug: string): Promise<BlogData | null> {
   const apiBaseUrl = getApiBaseUrl();
+  const requestUrl = `${apiBaseUrl}/api/blogs/${encodeURIComponent(slug)}`;
 
-  const controller = new AbortController();
+  const maxAttempts = 2;
+  const timeoutMs = 25000;
 
-  const timeout = setTimeout(() => {
-    controller.abort();
-  }, 10000);
+  let lastError: unknown;
 
-  try {
-    const response = await fetch(
-      `${apiBaseUrl}/api/blogs/${encodeURIComponent(slug)}`,
-      {
+  for (let attempt = 1; attempt <= maxAttempts; attempt += 1) {
+    const controller = new AbortController();
+
+    const timeout = setTimeout(() => {
+      controller.abort();
+    }, timeoutMs);
+
+    try {
+      const response = await fetch(requestUrl, {
         method: "GET",
         headers: {
           Accept: "application/json",
         },
         signal: controller.signal,
-      },
-    );
+        cache: "no-store",
+      });
 
-    if (response.status === 404) {
-      return null;
+      if (response.status === 404) {
+        return null;
+      }
+
+      if (!response.ok) {
+        const errorText = await response.text().catch(() => "");
+
+        const error = new Error(
+          `Blog API failed with status ${response.status}. ${errorText}`,
+        );
+
+        if (!shouldRetryStatus(response.status) || attempt === maxAttempts) {
+          throw error;
+        }
+
+        lastError = error;
+        await sleep(700 * attempt);
+        continue;
+      }
+
+      const payload = await response.json();
+      const blog = normalizeBlogPayload(payload);
+
+      if (!blog) {
+        throw new Error("Blog API returned an invalid blog response.");
+      }
+
+      return blog;
+    } catch (error) {
+      lastError = error;
+
+      if (attempt === maxAttempts) {
+        break;
+      }
+
+      await sleep(700 * attempt);
+    } finally {
+      clearTimeout(timeout);
     }
-
-    if (!response.ok) {
-      throw new Error(`Blog API failed with status ${response.status}`);
-    }
-
-    const data = await response.json();
-
-    if (!data?.title || !data?.slug) {
-      return null;
-    }
-
-    return data;
-  } finally {
-    clearTimeout(timeout);
   }
+
+  throw lastError instanceof Error
+    ? lastError
+    : new Error("Unable to load blog from API.");
 }
 
 export default function BlogPage({
@@ -252,7 +308,7 @@ export default function BlogPage({
 
     if (!target) return;
 
-    setTimeout(() => {
+    const timer = window.setTimeout(() => {
       const headerOffset = 120;
       const top =
         target.getBoundingClientRect().top + window.scrollY - headerOffset;
@@ -264,6 +320,8 @@ export default function BlogPage({
 
       setActiveHeading(target.id);
     }, 250);
+
+    return () => window.clearTimeout(timer);
   }, [headings]);
 
   useEffect(() => {
@@ -344,7 +402,7 @@ export default function BlogPage({
             </h1>
 
             <p className="mb-8 text-slate-500 dark:text-slate-400">
-              We could not load this article right now. Please try again later.
+              We could not load this article right now. Please try again.
             </p>
 
             <Link
@@ -450,7 +508,7 @@ export default function BlogPage({
 
             <nav
               aria-label="Breadcrumb"
-              className="inline-flex max-w-full items-center gap-1 md:gap-2 overflow-hidden py-3"
+              className="inline-flex max-w-full items-center gap-1 overflow-hidden py-3 md:gap-2"
             >
               <Link
                 href="/"
@@ -490,9 +548,7 @@ export default function BlogPage({
                 </>
               )}
 
-
               <span className="text-slate-300 dark:text-slate-700">/</span>
-
 
               <span className="max-w-[120px] truncate text-[10px] font-black uppercase tracking-[0.12em] text-slate-700 dark:text-slate-200 sm:max-w-[220px]">
                 {data.title}
@@ -531,16 +587,14 @@ export default function BlogPage({
               {data.image && (
                 <div className="mb-16 mt-12 overflow-hidden rounded-[40px] border border-slate-100 shadow-2xl dark:border-slate-900">
                   <img
-                    src={data.image}
+                    src={imageUrl}
                     alt={data.title}
                     className="h-auto w-full object-cover"
                     loading="eager"
-                    fetchPriority="high"
                   />
                 </div>
               )}
 
-              {/* This full article HTML is rendered on the server. */}
               <div
                 className="prose prose-lg mt-10 max-w-none prose-slate md:prose-xl
                 prose-headings:scroll-mt-32 prose-headings:font-black prose-headings:tracking-tighter prose-headings:text-slate-950
@@ -550,20 +604,18 @@ export default function BlogPage({
                 dangerouslySetInnerHTML={{ __html: articleHtml }}
               />
 
-
-
-              {/* Related Keyword Section */}
-              <div>
-                {data?.keywords?.map((k, i)=>(
-                  <div key={i}>
-                    {k}
-                  </div>
-                ))}
-              </div>
-              
-
-
-
+              {data.keywords && data.keywords.length > 0 && (
+                <div className="mt-12 flex flex-wrap gap-3">
+                  {data.keywords.map((keyword, index) => (
+                    <span
+                      key={`${keyword}-${index}`}
+                      className="rounded-full bg-slate-100 px-4 py-2 text-xs font-semibold text-slate-600 dark:bg-slate-900 dark:text-slate-300"
+                    >
+                      {keyword}
+                    </span>
+                  ))}
+                </div>
+              )}
             </article>
 
             <aside className="w-full lg:w-1/4">
@@ -572,13 +624,12 @@ export default function BlogPage({
                   <section aria-label="Table of contents">
                     <div className="space-y-4">
                       <h2 className="text-[10px] font-black uppercase tracking-[0.4em] text-blue-500">
-                        On this page
+                        Contents
                       </h2>
 
                       <div className="h-px w-full bg-slate-100 dark:bg-slate-900" />
                     </div>
 
-                    {/* Fully rendered on server. JS only adds smooth scrolling and active state. */}
                     <nav className="mt-6 flex flex-col gap-5">
                       {headings.map((heading) => {
                         const isActive = activeHeading === heading.id;
@@ -658,9 +709,10 @@ export const getServerSideProps: GetServerSideProps<BlogPageProps> = async (
       };
     }
 
+    // Cache only successful blog responses.
     context.res.setHeader(
       "Cache-Control",
-      "public, s-maxage=300, stale-while-revalidate=86400",
+      "public, s-maxage=60, stale-while-revalidate=300",
     );
 
     return {
@@ -671,11 +723,15 @@ export const getServerSideProps: GetServerSideProps<BlogPageProps> = async (
       },
     };
   } catch (error) {
-    console.error(`SSR failed for blog slug "${slug}":`, error);
+    console.error(`SSR blog load failed for "${slug}":`, error);
 
-    context.res.statusCode = 503;
-    context.res.setHeader("X-Robots-Tag", "noindex, nofollow");
+    // Do not cache a failed first request on Vercel.
+    context.res.setHeader(
+      "Cache-Control",
+      "private, no-store, no-cache, max-age=0, must-revalidate",
+    );
 
+    // Keep 200 so your React fallback page renders instead of a blank proxy error.
     return {
       props: {
         data: null,

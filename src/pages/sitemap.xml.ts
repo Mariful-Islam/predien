@@ -72,6 +72,10 @@ export const getServerSideProps: GetServerSideProps = async ({ res }) => {
       priority: 1.0,
     }));
 
+
+    // const categoryResponse = await axios.get(`${API_URL}/api/topics`)
+    // const categoryList = await
+
     const BASE_URL = 'https://predien.vercel.app'
     
     const sitemap = new SitemapStream({ hostname: BASE_URL });

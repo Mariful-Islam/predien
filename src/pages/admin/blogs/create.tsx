@@ -34,14 +34,14 @@ function Create() {
   };
 
   const { topics } = useTopicContext();
-  const { keywords } = useKeywordContext()
+  const { keywords, setSearch } = useKeywordContext()
 
   const fields = [
     "title", 
     "slug@title", 
     "description", 
     `topic*select>${topics.map((t: any) => `${t._id}:${t.name}`).join(",")}`,
-    "keywords*multiselect",
+    `keywords*multiselect>${keywords.map((t: any) => `${t._id}:${t.name}`).join(",")}`,
     "meta{title,description,keywords}",
 
 

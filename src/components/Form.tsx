@@ -2,6 +2,9 @@ import React, { useEffect, useState } from "react";
 import Button from "./Button";
 import SlateEditor from "@/components/SlateEditor"
 import { useRouter } from "next/router";
+import Select from 'react-select'
+
+
 
 interface FormProps {
   fields: any[];
@@ -161,10 +164,30 @@ function Form({
               </select>
             </div>
           );
-        } else if(field.split("*")[1] === "multiselect") {
+        } else if(field.split("*")[1]?.split(">")[0] === "multiselect") {
+
           return(
             <div>
-              dsfcsd
+              <div key={index} className="flex flex-col gap-2 bg-white dark:bg-gray-700 rounded-md p-2">
+                <label
+                  htmlFor={field}
+                  className="text-sm font-medium text-slate-500 dark:text-slate-300"
+                >
+                  {field?.split("*")[0]?.split("_")?.join(" ")?.toUpperCase()}
+                </label>
+
+                <Select 
+                  isMulti
+                  options={field
+                  ?.split(">")[1]
+                  ?.split(",")
+                  ?.map((option: any, index: number) => {
+                    const [value, label] = option.split(":");
+                    return{value: [value], label: label}
+                  })}
+                  onChange={(item)=>setFormData((prev: any)=>({...prev, keywords: item.map((v:any )=>({_id: v.value[0]}))}))}
+                />
+              </div>
             </div>
           )
         } else if (field.split("*")[1] === "number") {
